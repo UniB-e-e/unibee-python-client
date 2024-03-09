@@ -17,24 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant import UnibeeInternalModelEntityOverseaPayMerchant
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UnibeeApiMerchantPaymentItem(BaseModel):
+class MerchantUpdatePost200ResponseData(BaseModel):
     """
-    UnibeeApiMerchantPaymentItem
+    MerchantUpdatePost200ResponseData
     """ # noqa: E501
-    amount: Optional[StrictInt] = Field(default=None, description="the item total amount,cent")
-    amount_excluding_tax: Optional[StrictInt] = Field(default=None, alias="amountExcludingTax")
-    currency: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
-    quantity: Optional[StrictInt] = None
-    tax: Optional[StrictInt] = None
-    tax_scale: Optional[StrictInt] = Field(default=None, description="Tax Scale，1000 = 10%", alias="taxScale")
-    unit_amount_excluding_tax: Optional[StrictInt] = Field(default=None, alias="unitAmountExcludingTax")
-    __properties: ClassVar[List[str]] = ["amount", "amountExcludingTax", "currency", "description", "quantity", "tax", "taxScale", "unitAmountExcludingTax"]
+    merchant: Optional[UnibeeInternalModelEntityOverseaPayMerchant] = None
+    __properties: ClassVar[List[str]] = ["merchant"]
 
     model_config = {
         "populate_by_name": True,
@@ -54,7 +48,7 @@ class UnibeeApiMerchantPaymentItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UnibeeApiMerchantPaymentItem from a JSON string"""
+        """Create an instance of MerchantUpdatePost200ResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,11 +69,14 @@ class UnibeeApiMerchantPaymentItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of merchant
+        if self.merchant:
+            _dict['merchant'] = self.merchant.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UnibeeApiMerchantPaymentItem from a dict"""
+        """Create an instance of MerchantUpdatePost200ResponseData from a dict"""
         if obj is None:
             return None
 
@@ -87,14 +84,7 @@ class UnibeeApiMerchantPaymentItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "amount": obj.get("amount"),
-            "amountExcludingTax": obj.get("amountExcludingTax"),
-            "currency": obj.get("currency"),
-            "description": obj.get("description"),
-            "quantity": obj.get("quantity"),
-            "tax": obj.get("tax"),
-            "taxScale": obj.get("taxScale"),
-            "unitAmountExcludingTax": obj.get("unitAmountExcludingTax")
+            "merchant": UnibeeInternalModelEntityOverseaPayMerchant.from_dict(obj["merchant"]) if obj.get("merchant") is not None else None
         })
         return _obj
 

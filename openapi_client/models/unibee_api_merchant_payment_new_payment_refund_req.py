@@ -28,10 +28,11 @@ class UnibeeApiMerchantPaymentNewPaymentRefundReq(BaseModel):
     """ # noqa: E501
     currency: StrictStr = Field(description="Currency")
     external_refund_id: StrictStr = Field(description="ExternalRefundId", alias="externalRefundId")
+    metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
     payment_id: StrictStr = Field(description="PaymentId", alias="paymentId")
     reason: Optional[StrictStr] = Field(default=None, description="Reason")
     refund_amount: StrictInt = Field(description="RefundAmount, Cent", alias="refundAmount")
-    __properties: ClassVar[List[str]] = ["currency", "externalRefundId", "paymentId", "reason", "refundAmount"]
+    __properties: ClassVar[List[str]] = ["currency", "externalRefundId", "metadata", "paymentId", "reason", "refundAmount"]
 
     model_config = {
         "populate_by_name": True,
@@ -86,6 +87,7 @@ class UnibeeApiMerchantPaymentNewPaymentRefundReq(BaseModel):
         _obj = cls.model_validate({
             "currency": obj.get("currency"),
             "externalRefundId": obj.get("externalRefundId"),
+            "metadata": obj.get("metadata"),
             "paymentId": obj.get("paymentId"),
             "reason": obj.get("reason"),
             "refundAmount": obj.get("refundAmount")

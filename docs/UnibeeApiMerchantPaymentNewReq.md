@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country_code** | **str** | CountryCode | 
+**country_code** | **str** | CountryCode | [optional] 
 **currency** | **str** | Currency | 
 **email** | **str** | Email | 
 **external_payment_id** | **str** | ExternalPaymentId should unique for payment | 
 **external_user_id** | **str** | ExternalUserId, should unique for user | 
 **gateway_id** | **int** | GatewayId | 
 **line_items** | [**List[UnibeeApiMerchantPaymentItem]**](UnibeeApiMerchantPaymentItem.md) | Items | [optional] 
-**redirect_url** | **str** | Redirect Url | 
-**reference** | **Dict[str, str]** | Metadata，Map | [optional] 
+**metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
+**redirect_url** | **str** | Redirect Url | [optional] 
 **total_amount** | **int** | Total PaymentAmount, Cent | 
 
 ## Example

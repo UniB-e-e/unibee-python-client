@@ -44,13 +44,14 @@ class UnibeeInternalModelEntityOverseaPayPlan(BaseModel):
     interval_unit: Optional[StrictStr] = Field(default=None, description="period unit,day|month|year|week", alias="intervalUnit")
     is_deleted: Optional[StrictInt] = Field(default=None, description="0-UnDeleted，1-Deleted", alias="isDeleted")
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    meta_data: Optional[StrictStr] = Field(default=None, description="meta_data(json)", alias="metaData")
     plan_name: Optional[StrictStr] = Field(default=None, description="PlanName", alias="planName")
     publish_status: Optional[StrictInt] = Field(default=None, description="1-UnPublish,2-Publish, Use For Display Plan At UserPortal", alias="publishStatus")
     status: Optional[StrictInt] = Field(default=None, description="status，1-editing，2-active，3-inactive，4-expired")
     tax_inclusive: Optional[StrictInt] = Field(default=None, description="deperated", alias="taxInclusive")
     tax_scale: Optional[StrictInt] = Field(default=None, description="tax scale 1000 = 10%", alias="taxScale")
     type: Optional[StrictInt] = Field(default=None, description="type，1-main plan，2-addon plan")
-    __properties: ClassVar[List[str]] = ["amount", "bindingAddonIds", "companyId", "createTime", "currency", "description", "extraMetricData", "gatewayProductDescription", "gatewayProductName", "gmtCreate", "gmtModify", "homeUrl", "id", "imageUrl", "intervalCount", "intervalUnit", "isDeleted", "merchantId", "planName", "publishStatus", "status", "taxInclusive", "taxScale", "type"]
+    __properties: ClassVar[List[str]] = ["amount", "bindingAddonIds", "companyId", "createTime", "currency", "description", "extraMetricData", "gatewayProductDescription", "gatewayProductName", "gmtCreate", "gmtModify", "homeUrl", "id", "imageUrl", "intervalCount", "intervalUnit", "isDeleted", "merchantId", "metaData", "planName", "publishStatus", "status", "taxInclusive", "taxScale", "type"]
 
     model_config = {
         "populate_by_name": True,
@@ -121,6 +122,7 @@ class UnibeeInternalModelEntityOverseaPayPlan(BaseModel):
             "intervalUnit": obj.get("intervalUnit"),
             "isDeleted": obj.get("isDeleted"),
             "merchantId": obj.get("merchantId"),
+            "metaData": obj.get("metaData"),
             "planName": obj.get("planName"),
             "publishStatus": obj.get("publishStatus"),
             "status": obj.get("status"),

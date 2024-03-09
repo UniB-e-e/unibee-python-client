@@ -26,11 +26,10 @@ class UnibeeInternalModelEntityOverseaPayPayment(BaseModel):
     """
     UnibeeInternalModelEntityOverseaPayPayment
     """ # noqa: E501
-    additional_data: Optional[StrictStr] = Field(default=None, description="addtional data (json)", alias="additionalData")
     app_id: Optional[StrictStr] = Field(default=None, description="app id", alias="appId")
     authorize_reason: Optional[StrictStr] = Field(default=None, alias="authorizeReason")
     authorize_status: Optional[StrictInt] = Field(default=None, description="authorize status，0-waiting authorize，1-authorized，2-authorized_request", alias="authorizeStatus")
-    automatic: Optional[StrictInt] = None
+    automatic: Optional[StrictInt] = Field(default=None, description="0-no,1-yes")
     balance_amount: Optional[StrictInt] = Field(default=None, description="balance_amount", alias="balanceAmount")
     balance_end: Optional[StrictInt] = Field(default=None, description="balance_end, utc time", alias="balanceEnd")
     balance_start: Optional[StrictInt] = Field(default=None, description="balance_start, utc time", alias="balanceStart")
@@ -58,6 +57,7 @@ class UnibeeInternalModelEntityOverseaPayPayment(BaseModel):
     invoice_id: Optional[StrictStr] = Field(default=None, description="invoice id", alias="invoiceId")
     link: Optional[StrictStr] = None
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    meta_data: Optional[StrictStr] = Field(default=None, description="meta_data (json)", alias="metaData")
     open_api_id: Optional[StrictInt] = Field(default=None, description="open api id", alias="openApiId")
     paid_time: Optional[StrictInt] = Field(default=None, description="paid time, utc time", alias="paidTime")
     payment_amount: Optional[StrictInt] = Field(default=None, description="payment_amount", alias="paymentAmount")
@@ -73,7 +73,7 @@ class UnibeeInternalModelEntityOverseaPayPayment(BaseModel):
     unique_id: Optional[StrictStr] = Field(default=None, description="unique id", alias="uniqueId")
     user_id: Optional[StrictInt] = Field(default=None, description="user_id", alias="userId")
     verify: Optional[StrictStr] = Field(default=None, description="codeVerify")
-    __properties: ClassVar[List[str]] = ["additionalData", "appId", "authorizeReason", "authorizeStatus", "automatic", "balanceAmount", "balanceEnd", "balanceStart", "billingReason", "bizType", "cancelTime", "captureDelayHours", "code", "companyId", "countryCode", "createTime", "currency", "externalPaymentId", "failureReason", "gatewayEdition", "gatewayId", "gatewayPaymentId", "gatewayPaymentIntentId", "gatewayPaymentMethod", "gmtCreate", "gmtModify", "hidePaymentMethods", "id", "invoiceData", "invoiceId", "link", "merchantId", "openApiId", "paidTime", "paymentAmount", "paymentData", "paymentId", "refundAmount", "returnUrl", "status", "subscriptionId", "terminalIp", "token", "totalAmount", "uniqueId", "userId", "verify"]
+    __properties: ClassVar[List[str]] = ["appId", "authorizeReason", "authorizeStatus", "automatic", "balanceAmount", "balanceEnd", "balanceStart", "billingReason", "bizType", "cancelTime", "captureDelayHours", "code", "companyId", "countryCode", "createTime", "currency", "externalPaymentId", "failureReason", "gatewayEdition", "gatewayId", "gatewayPaymentId", "gatewayPaymentIntentId", "gatewayPaymentMethod", "gmtCreate", "gmtModify", "hidePaymentMethods", "id", "invoiceData", "invoiceId", "link", "merchantId", "metaData", "openApiId", "paidTime", "paymentAmount", "paymentData", "paymentId", "refundAmount", "returnUrl", "status", "subscriptionId", "terminalIp", "token", "totalAmount", "uniqueId", "userId", "verify"]
 
     model_config = {
         "populate_by_name": True,
@@ -126,7 +126,6 @@ class UnibeeInternalModelEntityOverseaPayPayment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "additionalData": obj.get("additionalData"),
             "appId": obj.get("appId"),
             "authorizeReason": obj.get("authorizeReason"),
             "authorizeStatus": obj.get("authorizeStatus"),
@@ -158,6 +157,7 @@ class UnibeeInternalModelEntityOverseaPayPayment(BaseModel):
             "invoiceId": obj.get("invoiceId"),
             "link": obj.get("link"),
             "merchantId": obj.get("merchantId"),
+            "metaData": obj.get("metaData"),
             "openApiId": obj.get("openApiId"),
             "paidTime": obj.get("paidTime"),
             "paymentAmount": obj.get("paymentAmount"),

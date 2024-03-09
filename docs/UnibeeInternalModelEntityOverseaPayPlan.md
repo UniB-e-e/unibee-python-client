@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **interval_unit** | **str** | period unit,day|month|year|week | [optional] 
 **is_deleted** | **int** | 0-UnDeleted，1-Deleted | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**meta_data** | **str** | meta_data(json) | [optional] 
 **plan_name** | **str** | PlanName | [optional] 
 **publish_status** | **int** | 1-UnPublish,2-Publish, Use For Display Plan At UserPortal | [optional] 
 **status** | **int** | status，1-editing，2-active，3-inactive，4-expired | [optional] 

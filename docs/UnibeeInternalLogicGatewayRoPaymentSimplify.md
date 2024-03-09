@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **invoice_id** | **str** | invoice id | [optional] 
 **link** | **str** |  | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**metadata** | **Dict[str, str]** |  | [optional] 
 **paid_time** | **int** | paid time, utc time | [optional] 
 **payment_amount** | **int** | payment_amount | [optional] 
 **payment_id** | **str** | payment id | [optional] 

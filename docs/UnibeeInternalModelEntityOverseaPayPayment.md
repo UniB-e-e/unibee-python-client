@@ -5,11 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additional_data** | **str** | addtional data (json) | [optional] 
 **app_id** | **str** | app id | [optional] 
 **authorize_reason** | **str** |  | [optional] 
 **authorize_status** | **int** | authorize status，0-waiting authorize，1-authorized，2-authorized_request | [optional] 
-**automatic** | **int** |  | [optional] 
+**automatic** | **int** | 0-no,1-yes | [optional] 
 **balance_amount** | **int** | balance_amount | [optional] 
 **balance_end** | **int** | balance_end, utc time | [optional] 
 **balance_start** | **int** | balance_start, utc time | [optional] 
@@ -37,6 +36,7 @@ Name | Type | Description | Notes
 **invoice_id** | **str** | invoice id | [optional] 
 **link** | **str** |  | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**meta_data** | **str** | meta_data (json) | [optional] 
 **open_api_id** | **int** | open api id | [optional] 
 **paid_time** | **int** | paid time, utc time | [optional] 
 **payment_amount** | **int** | payment_amount | [optional] 

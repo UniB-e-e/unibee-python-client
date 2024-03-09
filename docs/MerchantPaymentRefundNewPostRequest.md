@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **external_refund_id** | **str** | ExternalRefundId | 
+**metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
 **payment_id** | **str** | PaymentId | 
 **reason** | **str** | Reason | [optional] 
 

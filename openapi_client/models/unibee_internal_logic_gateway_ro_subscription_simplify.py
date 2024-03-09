@@ -46,6 +46,7 @@ class UnibeeInternalLogicGatewayRoSubscriptionSimplify(BaseModel):
     latest_invoice_id: Optional[StrictStr] = Field(default=None, description="latest_invoice_id", alias="latestInvoiceId")
     link: Optional[StrictStr] = None
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    metadata: Optional[Dict[str, StrictStr]] = None
     pending_update_id: Optional[StrictStr] = Field(default=None, alias="pendingUpdateId")
     plan_id: Optional[StrictInt] = Field(default=None, description="plan id", alias="planId")
     quantity: Optional[StrictInt] = Field(default=None, description="quantity")
@@ -59,7 +60,7 @@ class UnibeeInternalLogicGatewayRoSubscriptionSimplify(BaseModel):
     type: Optional[StrictInt] = Field(default=None, description="sub type, 0-gateway sub, 1-unibee sub")
     user_id: Optional[StrictInt] = Field(default=None, description="userId", alias="userId")
     vat_number: Optional[StrictStr] = Field(default=None, alias="vatNumber")
-    __properties: ClassVar[List[str]] = ["addonData", "amount", "billingCycleAnchor", "cancelAtPeriodEnd", "cancelReason", "countryCode", "createTime", "currency", "currentPeriodEnd", "currentPeriodStart", "dunningTime", "firstPaidTime", "gatewayId", "gatewayItemData", "gatewayStatus", "id", "lastUpdateTime", "latestInvoiceId", "link", "merchantId", "pendingUpdateId", "planId", "quantity", "returnUrl", "status", "subscriptionId", "taskTime", "taxScale", "testClock", "trialEnd", "type", "userId", "vatNumber"]
+    __properties: ClassVar[List[str]] = ["addonData", "amount", "billingCycleAnchor", "cancelAtPeriodEnd", "cancelReason", "countryCode", "createTime", "currency", "currentPeriodEnd", "currentPeriodStart", "dunningTime", "firstPaidTime", "gatewayId", "gatewayItemData", "gatewayStatus", "id", "lastUpdateTime", "latestInvoiceId", "link", "merchantId", "metadata", "pendingUpdateId", "planId", "quantity", "returnUrl", "status", "subscriptionId", "taskTime", "taxScale", "testClock", "trialEnd", "type", "userId", "vatNumber"]
 
     model_config = {
         "populate_by_name": True,
@@ -132,6 +133,7 @@ class UnibeeInternalLogicGatewayRoSubscriptionSimplify(BaseModel):
             "latestInvoiceId": obj.get("latestInvoiceId"),
             "link": obj.get("link"),
             "merchantId": obj.get("merchantId"),
+            "metadata": obj.get("metadata"),
             "pendingUpdateId": obj.get("pendingUpdateId"),
             "planId": obj.get("planId"),
             "quantity": obj.get("quantity"),

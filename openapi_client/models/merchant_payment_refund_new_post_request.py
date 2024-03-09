@@ -27,9 +27,10 @@ class MerchantPaymentRefundNewPostRequest(BaseModel):
     MerchantPaymentRefundNewPostRequest
     """ # noqa: E501
     external_refund_id: StrictStr = Field(description="ExternalRefundId", alias="externalRefundId")
+    metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
     payment_id: StrictStr = Field(description="PaymentId", alias="paymentId")
     reason: Optional[StrictStr] = Field(default=None, description="Reason")
-    __properties: ClassVar[List[str]] = ["externalRefundId", "paymentId", "reason"]
+    __properties: ClassVar[List[str]] = ["externalRefundId", "metadata", "paymentId", "reason"]
 
     model_config = {
         "populate_by_name": True,
@@ -83,6 +84,7 @@ class MerchantPaymentRefundNewPostRequest(BaseModel):
 
         _obj = cls.model_validate({
             "externalRefundId": obj.get("externalRefundId"),
+            "metadata": obj.get("metadata"),
             "paymentId": obj.get("paymentId"),
             "reason": obj.get("reason")
         })

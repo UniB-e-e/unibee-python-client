@@ -27,17 +27,17 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
     """
     UnibeeApiMerchantPaymentNewReq
     """ # noqa: E501
-    country_code: StrictStr = Field(description="CountryCode", alias="countryCode")
+    country_code: Optional[StrictStr] = Field(default=None, description="CountryCode", alias="countryCode")
     currency: StrictStr = Field(description="Currency")
     email: StrictStr = Field(description="Email")
     external_payment_id: StrictStr = Field(description="ExternalPaymentId should unique for payment", alias="externalPaymentId")
     external_user_id: StrictStr = Field(description="ExternalUserId, should unique for user", alias="externalUserId")
     gateway_id: StrictInt = Field(description="GatewayId", alias="gatewayId")
     line_items: Optional[List[UnibeeApiMerchantPaymentItem]] = Field(default=None, description="Items", alias="lineItems")
-    redirect_url: StrictStr = Field(description="Redirect Url", alias="redirectUrl")
-    reference: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
+    metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
+    redirect_url: Optional[StrictStr] = Field(default=None, description="Redirect Url", alias="redirectUrl")
     total_amount: StrictInt = Field(description="Total PaymentAmount, Cent", alias="totalAmount")
-    __properties: ClassVar[List[str]] = ["countryCode", "currency", "email", "externalPaymentId", "externalUserId", "gatewayId", "lineItems", "redirectUrl", "reference", "totalAmount"]
+    __properties: ClassVar[List[str]] = ["countryCode", "currency", "email", "externalPaymentId", "externalUserId", "gatewayId", "lineItems", "metadata", "redirectUrl", "totalAmount"]
 
     model_config = {
         "populate_by_name": True,
@@ -104,8 +104,8 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
             "externalUserId": obj.get("externalUserId"),
             "gatewayId": obj.get("gatewayId"),
             "lineItems": [UnibeeApiMerchantPaymentItem.from_dict(_item) for _item in obj["lineItems"]] if obj.get("lineItems") is not None else None,
+            "metadata": obj.get("metadata"),
             "redirectUrl": obj.get("redirectUrl"),
-            "reference": obj.get("reference"),
             "totalAmount": obj.get("totalAmount")
         })
         return _obj

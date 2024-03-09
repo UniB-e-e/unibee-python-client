@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **object** |  | [optional] 
 **external_payment_id** | **str** | ExternalPaymentId | [optional] 
+**link** | **str** |  | [optional] 
 **payment_id** | **str** | PaymentId | [optional] 
 **status** | **int** | Status, 10-Created|20-Success|30-Failed|40-Cancelled | [optional] 
 

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **link** | **str** | Link | [optional] 
 **merchant_id** | **int** | MerchantId | [optional] 
 **merchant_member** | [**UnibeeInternalLogicGatewayRoMerchantMemberSimplify**](UnibeeInternalLogicGatewayRoMerchantMemberSimplify.md) |  | [optional] 
+**metadata** | **Dict[str, str]** |  | [optional] 
 **note** | **str** | Update Note | [optional] 
 **paid** | **int** | Paid | [optional] 
 **plan** | [**UnibeeInternalLogicGatewayRoPlanSimplify**](UnibeeInternalLogicGatewayRoPlanSimplify.md) |  | [optional] 

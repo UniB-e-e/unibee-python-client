@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **interval_count** | **int** | period unit count | [optional] 
 **interval_unit** | **str** | period unit,day|month|year|week | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**metadata** | **Dict[str, str]** |  | [optional] 
 **plan_name** | **str** | PlanName | [optional] 
 **product_description** | **str** | product description | [optional] 
 **product_name** | **str** | product name | [optional] 

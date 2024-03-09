@@ -26,7 +26,6 @@ class UnibeeInternalModelEntityOverseaPayRefund(BaseModel):
     """
     UnibeeInternalModelEntityOverseaPayRefund
     """ # noqa: E501
-    additional_data: Optional[StrictStr] = Field(default=None, alias="additionalData")
     app_id: Optional[StrictStr] = Field(default=None, description="app id", alias="appId")
     biz_type: Optional[StrictInt] = Field(default=None, description="biz type, copy from payment.biz_type", alias="bizType")
     company_id: Optional[StrictInt] = Field(default=None, description="company id", alias="companyId")
@@ -40,6 +39,7 @@ class UnibeeInternalModelEntityOverseaPayRefund(BaseModel):
     gmt_modify: Optional[StrictStr] = Field(default=None, description="update time", alias="gmtModify")
     id: Optional[StrictInt] = Field(default=None, description="id")
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    meta_data: Optional[StrictStr] = Field(default=None, description="meta_data(json)", alias="metaData")
     open_api_id: Optional[StrictInt] = Field(default=None, description="open api id", alias="openApiId")
     payment_id: Optional[StrictStr] = Field(default=None, description="relative payment id", alias="paymentId")
     refund_amount: Optional[StrictInt] = Field(default=None, description="refund amount, cent", alias="refundAmount")
@@ -52,7 +52,7 @@ class UnibeeInternalModelEntityOverseaPayRefund(BaseModel):
     subscription_id: Optional[StrictStr] = Field(default=None, description="subscription id", alias="subscriptionId")
     unique_id: Optional[StrictStr] = Field(default=None, description="unique id", alias="uniqueId")
     user_id: Optional[StrictInt] = Field(default=None, description="user_id", alias="userId")
-    __properties: ClassVar[List[str]] = ["additionalData", "appId", "bizType", "companyId", "countryCode", "createTime", "currency", "externalRefundId", "gatewayId", "gatewayRefundId", "gmtCreate", "gmtModify", "id", "merchantId", "openApiId", "paymentId", "refundAmount", "refundComment", "refundCommentExplain", "refundId", "refundTime", "returnUrl", "status", "subscriptionId", "uniqueId", "userId"]
+    __properties: ClassVar[List[str]] = ["appId", "bizType", "companyId", "countryCode", "createTime", "currency", "externalRefundId", "gatewayId", "gatewayRefundId", "gmtCreate", "gmtModify", "id", "merchantId", "metaData", "openApiId", "paymentId", "refundAmount", "refundComment", "refundCommentExplain", "refundId", "refundTime", "returnUrl", "status", "subscriptionId", "uniqueId", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -105,7 +105,6 @@ class UnibeeInternalModelEntityOverseaPayRefund(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "additionalData": obj.get("additionalData"),
             "appId": obj.get("appId"),
             "bizType": obj.get("bizType"),
             "companyId": obj.get("companyId"),
@@ -119,6 +118,7 @@ class UnibeeInternalModelEntityOverseaPayRefund(BaseModel):
             "gmtModify": obj.get("gmtModify"),
             "id": obj.get("id"),
             "merchantId": obj.get("merchantId"),
+            "metaData": obj.get("metaData"),
             "openApiId": obj.get("openApiId"),
             "paymentId": obj.get("paymentId"),
             "refundAmount": obj.get("refundAmount"),

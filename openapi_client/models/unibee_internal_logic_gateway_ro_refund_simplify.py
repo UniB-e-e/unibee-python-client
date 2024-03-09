@@ -33,6 +33,7 @@ class UnibeeInternalLogicGatewayRoRefundSimplify(BaseModel):
     gateway_id: Optional[StrictInt] = Field(default=None, description="gateway_id", alias="gatewayId")
     gateway_refund_id: Optional[StrictStr] = Field(default=None, description="gateway refund id", alias="gatewayRefundId")
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    metadata: Optional[Dict[str, StrictStr]] = None
     payment_id: Optional[StrictStr] = Field(default=None, description="relative payment id", alias="paymentId")
     refund_amount: Optional[StrictInt] = Field(default=None, description="refund amount, cent", alias="refundAmount")
     refund_comment: Optional[StrictStr] = Field(default=None, description="refund comment", alias="refundComment")
@@ -42,7 +43,7 @@ class UnibeeInternalLogicGatewayRoRefundSimplify(BaseModel):
     status: Optional[StrictInt] = Field(default=None, description="status。10-pending，20-success，30-failure, 40-cancel")
     subscription_id: Optional[StrictStr] = Field(default=None, description="subscription id", alias="subscriptionId")
     user_id: Optional[StrictInt] = Field(default=None, description="user_id", alias="userId")
-    __properties: ClassVar[List[str]] = ["countryCode", "createTime", "currency", "externalRefundId", "gatewayId", "gatewayRefundId", "merchantId", "paymentId", "refundAmount", "refundComment", "refundId", "refundTime", "returnUrl", "status", "subscriptionId", "userId"]
+    __properties: ClassVar[List[str]] = ["countryCode", "createTime", "currency", "externalRefundId", "gatewayId", "gatewayRefundId", "merchantId", "metadata", "paymentId", "refundAmount", "refundComment", "refundId", "refundTime", "returnUrl", "status", "subscriptionId", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -102,6 +103,7 @@ class UnibeeInternalLogicGatewayRoRefundSimplify(BaseModel):
             "gatewayId": obj.get("gatewayId"),
             "gatewayRefundId": obj.get("gatewayRefundId"),
             "merchantId": obj.get("merchantId"),
+            "metadata": obj.get("metadata"),
             "paymentId": obj.get("paymentId"),
             "refundAmount": obj.get("refundAmount"),
             "refundComment": obj.get("refundComment"),

@@ -41,6 +41,7 @@ class UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo(BaseModel):
     link: Optional[StrictStr] = Field(default=None, description="Link")
     merchant_id: Optional[StrictInt] = Field(default=None, description="MerchantId", alias="merchantId")
     merchant_member: Optional[UnibeeInternalLogicGatewayRoMerchantMemberSimplify] = Field(default=None, alias="merchantMember")
+    metadata: Optional[Dict[str, StrictStr]] = None
     note: Optional[StrictStr] = Field(default=None, description="Update Note")
     paid: Optional[StrictInt] = Field(default=None, description="Paid")
     plan: Optional[UnibeeInternalLogicGatewayRoPlanSimplify] = None
@@ -58,7 +59,7 @@ class UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo(BaseModel):
     update_quantity: Optional[StrictInt] = Field(default=None, description="UpdateQuantity", alias="updateQuantity")
     update_subscription_id: Optional[StrictStr] = Field(default=None, description="UpdateSubscriptionId", alias="updateSubscriptionId")
     user_id: Optional[StrictInt] = Field(default=None, description="UserId", alias="userId")
-    __properties: ClassVar[List[str]] = ["addonData", "addons", "amount", "currency", "effectImmediate", "effectTime", "gatewayId", "gmtCreate", "gmtModify", "link", "merchantId", "merchantMember", "note", "paid", "plan", "planId", "prorationAmount", "quantity", "status", "subscriptionId", "updateAddonData", "updateAddons", "updateAmount", "updateCurrency", "updatePlan", "updatePlanId", "updateQuantity", "updateSubscriptionId", "userId"]
+    __properties: ClassVar[List[str]] = ["addonData", "addons", "amount", "currency", "effectImmediate", "effectTime", "gatewayId", "gmtCreate", "gmtModify", "link", "merchantId", "merchantMember", "metadata", "note", "paid", "plan", "planId", "prorationAmount", "quantity", "status", "subscriptionId", "updateAddonData", "updateAddons", "updateAmount", "updateCurrency", "updatePlan", "updatePlanId", "updateQuantity", "updateSubscriptionId", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -146,6 +147,7 @@ class UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo(BaseModel):
             "link": obj.get("link"),
             "merchantId": obj.get("merchantId"),
             "merchantMember": UnibeeInternalLogicGatewayRoMerchantMemberSimplify.from_dict(obj["merchantMember"]) if obj.get("merchantMember") is not None else None,
+            "metadata": obj.get("metadata"),
             "note": obj.get("note"),
             "paid": obj.get("paid"),
             "plan": UnibeeInternalLogicGatewayRoPlanSimplify.from_dict(obj["plan"]) if obj.get("plan") is not None else None,

@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additional_data** | **str** |  | [optional] 
 **app_id** | **str** | app id | [optional] 
 **biz_type** | **int** | biz type, copy from payment.biz_type | [optional] 
 **company_id** | **int** | company id | [optional] 
@@ -19,6 +18,7 @@ Name | Type | Description | Notes
 **gmt_modify** | **str** | update time | [optional] 
 **id** | **int** | id | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**meta_data** | **str** | meta_data(json) | [optional] 
 **open_api_id** | **int** | open api id | [optional] 
 **payment_id** | **str** | relative payment id | [optional] 
 **refund_amount** | **int** | refund amount, cent | [optional] 

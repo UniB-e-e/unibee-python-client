@@ -28,9 +28,10 @@ class UnibeeApiMerchantPaymentNewRes(BaseModel):
     """ # noqa: E501
     action: Optional[Dict[str, Any]] = None
     external_payment_id: Optional[StrictStr] = Field(default=None, description="ExternalPaymentId", alias="externalPaymentId")
+    link: Optional[StrictStr] = None
     payment_id: Optional[StrictStr] = Field(default=None, description="PaymentId", alias="paymentId")
     status: Optional[StrictInt] = Field(default=None, description="Status, 10-Created|20-Success|30-Failed|40-Cancelled")
-    __properties: ClassVar[List[str]] = ["action", "externalPaymentId", "paymentId", "status"]
+    __properties: ClassVar[List[str]] = ["action", "externalPaymentId", "link", "paymentId", "status"]
 
     model_config = {
         "populate_by_name": True,
@@ -85,6 +86,7 @@ class UnibeeApiMerchantPaymentNewRes(BaseModel):
         _obj = cls.model_validate({
             "action": obj.get("action"),
             "externalPaymentId": obj.get("externalPaymentId"),
+            "link": obj.get("link"),
             "paymentId": obj.get("paymentId"),
             "status": obj.get("status")
         })

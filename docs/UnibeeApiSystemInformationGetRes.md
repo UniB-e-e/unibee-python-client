@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **env** | **str** | System Env, em: daily|stage|local|prod | [optional] 
 **gateway** | [**List[UnibeeInternalLogicGatewayRoGatewaySimplify]**](UnibeeInternalLogicGatewayRoGatewaySimplify.md) | Support Currency List | [optional] 
 **is_prod** | **bool** | Check System Env Is Prod, true|false | [optional] 
-**support_currency** | [**List[UnibeeApiSystemInformationSupportCurrency]**](UnibeeApiSystemInformationSupportCurrency.md) | Support Currency List | [optional] 
+**support_currency** | [**List[UnibeeInternalLogicGatewayRoCurrency]**](UnibeeInternalLogicGatewayRoCurrency.md) | Support Currency List | [optional] 
 **support_time_zone** | **List[str]** | Support TimeZone List | [optional] 
 
 ## Example

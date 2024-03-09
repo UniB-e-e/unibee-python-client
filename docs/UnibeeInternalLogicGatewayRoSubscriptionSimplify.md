@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **latest_invoice_id** | **str** | latest_invoice_id | [optional] 
 **link** | **str** |  | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**metadata** | **Dict[str, str]** |  | [optional] 
 **pending_update_id** | **str** |  | [optional] 
 **plan_id** | **int** | plan id | [optional] 
 **quantity** | **int** | quantity | [optional] 

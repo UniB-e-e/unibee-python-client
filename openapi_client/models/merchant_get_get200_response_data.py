@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unibee_internal_logic_gateway_ro_currency import UnibeeInternalLogicGatewayRoCurrency
+from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_simplify import UnibeeInternalLogicGatewayRoGatewaySimplify
 from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant import UnibeeInternalModelEntityOverseaPayMerchant
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +29,13 @@ class MerchantGetGet200ResponseData(BaseModel):
     """
     MerchantGetGet200ResponseData
     """ # noqa: E501
+    currency: Optional[List[UnibeeInternalLogicGatewayRoCurrency]] = Field(default=None, description="Currency List", alias="Currency")
+    time_zone: Optional[List[StrictStr]] = Field(default=None, description="TimeZone List", alias="TimeZone")
+    env: Optional[StrictStr] = Field(default=None, description="System Env, em: daily|stage|local|prod")
+    gateway: Optional[List[UnibeeInternalLogicGatewayRoGatewaySimplify]] = Field(default=None, description="Gateway List")
+    is_prod: Optional[StrictBool] = Field(default=None, description="Check System Env Is Prod, true|false", alias="isProd")
     merchant: Optional[UnibeeInternalModelEntityOverseaPayMerchant] = None
-    __properties: ClassVar[List[str]] = ["merchant"]
+    __properties: ClassVar[List[str]] = ["Currency", "TimeZone", "env", "gateway", "isProd", "merchant"]
 
     model_config = {
         "populate_by_name": True,
@@ -69,6 +76,20 @@ class MerchantGetGet200ResponseData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in currency (list)
+        _items = []
+        if self.currency:
+            for _item in self.currency:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Currency'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in gateway (list)
+        _items = []
+        if self.gateway:
+            for _item in self.gateway:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['gateway'] = _items
         # override the default output from pydantic by calling `to_dict()` of merchant
         if self.merchant:
             _dict['merchant'] = self.merchant.to_dict()
@@ -84,6 +105,11 @@ class MerchantGetGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "Currency": [UnibeeInternalLogicGatewayRoCurrency.from_dict(_item) for _item in obj["Currency"]] if obj.get("Currency") is not None else None,
+            "TimeZone": obj.get("TimeZone"),
+            "env": obj.get("env"),
+            "gateway": [UnibeeInternalLogicGatewayRoGatewaySimplify.from_dict(_item) for _item in obj["gateway"]] if obj.get("gateway") is not None else None,
+            "isProd": obj.get("isProd"),
             "merchant": UnibeeInternalModelEntityOverseaPayMerchant.from_dict(obj["merchant"]) if obj.get("merchant") is not None else None
         })
         return _obj

@@ -43,6 +43,7 @@ class UnibeeInternalModelEntityOverseaPaySubscriptionPendingUpdate(BaseModel):
     link: Optional[StrictStr] = Field(default=None, description="payment link")
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
     merchant_member_id: Optional[StrictInt] = Field(default=None, description="merchant_user_id", alias="merchantMemberId")
+    meta_data: Optional[StrictStr] = Field(default=None, description="meta_data(json)", alias="metaData")
     name: Optional[StrictStr] = Field(default=None, description="name")
     note: Optional[StrictStr] = Field(default=None, description="note")
     paid: Optional[StrictInt] = Field(default=None, description="paid，0-no，1-yes")
@@ -60,7 +61,7 @@ class UnibeeInternalModelEntityOverseaPaySubscriptionPendingUpdate(BaseModel):
     update_quantity: Optional[StrictInt] = Field(default=None, description="quantity after update", alias="updateQuantity")
     update_subscription_id: Optional[StrictStr] = Field(default=None, description="pending update unique id", alias="updateSubscriptionId")
     user_id: Optional[StrictInt] = Field(default=None, description="userId", alias="userId")
-    __properties: ClassVar[List[str]] = ["addonData", "amount", "createTime", "currency", "data", "effectImmediate", "effectTime", "gatewayId", "gatewayStatus", "gmtCreate", "gmtModify", "id", "invoiceId", "isDeleted", "link", "merchantId", "merchantMemberId", "name", "note", "paid", "planId", "prorationAmount", "prorationDate", "quantity", "responseData", "status", "subscriptionId", "updateAddonData", "updateAmount", "updateCurrency", "updatePlanId", "updateQuantity", "updateSubscriptionId", "userId"]
+    __properties: ClassVar[List[str]] = ["addonData", "amount", "createTime", "currency", "data", "effectImmediate", "effectTime", "gatewayId", "gatewayStatus", "gmtCreate", "gmtModify", "id", "invoiceId", "isDeleted", "link", "merchantId", "merchantMemberId", "metaData", "name", "note", "paid", "planId", "prorationAmount", "prorationDate", "quantity", "responseData", "status", "subscriptionId", "updateAddonData", "updateAmount", "updateCurrency", "updatePlanId", "updateQuantity", "updateSubscriptionId", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -130,6 +131,7 @@ class UnibeeInternalModelEntityOverseaPaySubscriptionPendingUpdate(BaseModel):
             "link": obj.get("link"),
             "merchantId": obj.get("merchantId"),
             "merchantMemberId": obj.get("merchantMemberId"),
+            "metaData": obj.get("metaData"),
             "name": obj.get("name"),
             "note": obj.get("note"),
             "paid": obj.get("paid"),

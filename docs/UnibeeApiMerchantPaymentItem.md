@@ -5,12 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** | Description | [optional] 
-**image_url** | **str** | ImageUrl | [optional] 
-**product_url** | **str** | ProductUrl | [optional] 
-**quantity** | **int** | Quantity | 
-**tax_scale** | **int** | TaxScale | 
-**unit_amount_excluding_tax** | **int** | UnitAmountExcludingTax | 
+**amount** | **int** | the item total amount,cent | [optional] 
+**amount_excluding_tax** | **int** |  | [optional] 
+**currency** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**quantity** | **int** |  | [optional] 
+**tax** | **int** |  | [optional] 
+**tax_scale** | **int** | Tax Scale，1000 &#x3D; 10% | [optional] 
+**unit_amount_excluding_tax** | **int** |  | [optional] 
 
 ## Example
 

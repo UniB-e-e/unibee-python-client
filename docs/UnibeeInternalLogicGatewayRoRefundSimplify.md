@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **gateway_id** | **int** | gateway_id | [optional] 
 **gateway_refund_id** | **str** | gateway refund id | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
+**metadata** | **Dict[str, str]** |  | [optional] 
 **payment_id** | **str** | relative payment id | [optional] 
 **refund_amount** | **int** | refund amount, cent | [optional] 
 **refund_comment** | **str** | refund comment | [optional] 

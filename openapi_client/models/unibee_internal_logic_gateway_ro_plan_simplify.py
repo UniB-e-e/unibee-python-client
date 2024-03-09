@@ -38,6 +38,7 @@ class UnibeeInternalLogicGatewayRoPlanSimplify(BaseModel):
     interval_count: Optional[StrictInt] = Field(default=None, description="period unit count", alias="intervalCount")
     interval_unit: Optional[StrictStr] = Field(default=None, description="period unit,day|month|year|week", alias="intervalUnit")
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    metadata: Optional[Dict[str, StrictStr]] = None
     plan_name: Optional[StrictStr] = Field(default=None, description="PlanName", alias="planName")
     product_description: Optional[StrictStr] = Field(default=None, description="product description", alias="productDescription")
     product_name: Optional[StrictStr] = Field(default=None, description="product name", alias="productName")
@@ -45,7 +46,7 @@ class UnibeeInternalLogicGatewayRoPlanSimplify(BaseModel):
     status: Optional[StrictInt] = Field(default=None, description="status，1-editing，2-active，3-inactive，4-expired")
     tax_scale: Optional[StrictInt] = Field(default=None, description="tax scale 1000 = 10%", alias="taxScale")
     type: Optional[StrictInt] = Field(default=None, description="type，1-main plan，2-addon plan")
-    __properties: ClassVar[List[str]] = ["amount", "bindingAddonIds", "createTime", "currency", "description", "extraMetricData", "homeUrl", "id", "imageUrl", "intervalCount", "intervalUnit", "merchantId", "planName", "productDescription", "productName", "publishStatus", "status", "taxScale", "type"]
+    __properties: ClassVar[List[str]] = ["amount", "bindingAddonIds", "createTime", "currency", "description", "extraMetricData", "homeUrl", "id", "imageUrl", "intervalCount", "intervalUnit", "merchantId", "metadata", "planName", "productDescription", "productName", "publishStatus", "status", "taxScale", "type"]
 
     model_config = {
         "populate_by_name": True,
@@ -110,6 +111,7 @@ class UnibeeInternalLogicGatewayRoPlanSimplify(BaseModel):
             "intervalCount": obj.get("intervalCount"),
             "intervalUnit": obj.get("intervalUnit"),
             "merchantId": obj.get("merchantId"),
+            "metadata": obj.get("metadata"),
             "planName": obj.get("planName"),
             "productDescription": obj.get("productDescription"),
             "productName": obj.get("productName"),

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **image_url** | **str** | ImageUrl,Start With: http | [optional] 
 **interval_count** | **int** | Default 1，Number Of IntervalUnit | [optional] [default to 1]
 **interval_unit** | **str** | Plan Interval Unit，em: day|month|year|week | 
+**metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
 **metric_limits** | [**List[UnibeeInternalLogicGatewayRoBulkMetricLimitPlanBindingParam]**](UnibeeInternalLogicGatewayRoBulkMetricLimitPlanBindingParam.md) | Plan&#39;s MetricLimit List | [optional] 
 **plan_id** | **int** | PlanId | 
 **plan_name** | **str** | Plan Name | 

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **link** | **str** | payment link | [optional] 
 **merchant_id** | **int** | merchant id | [optional] 
 **merchant_member_id** | **int** | merchant_user_id | [optional] 
+**meta_data** | **str** | meta_data(json) | [optional] 
 **name** | **str** | name | [optional] 
 **note** | **str** | note | [optional] 
 **paid** | **int** | paid，0-no，1-yes | [optional] 

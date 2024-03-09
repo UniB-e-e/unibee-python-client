@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from openapi_client.models.merchant_get_get200_response import MerchantGetGet200Response
+from openapi_client.models.merchant_update_post200_response import MerchantUpdatePost200Response
 from openapi_client.models.unibee_api_merchant_profile_update_req import UnibeeApiMerchantProfileUpdateReq
 
 from openapi_client.api_client import ApiClient, RequestSerialized
@@ -292,7 +293,7 @@ class Profile:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> MerchantGetGet200Response:
+    ) -> MerchantUpdatePost200Response:
         """Update Merchant Info
 
 
@@ -329,7 +330,7 @@ class Profile:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantGetGet200Response",
+            '200': "MerchantUpdatePost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -358,7 +359,7 @@ class Profile:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[MerchantGetGet200Response]:
+    ) -> ApiResponse[MerchantUpdatePost200Response]:
         """Update Merchant Info
 
 
@@ -395,7 +396,7 @@ class Profile:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantGetGet200Response",
+            '200': "MerchantUpdatePost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -461,7 +462,7 @@ class Profile:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantGetGet200Response",
+            '200': "MerchantUpdatePost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_post**
-> MerchantGetGet200Response update_post(unibee_api_merchant_profile_update_req)
+> MerchantUpdatePost200Response update_post(unibee_api_merchant_profile_update_req)
 
 Update Merchant Info
 
@@ -80,7 +80,7 @@ Update Merchant Info
 
 ```python
 import openapi_client
-from openapi_client.models.merchant_get_get200_response import MerchantGetGet200Response
+from openapi_client.models.merchant_update_post200_response import MerchantUpdatePost200Response
 from openapi_client.models.unibee_api_merchant_profile_update_req import UnibeeApiMerchantProfileUpdateReq
 from openapi_client.rest import ApiException
 from pprint import pprint
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MerchantGetGet200Response**](MerchantGetGet200Response.md)
+[**MerchantUpdatePost200Response**](MerchantUpdatePost200Response.md)
 
 ### Authorization
 

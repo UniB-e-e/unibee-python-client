@@ -57,6 +57,7 @@ class UnibeeInternalModelEntityOverseaPaySubscription(BaseModel):
     latest_invoice_id: Optional[StrictStr] = Field(default=None, description="latest_invoice_id", alias="latestInvoiceId")
     link: Optional[StrictStr] = None
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    meta_data: Optional[StrictStr] = Field(default=None, description="meta_data(json)", alias="metaData")
     pending_update_id: Optional[StrictStr] = Field(default=None, alias="pendingUpdateId")
     plan_id: Optional[StrictInt] = Field(default=None, description="plan id", alias="planId")
     quantity: Optional[StrictInt] = Field(default=None, description="quantity")
@@ -72,7 +73,7 @@ class UnibeeInternalModelEntityOverseaPaySubscription(BaseModel):
     user_id: Optional[StrictInt] = Field(default=None, description="userId", alias="userId")
     vat_number: Optional[StrictStr] = Field(default=None, alias="vatNumber")
     vat_verify_data: Optional[StrictStr] = Field(default=None, alias="vatVerifyData")
-    __properties: ClassVar[List[str]] = ["addonData", "amount", "billingCycleAnchor", "cancelAtPeriodEnd", "cancelReason", "countryCode", "createTime", "currency", "currentPeriodEnd", "currentPeriodEndTime", "currentPeriodStart", "currentPeriodStartTime", "customerEmail", "customerName", "data", "dunningTime", "firstPaidTime", "gatewayDefaultPaymentMethod", "gatewayId", "gatewayItemData", "gatewayLatestInvoiceId", "gatewayStatus", "gatewaySubscriptionId", "gmtCreate", "gmtModify", "id", "isDeleted", "lastUpdateTime", "latestInvoiceId", "link", "merchantId", "pendingUpdateId", "planId", "quantity", "responseData", "returnUrl", "status", "subscriptionId", "taskTime", "taxScale", "testClock", "trialEnd", "type", "userId", "vatNumber", "vatVerifyData"]
+    __properties: ClassVar[List[str]] = ["addonData", "amount", "billingCycleAnchor", "cancelAtPeriodEnd", "cancelReason", "countryCode", "createTime", "currency", "currentPeriodEnd", "currentPeriodEndTime", "currentPeriodStart", "currentPeriodStartTime", "customerEmail", "customerName", "data", "dunningTime", "firstPaidTime", "gatewayDefaultPaymentMethod", "gatewayId", "gatewayItemData", "gatewayLatestInvoiceId", "gatewayStatus", "gatewaySubscriptionId", "gmtCreate", "gmtModify", "id", "isDeleted", "lastUpdateTime", "latestInvoiceId", "link", "merchantId", "metaData", "pendingUpdateId", "planId", "quantity", "responseData", "returnUrl", "status", "subscriptionId", "taskTime", "taxScale", "testClock", "trialEnd", "type", "userId", "vatNumber", "vatVerifyData"]
 
     model_config = {
         "populate_by_name": True,
@@ -156,6 +157,7 @@ class UnibeeInternalModelEntityOverseaPaySubscription(BaseModel):
             "latestInvoiceId": obj.get("latestInvoiceId"),
             "link": obj.get("link"),
             "merchantId": obj.get("merchantId"),
+            "metaData": obj.get("metaData"),
             "pendingUpdateId": obj.get("pendingUpdateId"),
             "planId": obj.get("planId"),
             "quantity": obj.get("quantity"),

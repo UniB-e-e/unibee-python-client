@@ -42,6 +42,7 @@ class UnibeeInternalLogicGatewayRoPaymentSimplify(BaseModel):
     invoice_id: Optional[StrictStr] = Field(default=None, description="invoice id", alias="invoiceId")
     link: Optional[StrictStr] = None
     merchant_id: Optional[StrictInt] = Field(default=None, description="merchant id", alias="merchantId")
+    metadata: Optional[Dict[str, StrictStr]] = None
     paid_time: Optional[StrictInt] = Field(default=None, description="paid time, utc time", alias="paidTime")
     payment_amount: Optional[StrictInt] = Field(default=None, description="payment_amount", alias="paymentAmount")
     payment_id: Optional[StrictStr] = Field(default=None, description="payment id", alias="paymentId")
@@ -51,7 +52,7 @@ class UnibeeInternalLogicGatewayRoPaymentSimplify(BaseModel):
     subscription_id: Optional[StrictStr] = Field(default=None, description="subscription id", alias="subscriptionId")
     total_amount: Optional[StrictInt] = Field(default=None, description="total amount", alias="totalAmount")
     user_id: Optional[StrictInt] = Field(default=None, description="user_id", alias="userId")
-    __properties: ClassVar[List[str]] = ["authorizeReason", "authorizeStatus", "automatic", "balanceAmount", "billingReason", "cancelTime", "countryCode", "createTime", "currency", "externalPaymentId", "failureReason", "gatewayId", "gatewayPaymentId", "invoiceId", "link", "merchantId", "paidTime", "paymentAmount", "paymentId", "refundAmount", "returnUrl", "status", "subscriptionId", "totalAmount", "userId"]
+    __properties: ClassVar[List[str]] = ["authorizeReason", "authorizeStatus", "automatic", "balanceAmount", "billingReason", "cancelTime", "countryCode", "createTime", "currency", "externalPaymentId", "failureReason", "gatewayId", "gatewayPaymentId", "invoiceId", "link", "merchantId", "metadata", "paidTime", "paymentAmount", "paymentId", "refundAmount", "returnUrl", "status", "subscriptionId", "totalAmount", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -120,6 +121,7 @@ class UnibeeInternalLogicGatewayRoPaymentSimplify(BaseModel):
             "invoiceId": obj.get("invoiceId"),
             "link": obj.get("link"),
             "merchantId": obj.get("merchantId"),
+            "metadata": obj.get("metadata"),
             "paidTime": obj.get("paidTime"),
             "paymentAmount": obj.get("paymentAmount"),
             "paymentId": obj.get("paymentId"),

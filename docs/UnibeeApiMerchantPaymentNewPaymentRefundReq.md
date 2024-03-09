@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **str** | Currency | 
 **external_refund_id** | **str** | ExternalRefundId | 
+**metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
 **payment_id** | **str** | PaymentId | 
 **reason** | **str** | Reason | [optional] 
 **refund_amount** | **int** | RefundAmount, Cent | 

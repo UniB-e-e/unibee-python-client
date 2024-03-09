@@ -19,17 +19,20 @@ import json
 
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.merchant_update_post200_response_data import MerchantUpdatePost200ResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UnibeeApiSystemInformationSupportCurrency(BaseModel):
+class MerchantUpdatePost200Response(BaseModel):
     """
-    UnibeeApiSystemInformationSupportCurrency
+    MerchantUpdatePost200Response
     """ # noqa: E501
-    currency: Optional[StrictStr] = Field(default=None, alias="Currency")
-    scale: Optional[StrictInt] = Field(default=None, alias="Scale")
-    symbol: Optional[StrictStr] = Field(default=None, alias="Symbol")
-    __properties: ClassVar[List[str]] = ["Currency", "Scale", "Symbol"]
+    code: Optional[StrictInt] = None
+    data: Optional[MerchantUpdatePost200ResponseData] = None
+    message: Optional[StrictStr] = None
+    redirect: Optional[StrictStr] = None
+    request_id: Optional[StrictStr] = Field(default=None, alias="requestId")
+    __properties: ClassVar[List[str]] = ["code", "data", "message", "redirect", "requestId"]
 
     model_config = {
         "populate_by_name": True,
@@ -49,7 +52,7 @@ class UnibeeApiSystemInformationSupportCurrency(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UnibeeApiSystemInformationSupportCurrency from a JSON string"""
+        """Create an instance of MerchantUpdatePost200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +73,14 @@ class UnibeeApiSystemInformationSupportCurrency(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UnibeeApiSystemInformationSupportCurrency from a dict"""
+        """Create an instance of MerchantUpdatePost200Response from a dict"""
         if obj is None:
             return None
 
@@ -82,9 +88,11 @@ class UnibeeApiSystemInformationSupportCurrency(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Currency": obj.get("Currency"),
-            "Scale": obj.get("Scale"),
-            "Symbol": obj.get("Symbol")
+            "code": obj.get("code"),
+            "data": MerchantUpdatePost200ResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "message": obj.get("message"),
+            "redirect": obj.get("redirect"),
+            "requestId": obj.get("requestId")
         })
         return _obj
 

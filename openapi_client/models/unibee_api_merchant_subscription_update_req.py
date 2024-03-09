@@ -30,12 +30,13 @@ class UnibeeApiMerchantSubscriptionUpdateReq(BaseModel):
     addon_params: Optional[List[UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo]] = Field(default=None, description="addonParams", alias="addonParams")
     confirm_currency: StrictStr = Field(description="Currency To Be Confirmed，Get From Preview", alias="confirmCurrency")
     confirm_total_amount: StrictInt = Field(description="TotalAmount To Be Confirmed，Get From Preview", alias="confirmTotalAmount")
+    metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
     new_plan_id: StrictInt = Field(description="New PlanId", alias="newPlanId")
     proration_date: StrictInt = Field(description="prorationDate date to start Proration，Get From Preview", alias="prorationDate")
     quantity: Optional[StrictInt] = Field(default=None, description="Quantity，Default 1")
     subscription_id: StrictStr = Field(description="SubscriptionId", alias="subscriptionId")
     with_immediate_effect: Optional[StrictInt] = Field(default=None, description="Effect Immediate，1-Immediate，2-Next Period", alias="withImmediateEffect")
-    __properties: ClassVar[List[str]] = ["addonParams", "confirmCurrency", "confirmTotalAmount", "newPlanId", "prorationDate", "quantity", "subscriptionId", "withImmediateEffect"]
+    __properties: ClassVar[List[str]] = ["addonParams", "confirmCurrency", "confirmTotalAmount", "metadata", "newPlanId", "prorationDate", "quantity", "subscriptionId", "withImmediateEffect"]
 
     model_config = {
         "populate_by_name": True,
@@ -98,6 +99,7 @@ class UnibeeApiMerchantSubscriptionUpdateReq(BaseModel):
             "addonParams": [UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
             "confirmCurrency": obj.get("confirmCurrency"),
             "confirmTotalAmount": obj.get("confirmTotalAmount"),
+            "metadata": obj.get("metadata"),
             "newPlanId": obj.get("newPlanId"),
             "prorationDate": obj.get("prorationDate"),
             "quantity": obj.get("quantity"),
