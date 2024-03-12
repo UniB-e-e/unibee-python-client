@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unibee_api_bean_invoice_simplify import UnibeeApiBeanInvoiceSimplify
+from openapi_client.models.unibee_api_bean_user_account_simplify import UnibeeApiBeanUserAccountSimplify
 from openapi_client.models.unibee_api_merchant_search_precision_match_object import UnibeeApiMerchantSearchPrecisionMatchObject
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_invoice import UnibeeInternalModelEntityOverseaPayInvoice
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_user_account import UnibeeInternalModelEntityOverseaPayUserAccount
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,8 +29,8 @@ class MerchantSearchKeySearchGet200ResponseData(BaseModel):
     """
     MerchantSearchKeySearchGet200ResponseData
     """ # noqa: E501
-    match_invoice: Optional[List[UnibeeInternalModelEntityOverseaPayInvoice]] = Field(default=None, description="MatchInvoice", alias="matchInvoice")
-    match_user_accounts: Optional[List[UnibeeInternalModelEntityOverseaPayUserAccount]] = Field(default=None, description="MatchUserAccounts", alias="matchUserAccounts")
+    match_invoice: Optional[List[UnibeeApiBeanInvoiceSimplify]] = Field(default=None, description="MatchInvoice", alias="matchInvoice")
+    match_user_accounts: Optional[List[UnibeeApiBeanUserAccountSimplify]] = Field(default=None, description="MatchUserAccounts", alias="matchUserAccounts")
     precision_match_object: Optional[UnibeeApiMerchantSearchPrecisionMatchObject] = Field(default=None, alias="precisionMatchObject")
     __properties: ClassVar[List[str]] = ["matchInvoice", "matchUserAccounts", "precisionMatchObject"]
 
@@ -102,8 +102,8 @@ class MerchantSearchKeySearchGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "matchInvoice": [UnibeeInternalModelEntityOverseaPayInvoice.from_dict(_item) for _item in obj["matchInvoice"]] if obj.get("matchInvoice") is not None else None,
-            "matchUserAccounts": [UnibeeInternalModelEntityOverseaPayUserAccount.from_dict(_item) for _item in obj["matchUserAccounts"]] if obj.get("matchUserAccounts") is not None else None,
+            "matchInvoice": [UnibeeApiBeanInvoiceSimplify.from_dict(_item) for _item in obj["matchInvoice"]] if obj.get("matchInvoice") is not None else None,
+            "matchUserAccounts": [UnibeeApiBeanUserAccountSimplify.from_dict(_item) for _item in obj["matchUserAccounts"]] if obj.get("matchUserAccounts") is not None else None,
             "precisionMatchObject": UnibeeApiMerchantSearchPrecisionMatchObject.from_dict(obj["precisionMatchObject"]) if obj.get("precisionMatchObject") is not None else None
         })
         return _obj

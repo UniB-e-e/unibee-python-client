@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_merchant_metric_vo import UnibeeInternalLogicGatewayRoMerchantMetricVo
+from openapi_client.models.unibee_api_bean_merchant_metric_simplify import UnibeeApiBeanMerchantMetricSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class MerchantMetricDeletePost200ResponseData(BaseModel):
     """
     MerchantMetricDeletePost200ResponseData
     """ # noqa: E501
-    merchant_metric: Optional[UnibeeInternalLogicGatewayRoMerchantMetricVo] = Field(default=None, alias="merchantMetric")
+    merchant_metric: Optional[UnibeeApiBeanMerchantMetricSimplify] = Field(default=None, alias="merchantMetric")
     __properties: ClassVar[List[str]] = ["merchantMetric"]
 
     model_config = {
@@ -84,7 +84,7 @@ class MerchantMetricDeletePost200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "merchantMetric": UnibeeInternalLogicGatewayRoMerchantMetricVo.from_dict(obj["merchantMetric"]) if obj.get("merchantMetric") is not None else None
+            "merchantMetric": UnibeeApiBeanMerchantMetricSimplify.from_dict(obj["merchantMetric"]) if obj.get("merchantMetric") is not None else None
         })
         return _obj
 

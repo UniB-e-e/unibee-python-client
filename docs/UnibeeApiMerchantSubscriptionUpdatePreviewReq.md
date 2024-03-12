@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addon_params** | [**List[UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo]**](UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo.md) | addonParams | [optional] 
+**addon_params** | [**List[UnibeeApiBeanPlanAddonParam]**](UnibeeApiBeanPlanAddonParam.md) | addonParams | [optional] 
 **new_plan_id** | **int** | New PlanId | 
 **quantity** | **int** | Quantity，Default 1 | [optional] 
 **subscription_id** | **str** | SubscriptionId | 

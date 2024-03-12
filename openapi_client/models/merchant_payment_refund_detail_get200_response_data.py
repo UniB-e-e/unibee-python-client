@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_refund_detail_ro import UnibeeInternalLogicGatewayRoRefundDetailRo
+from openapi_client.models.unibee_api_merchant_payment_refund_detail import UnibeeApiMerchantPaymentRefundDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class MerchantPaymentRefundDetailGet200ResponseData(BaseModel):
     """
     MerchantPaymentRefundDetailGet200ResponseData
     """ # noqa: E501
-    refund_detail: Optional[UnibeeInternalLogicGatewayRoRefundDetailRo] = Field(default=None, alias="refundDetail")
+    refund_detail: Optional[UnibeeApiMerchantPaymentRefundDetail] = Field(default=None, alias="refundDetail")
     __properties: ClassVar[List[str]] = ["refundDetail"]
 
     model_config = {
@@ -84,7 +84,7 @@ class MerchantPaymentRefundDetailGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "refundDetail": UnibeeInternalLogicGatewayRoRefundDetailRo.from_dict(obj["refundDetail"]) if obj.get("refundDetail") is not None else None
+            "refundDetail": UnibeeApiMerchantPaymentRefundDetail.from_dict(obj["refundDetail"]) if obj.get("refundDetail") is not None else None
         })
         return _obj
 

@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_currency import UnibeeInternalLogicGatewayRoCurrency
-from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_simplify import UnibeeInternalLogicGatewayRoGatewaySimplify
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant import UnibeeInternalModelEntityOverseaPayMerchant
+from openapi_client.models.unibee_api_bean_currency import UnibeeApiBeanCurrency
+from openapi_client.models.unibee_api_bean_gateway_simplify import UnibeeApiBeanGatewaySimplify
+from openapi_client.models.unibee_api_bean_merchant_simplify import UnibeeApiBeanMerchantSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,12 +29,12 @@ class MerchantGetGet200ResponseData(BaseModel):
     """
     MerchantGetGet200ResponseData
     """ # noqa: E501
-    currency: Optional[List[UnibeeInternalLogicGatewayRoCurrency]] = Field(default=None, description="Currency List", alias="Currency")
+    currency: Optional[List[UnibeeApiBeanCurrency]] = Field(default=None, description="Currency List", alias="Currency")
     time_zone: Optional[List[StrictStr]] = Field(default=None, description="TimeZone List", alias="TimeZone")
     env: Optional[StrictStr] = Field(default=None, description="System Env, em: daily|stage|local|prod")
-    gateway: Optional[List[UnibeeInternalLogicGatewayRoGatewaySimplify]] = Field(default=None, description="Gateway List")
+    gateway: Optional[List[UnibeeApiBeanGatewaySimplify]] = Field(default=None, description="Gateway List")
     is_prod: Optional[StrictBool] = Field(default=None, description="Check System Env Is Prod, true|false", alias="isProd")
-    merchant: Optional[UnibeeInternalModelEntityOverseaPayMerchant] = None
+    merchant: Optional[UnibeeApiBeanMerchantSimplify] = None
     __properties: ClassVar[List[str]] = ["Currency", "TimeZone", "env", "gateway", "isProd", "merchant"]
 
     model_config = {
@@ -105,12 +105,12 @@ class MerchantGetGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Currency": [UnibeeInternalLogicGatewayRoCurrency.from_dict(_item) for _item in obj["Currency"]] if obj.get("Currency") is not None else None,
+            "Currency": [UnibeeApiBeanCurrency.from_dict(_item) for _item in obj["Currency"]] if obj.get("Currency") is not None else None,
             "TimeZone": obj.get("TimeZone"),
             "env": obj.get("env"),
-            "gateway": [UnibeeInternalLogicGatewayRoGatewaySimplify.from_dict(_item) for _item in obj["gateway"]] if obj.get("gateway") is not None else None,
+            "gateway": [UnibeeApiBeanGatewaySimplify.from_dict(_item) for _item in obj["gateway"]] if obj.get("gateway") is not None else None,
             "isProd": obj.get("isProd"),
-            "merchant": UnibeeInternalModelEntityOverseaPayMerchant.from_dict(obj["merchant"]) if obj.get("merchant") is not None else None
+            "merchant": UnibeeApiBeanMerchantSimplify.from_dict(obj["merchant"]) if obj.get("merchant") is not None else None
         })
         return _obj
 

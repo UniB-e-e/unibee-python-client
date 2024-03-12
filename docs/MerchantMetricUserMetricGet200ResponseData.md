@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_metric** | [**UnibeeInternalLogicGatewayRoUserMetric**](UnibeeInternalLogicGatewayRoUserMetric.md) |  | [optional] 
+**user_metric** | [**UnibeeApiMerchantMetricUserMetric**](UnibeeApiMerchantMetricUserMetric.md) |  | [optional] 
 
 ## Example
 

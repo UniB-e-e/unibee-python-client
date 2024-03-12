@@ -32,12 +32,13 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
     email: StrictStr = Field(description="Email")
     external_payment_id: StrictStr = Field(description="ExternalPaymentId should unique for payment", alias="externalPaymentId")
     external_user_id: StrictStr = Field(description="ExternalUserId, should unique for user", alias="externalUserId")
+    gas_payer: Optional[StrictStr] = Field(default=None, description="who pay the gas, merchant|user", alias="gasPayer")
     gateway_id: StrictInt = Field(description="GatewayId", alias="gatewayId")
-    line_items: Optional[List[UnibeeApiMerchantPaymentItem]] = Field(default=None, description="Items", alias="lineItems")
+    items: Optional[List[UnibeeApiMerchantPaymentItem]] = Field(default=None, description="Items")
     metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
     redirect_url: Optional[StrictStr] = Field(default=None, description="Redirect Url", alias="redirectUrl")
     total_amount: StrictInt = Field(description="Total PaymentAmount, Cent", alias="totalAmount")
-    __properties: ClassVar[List[str]] = ["countryCode", "currency", "email", "externalPaymentId", "externalUserId", "gatewayId", "lineItems", "metadata", "redirectUrl", "totalAmount"]
+    __properties: ClassVar[List[str]] = ["countryCode", "currency", "email", "externalPaymentId", "externalUserId", "gasPayer", "gatewayId", "items", "metadata", "redirectUrl", "totalAmount"]
 
     model_config = {
         "populate_by_name": True,
@@ -78,13 +79,13 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in line_items (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
-        if self.line_items:
-            for _item in self.line_items:
+        if self.items:
+            for _item in self.items:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['lineItems'] = _items
+            _dict['items'] = _items
         return _dict
 
     @classmethod
@@ -102,8 +103,9 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
             "email": obj.get("email"),
             "externalPaymentId": obj.get("externalPaymentId"),
             "externalUserId": obj.get("externalUserId"),
+            "gasPayer": obj.get("gasPayer"),
             "gatewayId": obj.get("gatewayId"),
-            "lineItems": [UnibeeApiMerchantPaymentItem.from_dict(_item) for _item in obj["lineItems"]] if obj.get("lineItems") is not None else None,
+            "items": [UnibeeApiMerchantPaymentItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
             "metadata": obj.get("metadata"),
             "redirectUrl": obj.get("redirectUrl"),
             "totalAmount": obj.get("totalAmount")

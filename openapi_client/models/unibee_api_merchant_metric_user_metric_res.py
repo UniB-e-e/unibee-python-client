@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_user_metric import UnibeeInternalLogicGatewayRoUserMetric
+from openapi_client.models.unibee_api_merchant_metric_user_metric import UnibeeApiMerchantMetricUserMetric
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantMetricUserMetricRes(BaseModel):
     """
     UnibeeApiMerchantMetricUserMetricRes
     """ # noqa: E501
-    user_metric: Optional[UnibeeInternalLogicGatewayRoUserMetric] = Field(default=None, alias="userMetric")
+    user_metric: Optional[UnibeeApiMerchantMetricUserMetric] = Field(default=None, alias="userMetric")
     __properties: ClassVar[List[str]] = ["userMetric"]
 
     model_config = {
@@ -84,7 +84,7 @@ class UnibeeApiMerchantMetricUserMetricRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "userMetric": UnibeeInternalLogicGatewayRoUserMetric.from_dict(obj["userMetric"]) if obj.get("userMetric") is not None else None
+            "userMetric": UnibeeApiMerchantMetricUserMetric.from_dict(obj["userMetric"]) if obj.get("userMetric") is not None else None
         })
         return _obj
 

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant_metric_event import UnibeeInternalModelEntityOverseaPayMerchantMetricEvent
+from openapi_client.models.unibee_api_bean_merchant_metric_event_simplify import UnibeeApiBeanMerchantMetricEventSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class MerchantMetricEventNewPost200ResponseData(BaseModel):
     """
     MerchantMetricEventNewPost200ResponseData
     """ # noqa: E501
-    merchant_metric_event: Optional[UnibeeInternalModelEntityOverseaPayMerchantMetricEvent] = Field(default=None, alias="merchantMetricEvent")
+    merchant_metric_event: Optional[UnibeeApiBeanMerchantMetricEventSimplify] = Field(default=None, alias="merchantMetricEvent")
     __properties: ClassVar[List[str]] = ["merchantMetricEvent"]
 
     model_config = {
@@ -84,7 +84,7 @@ class MerchantMetricEventNewPost200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "merchantMetricEvent": UnibeeInternalModelEntityOverseaPayMerchantMetricEvent.from_dict(obj["merchantMetricEvent"]) if obj.get("merchantMetricEvent") is not None else None
+            "merchantMetricEvent": UnibeeApiBeanMerchantMetricEventSimplify.from_dict(obj["merchantMetricEvent"]) if obj.get("merchantMetricEvent") is not None else None
         })
         return _obj
 

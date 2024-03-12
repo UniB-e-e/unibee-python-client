@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_query_email_template_vo import UnibeeInternalQueryEmailTemplateVo
+from openapi_client.models.unibee_api_bean_email_template_vo import UnibeeApiBeanEmailTemplateVo
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantEmailTemplateListRes(BaseModel):
     """
     UnibeeApiMerchantEmailTemplateListRes
     """ # noqa: E501
-    email_template_list: Optional[List[UnibeeInternalQueryEmailTemplateVo]] = Field(default=None, description="EmailTemplateList", alias="emailTemplateList")
+    email_template_list: Optional[List[UnibeeApiBeanEmailTemplateVo]] = Field(default=None, description="EmailTemplateList", alias="emailTemplateList")
     __properties: ClassVar[List[str]] = ["emailTemplateList"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantEmailTemplateListRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "emailTemplateList": [UnibeeInternalQueryEmailTemplateVo.from_dict(_item) for _item in obj["emailTemplateList"]] if obj.get("emailTemplateList") is not None else None
+            "emailTemplateList": [UnibeeApiBeanEmailTemplateVo.from_dict(_item) for _item in obj["emailTemplateList"]] if obj.get("emailTemplateList") is not None else None
         })
         return _obj
 

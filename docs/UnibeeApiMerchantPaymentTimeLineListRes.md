@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_time_lines** | [**List[UnibeeInternalModelEntityOverseaPayPaymentTimeline]**](UnibeeInternalModelEntityOverseaPayPaymentTimeline.md) | PaymentTimeLines | [optional] 
+**payment_time_lines** | [**List[UnibeeApiBeanPaymentTimelineSimplify]**](UnibeeApiBeanPaymentTimelineSimplify.md) | PaymentTimeLines | [optional] 
 
 ## Example
 

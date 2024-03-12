@@ -27,7 +27,7 @@ class UnibeeApiMerchantGatewaySetupReq(BaseModel):
     UnibeeApiMerchantGatewaySetupReq
     """ # noqa: E501
     gateway_key: Optional[StrictStr] = Field(default=None, description="GatewayKey", alias="gatewayKey")
-    gateway_name: StrictStr = Field(description="GatewayName, stripe|paypal", alias="gatewayName")
+    gateway_name: StrictStr = Field(description="GatewayName, stripe|paypal|changelly", alias="gatewayName")
     gateway_secret: Optional[StrictStr] = Field(default=None, description="GatewaySecret", alias="gatewaySecret")
     __properties: ClassVar[List[str]] = ["gatewayKey", "gatewayName", "gatewaySecret"]
 

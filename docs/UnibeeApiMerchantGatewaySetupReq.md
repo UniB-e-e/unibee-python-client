@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gateway_key** | **str** | GatewayKey | [optional] 
-**gateway_name** | **str** | GatewayName, stripe|paypal | 
+**gateway_name** | **str** | GatewayName, stripe|paypal|changelly | 
 **gateway_secret** | **str** | GatewaySecret | [optional] 
 
 ## Example

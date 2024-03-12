@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_invoice_detail_simplify import UnibeeInternalLogicGatewayRoInvoiceDetailSimplify
+from openapi_client.models.unibee_api_bean_invoice_simplify import UnibeeApiBeanInvoiceSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class UnibeeApiMerchantSubscriptionUpdatePreviewRes(BaseModel):
     UnibeeApiMerchantSubscriptionUpdatePreviewRes
     """ # noqa: E501
     currency: Optional[StrictStr] = None
-    invoice: Optional[UnibeeInternalLogicGatewayRoInvoiceDetailSimplify] = None
-    next_period_invoice: Optional[UnibeeInternalLogicGatewayRoInvoiceDetailSimplify] = Field(default=None, alias="nextPeriodInvoice")
+    invoice: Optional[UnibeeApiBeanInvoiceSimplify] = None
+    next_period_invoice: Optional[UnibeeApiBeanInvoiceSimplify] = Field(default=None, alias="nextPeriodInvoice")
     proration_date: Optional[StrictInt] = Field(default=None, alias="prorationDate")
     total_amount: Optional[StrictInt] = Field(default=None, alias="totalAmount")
     __properties: ClassVar[List[str]] = ["currency", "invoice", "nextPeriodInvoice", "prorationDate", "totalAmount"]
@@ -92,8 +92,8 @@ class UnibeeApiMerchantSubscriptionUpdatePreviewRes(BaseModel):
 
         _obj = cls.model_validate({
             "currency": obj.get("currency"),
-            "invoice": UnibeeInternalLogicGatewayRoInvoiceDetailSimplify.from_dict(obj["invoice"]) if obj.get("invoice") is not None else None,
-            "nextPeriodInvoice": UnibeeInternalLogicGatewayRoInvoiceDetailSimplify.from_dict(obj["nextPeriodInvoice"]) if obj.get("nextPeriodInvoice") is not None else None,
+            "invoice": UnibeeApiBeanInvoiceSimplify.from_dict(obj["invoice"]) if obj.get("invoice") is not None else None,
+            "nextPeriodInvoice": UnibeeApiBeanInvoiceSimplify.from_dict(obj["nextPeriodInvoice"]) if obj.get("nextPeriodInvoice") is not None else None,
             "prorationDate": obj.get("prorationDate"),
             "totalAmount": obj.get("totalAmount")
         })

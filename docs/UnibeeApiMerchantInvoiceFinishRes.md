@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoice** | [**UnibeeInternalModelEntityOverseaPayInvoice**](UnibeeInternalModelEntityOverseaPayInvoice.md) |  | [optional] 
+**invoice** | [**UnibeeApiBeanInvoiceSimplify**](UnibeeApiBeanInvoiceSimplify.md) |  | [optional] 
 
 ## Example
 

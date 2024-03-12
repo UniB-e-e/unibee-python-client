@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_balance import UnibeeInternalLogicGatewayRoGatewayBalance
+from openapi_client.models.unibee_internal_logic_gateway_gateway_bean_gateway_balance import UnibeeInternalLogicGatewayGatewayBeanGatewayBalance
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,9 @@ class UnibeeApiMerchantBalanceDetailQueryRes(BaseModel):
     """
     UnibeeApiMerchantBalanceDetailQueryRes
     """ # noqa: E501
-    available: Optional[List[UnibeeInternalLogicGatewayRoGatewayBalance]] = None
-    connect_reserved: Optional[List[UnibeeInternalLogicGatewayRoGatewayBalance]] = Field(default=None, alias="connectReserved")
-    pending: Optional[List[UnibeeInternalLogicGatewayRoGatewayBalance]] = None
+    available: Optional[List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]] = None
+    connect_reserved: Optional[List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]] = Field(default=None, alias="connectReserved")
+    pending: Optional[List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]] = None
     __properties: ClassVar[List[str]] = ["available", "connectReserved", "pending"]
 
     model_config = {
@@ -104,9 +104,9 @@ class UnibeeApiMerchantBalanceDetailQueryRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "available": [UnibeeInternalLogicGatewayRoGatewayBalance.from_dict(_item) for _item in obj["available"]] if obj.get("available") is not None else None,
-            "connectReserved": [UnibeeInternalLogicGatewayRoGatewayBalance.from_dict(_item) for _item in obj["connectReserved"]] if obj.get("connectReserved") is not None else None,
-            "pending": [UnibeeInternalLogicGatewayRoGatewayBalance.from_dict(_item) for _item in obj["pending"]] if obj.get("pending") is not None else None
+            "available": [UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.from_dict(_item) for _item in obj["available"]] if obj.get("available") is not None else None,
+            "connectReserved": [UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.from_dict(_item) for _item in obj["connectReserved"]] if obj.get("connectReserved") is not None else None,
+            "pending": [UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.from_dict(_item) for _item in obj["pending"]] if obj.get("pending") is not None else None
         })
         return _obj
 

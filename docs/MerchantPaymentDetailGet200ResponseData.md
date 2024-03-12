@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_detail** | [**UnibeeInternalLogicGatewayRoPaymentDetailRo**](UnibeeInternalLogicGatewayRoPaymentDetailRo.md) |  | [optional] 
+**payment_detail** | [**UnibeeApiMerchantPaymentPaymentDetail**](UnibeeApiMerchantPaymentPaymentDetail.md) |  | [optional] 
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**merchant** | [**UnibeeInternalModelEntityOverseaPayMerchant**](UnibeeInternalModelEntityOverseaPayMerchant.md) |  | [optional] 
+**merchant** | [**UnibeeApiBeanMerchantSimplify**](UnibeeApiBeanMerchantSimplify.md) |  | [optional] 
 
 ## Example
 

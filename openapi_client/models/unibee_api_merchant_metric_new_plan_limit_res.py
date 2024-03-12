@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_merchant_metric_plan_limit_vo import UnibeeInternalLogicGatewayRoMerchantMetricPlanLimitVo
+from openapi_client.models.unibee_api_bean_merchant_metric_plan_limit import UnibeeApiBeanMerchantMetricPlanLimit
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantMetricNewPlanLimitRes(BaseModel):
     """
     UnibeeApiMerchantMetricNewPlanLimitRes
     """ # noqa: E501
-    merchant_metric_plan_limit: Optional[UnibeeInternalLogicGatewayRoMerchantMetricPlanLimitVo] = Field(default=None, alias="merchantMetricPlanLimit")
+    merchant_metric_plan_limit: Optional[UnibeeApiBeanMerchantMetricPlanLimit] = Field(default=None, alias="merchantMetricPlanLimit")
     __properties: ClassVar[List[str]] = ["merchantMetricPlanLimit"]
 
     model_config = {
@@ -84,7 +84,7 @@ class UnibeeApiMerchantMetricNewPlanLimitRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "merchantMetricPlanLimit": UnibeeInternalLogicGatewayRoMerchantMetricPlanLimitVo.from_dict(obj["merchantMetricPlanLimit"]) if obj.get("merchantMetricPlanLimit") is not None else None
+            "merchantMetricPlanLimit": UnibeeApiBeanMerchantMetricPlanLimit.from_dict(obj["merchantMetricPlanLimit"]) if obj.get("merchantMetricPlanLimit") is not None else None
         })
         return _obj
 

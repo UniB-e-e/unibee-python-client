@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_pending_update_details** | [**List[UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo]**](UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo.md) | SubscriptionPendingUpdateDetails | [optional] 
+**subscription_pending_update_details** | [**List[UnibeeApiBeanSubscriptionPendingUpdateDetail]**](UnibeeApiBeanSubscriptionPendingUpdateDetail.md) | SubscriptionPendingUpdateDetails | [optional] 
 
 ## Example
 

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**match_invoice** | [**List[UnibeeInternalModelEntityOverseaPayInvoice]**](UnibeeInternalModelEntityOverseaPayInvoice.md) | MatchInvoice | [optional] 
-**match_user_accounts** | [**List[UnibeeInternalModelEntityOverseaPayUserAccount]**](UnibeeInternalModelEntityOverseaPayUserAccount.md) | MatchUserAccounts | [optional] 
+**match_invoice** | [**List[UnibeeApiBeanInvoiceSimplify]**](UnibeeApiBeanInvoiceSimplify.md) | MatchInvoice | [optional] 
+**match_user_accounts** | [**List[UnibeeApiBeanUserAccountSimplify]**](UnibeeApiBeanUserAccountSimplify.md) | MatchUserAccounts | [optional] 
 **precision_match_object** | [**UnibeeApiMerchantSearchPrecisionMatchObject**](UnibeeApiMerchantSearchPrecisionMatchObject.md) |  | [optional] 
 
 ## Example

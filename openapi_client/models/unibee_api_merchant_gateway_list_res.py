@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_simplify import UnibeeInternalLogicGatewayRoGatewaySimplify
+from openapi_client.models.unibee_api_bean_gateway_simplify import UnibeeApiBeanGatewaySimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantGatewayListRes(BaseModel):
     """
     UnibeeApiMerchantGatewayListRes
     """ # noqa: E501
-    gateways: Optional[List[UnibeeInternalLogicGatewayRoGatewaySimplify]] = None
+    gateways: Optional[List[UnibeeApiBeanGatewaySimplify]] = None
     __properties: ClassVar[List[str]] = ["gateways"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantGatewayListRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "gateways": [UnibeeInternalLogicGatewayRoGatewaySimplify.from_dict(_item) for _item in obj["gateways"]] if obj.get("gateways") is not None else None
+            "gateways": [UnibeeApiBeanGatewaySimplify.from_dict(_item) for _item in obj["gateways"]] if obj.get("gateways") is not None else None
         })
         return _obj
 

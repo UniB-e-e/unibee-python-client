@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpoint_log_list** | [**List[UnibeeInternalModelEntityOverseaPayMerchantWebhookLog]**](UnibeeInternalModelEntityOverseaPayMerchantWebhookLog.md) | EndpointLogList | [optional] 
+**endpoint_log_list** | [**List[UnibeeApiBeanMerchantWebhookLogSimplify]**](UnibeeApiBeanMerchantWebhookLogSimplify.md) | EndpointLogList | [optional] 
 
 ## Example
 

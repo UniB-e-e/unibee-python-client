@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **int** | the item total amount,cent | [optional] 
-**amount_excluding_tax** | **int** |  | [optional] 
+**amount** | **int** | item total amount, sum(item.amount) should equal to totalAmount, cent | 
+**amount_excluding_tax** | **int** | amountExcludingTax &#x3D; unitAmountExcludingTax * quantity | [optional] 
 **currency** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
+**description** | **str** | item description  | 
 **quantity** | **int** |  | [optional] 
-**tax** | **int** |  | [optional] 
+**tax** | **int** | tax &#x3D; amount - amountExcludingTax | [optional] 
 **tax_scale** | **int** | Tax Scale，1000 &#x3D; 10% | [optional] 
 **unit_amount_excluding_tax** | **int** |  | [optional] 
 

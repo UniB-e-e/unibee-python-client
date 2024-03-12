@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_plan_detail_ro import UnibeeInternalLogicGatewayRoPlanDetailRo
+from openapi_client.models.unibee_api_merchant_plan_plan_detail import UnibeeApiMerchantPlanPlanDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantPlanDetailRes(BaseModel):
     """
     UnibeeApiMerchantPlanDetailRes
     """ # noqa: E501
-    plan: Optional[UnibeeInternalLogicGatewayRoPlanDetailRo] = None
+    plan: Optional[UnibeeApiMerchantPlanPlanDetail] = None
     __properties: ClassVar[List[str]] = ["plan"]
 
     model_config = {
@@ -84,7 +84,7 @@ class UnibeeApiMerchantPlanDetailRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "plan": UnibeeInternalLogicGatewayRoPlanDetailRo.from_dict(obj["plan"]) if obj.get("plan") is not None else None
+            "plan": UnibeeApiMerchantPlanPlanDetail.from_dict(obj["plan"]) if obj.get("plan") is not None else None
         })
         return _obj
 

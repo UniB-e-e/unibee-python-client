@@ -20,17 +20,19 @@ from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.merchant_auth_sso_login_otp_post200_response import MerchantAuthSsoLoginOTPPost200Response
-from openapi_client.models.merchant_payment_capture_post_request import MerchantPaymentCapturePostRequest
 from openapi_client.models.merchant_payment_detail_get200_response import MerchantPaymentDetailGet200Response
 from openapi_client.models.merchant_payment_list_get200_response import MerchantPaymentListGet200Response
+from openapi_client.models.merchant_payment_method_list_get200_response import MerchantPaymentMethodListGet200Response
 from openapi_client.models.merchant_payment_new_post200_response import MerchantPaymentNewPost200Response
 from openapi_client.models.merchant_payment_refund_detail_get200_response import MerchantPaymentRefundDetailGet200Response
 from openapi_client.models.merchant_payment_refund_list_get200_response import MerchantPaymentRefundListGet200Response
 from openapi_client.models.merchant_payment_refund_new_post200_response import MerchantPaymentRefundNewPost200Response
-from openapi_client.models.merchant_payment_refund_new_post_request import MerchantPaymentRefundNewPostRequest
 from openapi_client.models.merchant_payment_timeline_list_get200_response import MerchantPaymentTimelineListGet200Response
 from openapi_client.models.unibee_api_merchant_payment_cancel_req import UnibeeApiMerchantPaymentCancelReq
+from openapi_client.models.unibee_api_merchant_payment_capture_req import UnibeeApiMerchantPaymentCaptureReq
+from openapi_client.models.unibee_api_merchant_payment_new_payment_refund_req import UnibeeApiMerchantPaymentNewPaymentRefundReq
 from openapi_client.models.unibee_api_merchant_payment_new_req import UnibeeApiMerchantPaymentNewReq
+from openapi_client.models.unibee_api_merchant_payment_refund_cancel_req import UnibeeApiMerchantPaymentRefundCancelReq
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
@@ -320,9 +322,7 @@ class Payment:
     @validate_call
     def payment_capture_post(
         self,
-        capture_amount: Annotated[StrictInt, Field(description="CaptureAmount, Cent")],
-        currency: Annotated[StrictStr, Field(description="Currency")],
-        merchant_payment_capture_post_request: MerchantPaymentCapturePostRequest,
+        unibee_api_merchant_payment_capture_req: UnibeeApiMerchantPaymentCaptureReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -339,12 +339,8 @@ class Payment:
         """Capture Payment
 
 
-        :param capture_amount: CaptureAmount, Cent (required)
-        :type capture_amount: int
-        :param currency: Currency (required)
-        :type currency: str
-        :param merchant_payment_capture_post_request: (required)
-        :type merchant_payment_capture_post_request: MerchantPaymentCapturePostRequest
+        :param unibee_api_merchant_payment_capture_req: (required)
+        :type unibee_api_merchant_payment_capture_req: UnibeeApiMerchantPaymentCaptureReq
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -368,9 +364,7 @@ class Payment:
         """ # noqa: E501
 
         _param = self._payment_capture_post_serialize(
-            capture_amount=capture_amount,
-            currency=currency,
-            merchant_payment_capture_post_request=merchant_payment_capture_post_request,
+            unibee_api_merchant_payment_capture_req=unibee_api_merchant_payment_capture_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -394,9 +388,7 @@ class Payment:
     @validate_call
     def payment_capture_post_with_http_info(
         self,
-        capture_amount: Annotated[StrictInt, Field(description="CaptureAmount, Cent")],
-        currency: Annotated[StrictStr, Field(description="Currency")],
-        merchant_payment_capture_post_request: MerchantPaymentCapturePostRequest,
+        unibee_api_merchant_payment_capture_req: UnibeeApiMerchantPaymentCaptureReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -413,12 +405,8 @@ class Payment:
         """Capture Payment
 
 
-        :param capture_amount: CaptureAmount, Cent (required)
-        :type capture_amount: int
-        :param currency: Currency (required)
-        :type currency: str
-        :param merchant_payment_capture_post_request: (required)
-        :type merchant_payment_capture_post_request: MerchantPaymentCapturePostRequest
+        :param unibee_api_merchant_payment_capture_req: (required)
+        :type unibee_api_merchant_payment_capture_req: UnibeeApiMerchantPaymentCaptureReq
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -442,9 +430,7 @@ class Payment:
         """ # noqa: E501
 
         _param = self._payment_capture_post_serialize(
-            capture_amount=capture_amount,
-            currency=currency,
-            merchant_payment_capture_post_request=merchant_payment_capture_post_request,
+            unibee_api_merchant_payment_capture_req=unibee_api_merchant_payment_capture_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -468,9 +454,7 @@ class Payment:
     @validate_call
     def payment_capture_post_without_preload_content(
         self,
-        capture_amount: Annotated[StrictInt, Field(description="CaptureAmount, Cent")],
-        currency: Annotated[StrictStr, Field(description="Currency")],
-        merchant_payment_capture_post_request: MerchantPaymentCapturePostRequest,
+        unibee_api_merchant_payment_capture_req: UnibeeApiMerchantPaymentCaptureReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -487,12 +471,8 @@ class Payment:
         """Capture Payment
 
 
-        :param capture_amount: CaptureAmount, Cent (required)
-        :type capture_amount: int
-        :param currency: Currency (required)
-        :type currency: str
-        :param merchant_payment_capture_post_request: (required)
-        :type merchant_payment_capture_post_request: MerchantPaymentCapturePostRequest
+        :param unibee_api_merchant_payment_capture_req: (required)
+        :type unibee_api_merchant_payment_capture_req: UnibeeApiMerchantPaymentCaptureReq
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -516,9 +496,7 @@ class Payment:
         """ # noqa: E501
 
         _param = self._payment_capture_post_serialize(
-            capture_amount=capture_amount,
-            currency=currency,
-            merchant_payment_capture_post_request=merchant_payment_capture_post_request,
+            unibee_api_merchant_payment_capture_req=unibee_api_merchant_payment_capture_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -537,9 +515,7 @@ class Payment:
 
     def _payment_capture_post_serialize(
         self,
-        capture_amount,
-        currency,
-        merchant_payment_capture_post_request,
+        unibee_api_merchant_payment_capture_req,
         _request_auth,
         _content_type,
         _headers,
@@ -560,19 +536,11 @@ class Payment:
 
         # process the path parameters
         # process the query parameters
-        if capture_amount is not None:
-            
-            _query_params.append(('captureAmount', capture_amount))
-            
-        if currency is not None:
-            
-            _query_params.append(('currency', currency))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if merchant_payment_capture_post_request is not None:
-            _body_params = merchant_payment_capture_post_request
+        if unibee_api_merchant_payment_capture_req is not None:
+            _body_params = unibee_api_merchant_payment_capture_req
 
 
         # set the HTTP header `Accept`
@@ -1284,6 +1252,296 @@ class Payment:
 
 
     @validate_call
+    def payment_method_list_get(
+        self,
+        gateway_id: Annotated[StrictInt, Field(description="GatewayId")],
+        user_id: Annotated[Optional[StrictInt], Field(description="UserId")] = None,
+        payment_id: Annotated[Optional[StrictStr], Field(description="PaymentId")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantPaymentMethodListGet200Response:
+        """Query Payment Method List
+
+
+        :param gateway_id: GatewayId (required)
+        :type gateway_id: int
+        :param user_id: UserId
+        :type user_id: int
+        :param payment_id: PaymentId
+        :type payment_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._payment_method_list_get_serialize(
+            gateway_id=gateway_id,
+            user_id=user_id,
+            payment_id=payment_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantPaymentMethodListGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def payment_method_list_get_with_http_info(
+        self,
+        gateway_id: Annotated[StrictInt, Field(description="GatewayId")],
+        user_id: Annotated[Optional[StrictInt], Field(description="UserId")] = None,
+        payment_id: Annotated[Optional[StrictStr], Field(description="PaymentId")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantPaymentMethodListGet200Response]:
+        """Query Payment Method List
+
+
+        :param gateway_id: GatewayId (required)
+        :type gateway_id: int
+        :param user_id: UserId
+        :type user_id: int
+        :param payment_id: PaymentId
+        :type payment_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._payment_method_list_get_serialize(
+            gateway_id=gateway_id,
+            user_id=user_id,
+            payment_id=payment_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantPaymentMethodListGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def payment_method_list_get_without_preload_content(
+        self,
+        gateway_id: Annotated[StrictInt, Field(description="GatewayId")],
+        user_id: Annotated[Optional[StrictInt], Field(description="UserId")] = None,
+        payment_id: Annotated[Optional[StrictStr], Field(description="PaymentId")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Query Payment Method List
+
+
+        :param gateway_id: GatewayId (required)
+        :type gateway_id: int
+        :param user_id: UserId
+        :type user_id: int
+        :param payment_id: PaymentId
+        :type payment_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._payment_method_list_get_serialize(
+            gateway_id=gateway_id,
+            user_id=user_id,
+            payment_id=payment_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantPaymentMethodListGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _payment_method_list_get_serialize(
+        self,
+        gateway_id,
+        user_id,
+        payment_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if gateway_id is not None:
+            
+            _query_params.append(('gatewayId', gateway_id))
+            
+        if user_id is not None:
+            
+            _query_params.append(('userId', user_id))
+            
+        if payment_id is not None:
+            
+            _query_params.append(('paymentId', payment_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/merchant/payment/method_list',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def payment_new_post(
         self,
         unibee_api_merchant_payment_new_req: UnibeeApiMerchantPaymentNewReq,
@@ -1535,6 +1793,273 @@ class Payment:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/merchant/payment/new',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def payment_refund_cancel_post(
+        self,
+        unibee_api_merchant_payment_refund_cancel_req: UnibeeApiMerchantPaymentRefundCancelReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantAuthSsoLoginOTPPost200Response:
+        """Cancel Payment Refund
+
+
+        :param unibee_api_merchant_payment_refund_cancel_req: (required)
+        :type unibee_api_merchant_payment_refund_cancel_req: UnibeeApiMerchantPaymentRefundCancelReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._payment_refund_cancel_post_serialize(
+            unibee_api_merchant_payment_refund_cancel_req=unibee_api_merchant_payment_refund_cancel_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def payment_refund_cancel_post_with_http_info(
+        self,
+        unibee_api_merchant_payment_refund_cancel_req: UnibeeApiMerchantPaymentRefundCancelReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantAuthSsoLoginOTPPost200Response]:
+        """Cancel Payment Refund
+
+
+        :param unibee_api_merchant_payment_refund_cancel_req: (required)
+        :type unibee_api_merchant_payment_refund_cancel_req: UnibeeApiMerchantPaymentRefundCancelReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._payment_refund_cancel_post_serialize(
+            unibee_api_merchant_payment_refund_cancel_req=unibee_api_merchant_payment_refund_cancel_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def payment_refund_cancel_post_without_preload_content(
+        self,
+        unibee_api_merchant_payment_refund_cancel_req: UnibeeApiMerchantPaymentRefundCancelReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Cancel Payment Refund
+
+
+        :param unibee_api_merchant_payment_refund_cancel_req: (required)
+        :type unibee_api_merchant_payment_refund_cancel_req: UnibeeApiMerchantPaymentRefundCancelReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._payment_refund_cancel_post_serialize(
+            unibee_api_merchant_payment_refund_cancel_req=unibee_api_merchant_payment_refund_cancel_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _payment_refund_cancel_post_serialize(
+        self,
+        unibee_api_merchant_payment_refund_cancel_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_payment_refund_cancel_req is not None:
+            _body_params = unibee_api_merchant_payment_refund_cancel_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/payment/refund/cancel',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2150,9 +2675,7 @@ class Payment:
     @validate_call
     def payment_refund_new_post(
         self,
-        refund_amount: Annotated[StrictInt, Field(description="RefundAmount, Cent")],
-        currency: Annotated[StrictStr, Field(description="Currency")],
-        merchant_payment_refund_new_post_request: MerchantPaymentRefundNewPostRequest,
+        unibee_api_merchant_payment_new_payment_refund_req: UnibeeApiMerchantPaymentNewPaymentRefundReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2169,12 +2692,8 @@ class Payment:
         """New Payment Refund
 
 
-        :param refund_amount: RefundAmount, Cent (required)
-        :type refund_amount: int
-        :param currency: Currency (required)
-        :type currency: str
-        :param merchant_payment_refund_new_post_request: (required)
-        :type merchant_payment_refund_new_post_request: MerchantPaymentRefundNewPostRequest
+        :param unibee_api_merchant_payment_new_payment_refund_req: (required)
+        :type unibee_api_merchant_payment_new_payment_refund_req: UnibeeApiMerchantPaymentNewPaymentRefundReq
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2198,9 +2717,7 @@ class Payment:
         """ # noqa: E501
 
         _param = self._payment_refund_new_post_serialize(
-            refund_amount=refund_amount,
-            currency=currency,
-            merchant_payment_refund_new_post_request=merchant_payment_refund_new_post_request,
+            unibee_api_merchant_payment_new_payment_refund_req=unibee_api_merchant_payment_new_payment_refund_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2224,9 +2741,7 @@ class Payment:
     @validate_call
     def payment_refund_new_post_with_http_info(
         self,
-        refund_amount: Annotated[StrictInt, Field(description="RefundAmount, Cent")],
-        currency: Annotated[StrictStr, Field(description="Currency")],
-        merchant_payment_refund_new_post_request: MerchantPaymentRefundNewPostRequest,
+        unibee_api_merchant_payment_new_payment_refund_req: UnibeeApiMerchantPaymentNewPaymentRefundReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2243,12 +2758,8 @@ class Payment:
         """New Payment Refund
 
 
-        :param refund_amount: RefundAmount, Cent (required)
-        :type refund_amount: int
-        :param currency: Currency (required)
-        :type currency: str
-        :param merchant_payment_refund_new_post_request: (required)
-        :type merchant_payment_refund_new_post_request: MerchantPaymentRefundNewPostRequest
+        :param unibee_api_merchant_payment_new_payment_refund_req: (required)
+        :type unibee_api_merchant_payment_new_payment_refund_req: UnibeeApiMerchantPaymentNewPaymentRefundReq
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2272,9 +2783,7 @@ class Payment:
         """ # noqa: E501
 
         _param = self._payment_refund_new_post_serialize(
-            refund_amount=refund_amount,
-            currency=currency,
-            merchant_payment_refund_new_post_request=merchant_payment_refund_new_post_request,
+            unibee_api_merchant_payment_new_payment_refund_req=unibee_api_merchant_payment_new_payment_refund_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2298,9 +2807,7 @@ class Payment:
     @validate_call
     def payment_refund_new_post_without_preload_content(
         self,
-        refund_amount: Annotated[StrictInt, Field(description="RefundAmount, Cent")],
-        currency: Annotated[StrictStr, Field(description="Currency")],
-        merchant_payment_refund_new_post_request: MerchantPaymentRefundNewPostRequest,
+        unibee_api_merchant_payment_new_payment_refund_req: UnibeeApiMerchantPaymentNewPaymentRefundReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2317,12 +2824,8 @@ class Payment:
         """New Payment Refund
 
 
-        :param refund_amount: RefundAmount, Cent (required)
-        :type refund_amount: int
-        :param currency: Currency (required)
-        :type currency: str
-        :param merchant_payment_refund_new_post_request: (required)
-        :type merchant_payment_refund_new_post_request: MerchantPaymentRefundNewPostRequest
+        :param unibee_api_merchant_payment_new_payment_refund_req: (required)
+        :type unibee_api_merchant_payment_new_payment_refund_req: UnibeeApiMerchantPaymentNewPaymentRefundReq
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2346,9 +2849,7 @@ class Payment:
         """ # noqa: E501
 
         _param = self._payment_refund_new_post_serialize(
-            refund_amount=refund_amount,
-            currency=currency,
-            merchant_payment_refund_new_post_request=merchant_payment_refund_new_post_request,
+            unibee_api_merchant_payment_new_payment_refund_req=unibee_api_merchant_payment_new_payment_refund_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2367,9 +2868,7 @@ class Payment:
 
     def _payment_refund_new_post_serialize(
         self,
-        refund_amount,
-        currency,
-        merchant_payment_refund_new_post_request,
+        unibee_api_merchant_payment_new_payment_refund_req,
         _request_auth,
         _content_type,
         _headers,
@@ -2390,19 +2889,11 @@ class Payment:
 
         # process the path parameters
         # process the query parameters
-        if refund_amount is not None:
-            
-            _query_params.append(('refundAmount', refund_amount))
-            
-        if currency is not None:
-            
-            _query_params.append(('currency', currency))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if merchant_payment_refund_new_post_request is not None:
-            _body_params = merchant_payment_refund_new_post_request
+        if unibee_api_merchant_payment_new_payment_refund_req is not None:
+            _body_params = unibee_api_merchant_payment_new_payment_refund_req
 
 
         # set the HTTP header `Accept`

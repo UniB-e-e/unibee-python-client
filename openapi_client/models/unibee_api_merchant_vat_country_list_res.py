@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_vat_country_rate import UnibeeInternalLogicGatewayRoVatCountryRate
+from openapi_client.models.unibee_api_bean_vat_country_rate import UnibeeApiBeanVatCountryRate
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantVatCountryListRes(BaseModel):
     """
     UnibeeApiMerchantVatCountryListRes
     """ # noqa: E501
-    vat_country_list: Optional[List[UnibeeInternalLogicGatewayRoVatCountryRate]] = Field(default=None, description="VatCountryList", alias="vatCountryList")
+    vat_country_list: Optional[List[UnibeeApiBeanVatCountryRate]] = Field(default=None, description="VatCountryList", alias="vatCountryList")
     __properties: ClassVar[List[str]] = ["vatCountryList"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantVatCountryListRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "vatCountryList": [UnibeeInternalLogicGatewayRoVatCountryRate.from_dict(_item) for _item in obj["vatCountryList"]] if obj.get("vatCountryList") is not None else None
+            "vatCountryList": [UnibeeApiBeanVatCountryRate.from_dict(_item) for _item in obj["vatCountryList"]] if obj.get("vatCountryList") is not None else None
         })
         return _obj
 

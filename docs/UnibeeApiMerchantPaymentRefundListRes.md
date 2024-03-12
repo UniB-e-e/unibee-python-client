@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**refund_details** | [**List[UnibeeInternalLogicGatewayRoRefundDetailRo]**](UnibeeInternalLogicGatewayRoRefundDetailRo.md) | RefundDetails | [optional] 
+**refund_details** | [**List[UnibeeApiMerchantPaymentRefundDetail]**](UnibeeApiMerchantPaymentRefundDetail.md) | RefundDetails | [optional] 
 
 ## Example
 

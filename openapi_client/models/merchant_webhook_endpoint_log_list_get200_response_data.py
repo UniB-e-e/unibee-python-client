@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant_webhook_log import UnibeeInternalModelEntityOverseaPayMerchantWebhookLog
+from openapi_client.models.unibee_api_bean_merchant_webhook_log_simplify import UnibeeApiBeanMerchantWebhookLogSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class MerchantWebhookEndpointLogListGet200ResponseData(BaseModel):
     """
     MerchantWebhookEndpointLogListGet200ResponseData
     """ # noqa: E501
-    endpoint_log_list: Optional[List[UnibeeInternalModelEntityOverseaPayMerchantWebhookLog]] = Field(default=None, description="EndpointLogList", alias="endpointLogList")
+    endpoint_log_list: Optional[List[UnibeeApiBeanMerchantWebhookLogSimplify]] = Field(default=None, description="EndpointLogList", alias="endpointLogList")
     __properties: ClassVar[List[str]] = ["endpointLogList"]
 
     model_config = {
@@ -88,7 +88,7 @@ class MerchantWebhookEndpointLogListGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "endpointLogList": [UnibeeInternalModelEntityOverseaPayMerchantWebhookLog.from_dict(_item) for _item in obj["endpointLogList"]] if obj.get("endpointLogList") is not None else None
+            "endpointLogList": [UnibeeApiBeanMerchantWebhookLogSimplify.from_dict(_item) for _item in obj["endpointLogList"]] if obj.get("endpointLogList") is not None else None
         })
         return _obj
 

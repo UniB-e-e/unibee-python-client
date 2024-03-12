@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addon_params** | [**List[UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo]**](UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo.md) | addonParams | [optional] 
+**addon_params** | [**List[UnibeeApiBeanPlanAddonParam]**](UnibeeApiBeanPlanAddonParam.md) | addonParams | [optional] 
 **confirm_currency** | **str** | Currency To Be Confirmed，Get From Preview | 
 **confirm_total_amount** | **int** | TotalAmount To Be Confirmed，Get From Preview | 
 **metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
 **new_plan_id** | **int** | New PlanId | 
 **proration_date** | **int** | prorationDate date to start Proration，Get From Preview | 
-**quantity** | **int** | Quantity，Default 1 | [optional] 
+**quantity** | **int** | Quantity | 
 **subscription_id** | **str** | SubscriptionId | 
 **with_immediate_effect** | **int** | Effect Immediate，1-Immediate，2-Next Period | [optional] 
 

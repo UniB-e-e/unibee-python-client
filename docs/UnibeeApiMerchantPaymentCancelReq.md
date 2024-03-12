@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**external_cancel_id** | **str** | ExternalCancelId | 
 **payment_id** | **str** | PaymentId | 
 
 ## Example

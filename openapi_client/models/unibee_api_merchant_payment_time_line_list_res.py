@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_payment_timeline import UnibeeInternalModelEntityOverseaPayPaymentTimeline
+from openapi_client.models.unibee_api_bean_payment_timeline_simplify import UnibeeApiBeanPaymentTimelineSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantPaymentTimeLineListRes(BaseModel):
     """
     UnibeeApiMerchantPaymentTimeLineListRes
     """ # noqa: E501
-    payment_time_lines: Optional[List[UnibeeInternalModelEntityOverseaPayPaymentTimeline]] = Field(default=None, description="PaymentTimeLines", alias="paymentTimeLines")
+    payment_time_lines: Optional[List[UnibeeApiBeanPaymentTimelineSimplify]] = Field(default=None, description="PaymentTimeLines", alias="paymentTimeLines")
     __properties: ClassVar[List[str]] = ["paymentTimeLines"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantPaymentTimeLineListRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "paymentTimeLines": [UnibeeInternalModelEntityOverseaPayPaymentTimeline.from_dict(_item) for _item in obj["paymentTimeLines"]] if obj.get("paymentTimeLines") is not None else None
+            "paymentTimeLines": [UnibeeApiBeanPaymentTimelineSimplify.from_dict(_item) for _item in obj["paymentTimeLines"]] if obj.get("paymentTimeLines") is not None else None
         })
         return _obj
 

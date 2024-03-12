@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan** | [**UnibeeInternalLogicGatewayRoPlanDetailRo**](UnibeeInternalLogicGatewayRoPlanDetailRo.md) |  | [optional] 
+**plan** | [**UnibeeApiMerchantPlanPlanDetail**](UnibeeApiMerchantPlanPlanDetail.md) |  | [optional] 
 
 ## Example
 

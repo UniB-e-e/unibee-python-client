@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gateways** | [**List[UnibeeInternalLogicGatewayRoGatewaySimplify]**](UnibeeInternalLogicGatewayRoGatewaySimplify.md) |  | [optional] 
+**gateways** | [**List[UnibeeApiBeanGatewaySimplify]**](UnibeeApiBeanGatewaySimplify.md) |  | [optional] 
 
 ## Example
 

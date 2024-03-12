@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpoint_list** | [**List[UnibeeInternalLogicWebhookMerchantWebhookEndpointVo]**](UnibeeInternalLogicWebhookMerchantWebhookEndpointVo.md) | EndpointList | [optional] 
+**endpoint_list** | [**List[UnibeeApiBeanMerchantWebhookEndpointSimplify]**](UnibeeApiBeanMerchantWebhookEndpointSimplify.md) | EndpointList | [optional] 
 
 ## Example
 

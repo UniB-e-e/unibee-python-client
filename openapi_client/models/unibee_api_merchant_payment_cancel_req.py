@@ -26,9 +26,8 @@ class UnibeeApiMerchantPaymentCancelReq(BaseModel):
     """
     UnibeeApiMerchantPaymentCancelReq
     """ # noqa: E501
-    external_cancel_id: StrictStr = Field(description="ExternalCancelId", alias="externalCancelId")
     payment_id: StrictStr = Field(description="PaymentId", alias="paymentId")
-    __properties: ClassVar[List[str]] = ["externalCancelId", "paymentId"]
+    __properties: ClassVar[List[str]] = ["paymentId"]
 
     model_config = {
         "populate_by_name": True,
@@ -81,7 +80,6 @@ class UnibeeApiMerchantPaymentCancelReq(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "externalCancelId": obj.get("externalCancelId"),
             "paymentId": obj.get("paymentId")
         })
         return _obj

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_user_account import UnibeeInternalModelEntityOverseaPayUserAccount
+from openapi_client.models.unibee_api_bean_user_account_simplify import UnibeeApiBeanUserAccountSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantUserGetRes(BaseModel):
     """
     UnibeeApiMerchantUserGetRes
     """ # noqa: E501
-    user: Optional[UnibeeInternalModelEntityOverseaPayUserAccount] = None
+    user: Optional[UnibeeApiBeanUserAccountSimplify] = None
     __properties: ClassVar[List[str]] = ["user"]
 
     model_config = {
@@ -84,7 +84,7 @@ class UnibeeApiMerchantUserGetRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "user": UnibeeInternalModelEntityOverseaPayUserAccount.from_dict(obj["user"]) if obj.get("user") is not None else None
+            "user": UnibeeApiBeanUserAccountSimplify.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj
 

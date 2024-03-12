@@ -19,12 +19,12 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_simplify import UnibeeInternalLogicGatewayRoGatewaySimplify
-from openapi_client.models.unibee_internal_logic_gateway_ro_plan_addon_vo import UnibeeInternalLogicGatewayRoPlanAddonVo
-from openapi_client.models.unibee_internal_logic_gateway_ro_plan_simplify import UnibeeInternalLogicGatewayRoPlanSimplify
-from openapi_client.models.unibee_internal_logic_gateway_ro_subscription_pending_update_detail_vo import UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo
-from openapi_client.models.unibee_internal_logic_gateway_ro_subscription_simplify import UnibeeInternalLogicGatewayRoSubscriptionSimplify
-from openapi_client.models.unibee_internal_logic_gateway_ro_user_account_simplify import UnibeeInternalLogicGatewayRoUserAccountSimplify
+from openapi_client.models.unibee_api_bean_gateway_simplify import UnibeeApiBeanGatewaySimplify
+from openapi_client.models.unibee_api_bean_plan_addon_detail import UnibeeApiBeanPlanAddonDetail
+from openapi_client.models.unibee_api_bean_plan_simplify import UnibeeApiBeanPlanSimplify
+from openapi_client.models.unibee_api_bean_subscription_pending_update_detail import UnibeeApiBeanSubscriptionPendingUpdateDetail
+from openapi_client.models.unibee_api_bean_subscription_simplify import UnibeeApiBeanSubscriptionSimplify
+from openapi_client.models.unibee_api_bean_user_account_simplify import UnibeeApiBeanUserAccountSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,12 +32,12 @@ class UnibeeApiMerchantSubscriptionDetailRes(BaseModel):
     """
     UnibeeApiMerchantSubscriptionDetailRes
     """ # noqa: E501
-    addons: Optional[List[UnibeeInternalLogicGatewayRoPlanAddonVo]] = Field(default=None, description="Plan Addon")
-    gateway: Optional[UnibeeInternalLogicGatewayRoGatewaySimplify] = None
-    plan: Optional[UnibeeInternalLogicGatewayRoPlanSimplify] = None
-    subscription: Optional[UnibeeInternalLogicGatewayRoSubscriptionSimplify] = None
-    unfinished_subscription_pending_update: Optional[UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo] = Field(default=None, alias="unfinishedSubscriptionPendingUpdate")
-    user: Optional[UnibeeInternalLogicGatewayRoUserAccountSimplify] = None
+    addons: Optional[List[UnibeeApiBeanPlanAddonDetail]] = Field(default=None, description="Plan Addon")
+    gateway: Optional[UnibeeApiBeanGatewaySimplify] = None
+    plan: Optional[UnibeeApiBeanPlanSimplify] = None
+    subscription: Optional[UnibeeApiBeanSubscriptionSimplify] = None
+    unfinished_subscription_pending_update: Optional[UnibeeApiBeanSubscriptionPendingUpdateDetail] = Field(default=None, alias="unfinishedSubscriptionPendingUpdate")
+    user: Optional[UnibeeApiBeanUserAccountSimplify] = None
     __properties: ClassVar[List[str]] = ["addons", "gateway", "plan", "subscription", "unfinishedSubscriptionPendingUpdate", "user"]
 
     model_config = {
@@ -113,12 +113,12 @@ class UnibeeApiMerchantSubscriptionDetailRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "addons": [UnibeeInternalLogicGatewayRoPlanAddonVo.from_dict(_item) for _item in obj["addons"]] if obj.get("addons") is not None else None,
-            "gateway": UnibeeInternalLogicGatewayRoGatewaySimplify.from_dict(obj["gateway"]) if obj.get("gateway") is not None else None,
-            "plan": UnibeeInternalLogicGatewayRoPlanSimplify.from_dict(obj["plan"]) if obj.get("plan") is not None else None,
-            "subscription": UnibeeInternalLogicGatewayRoSubscriptionSimplify.from_dict(obj["subscription"]) if obj.get("subscription") is not None else None,
-            "unfinishedSubscriptionPendingUpdate": UnibeeInternalLogicGatewayRoSubscriptionPendingUpdateDetailVo.from_dict(obj["unfinishedSubscriptionPendingUpdate"]) if obj.get("unfinishedSubscriptionPendingUpdate") is not None else None,
-            "user": UnibeeInternalLogicGatewayRoUserAccountSimplify.from_dict(obj["user"]) if obj.get("user") is not None else None
+            "addons": [UnibeeApiBeanPlanAddonDetail.from_dict(_item) for _item in obj["addons"]] if obj.get("addons") is not None else None,
+            "gateway": UnibeeApiBeanGatewaySimplify.from_dict(obj["gateway"]) if obj.get("gateway") is not None else None,
+            "plan": UnibeeApiBeanPlanSimplify.from_dict(obj["plan"]) if obj.get("plan") is not None else None,
+            "subscription": UnibeeApiBeanSubscriptionSimplify.from_dict(obj["subscription"]) if obj.get("subscription") is not None else None,
+            "unfinishedSubscriptionPendingUpdate": UnibeeApiBeanSubscriptionPendingUpdateDetail.from_dict(obj["unfinishedSubscriptionPendingUpdate"]) if obj.get("unfinishedSubscriptionPendingUpdate") is not None else None,
+            "user": UnibeeApiBeanUserAccountSimplify.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj
 

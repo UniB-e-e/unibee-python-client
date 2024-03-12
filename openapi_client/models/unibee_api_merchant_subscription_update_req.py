@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_subscription_plan_addon_param_ro import UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo
+from openapi_client.models.unibee_api_bean_plan_addon_param import UnibeeApiBeanPlanAddonParam
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,13 +27,13 @@ class UnibeeApiMerchantSubscriptionUpdateReq(BaseModel):
     """
     UnibeeApiMerchantSubscriptionUpdateReq
     """ # noqa: E501
-    addon_params: Optional[List[UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo]] = Field(default=None, description="addonParams", alias="addonParams")
+    addon_params: Optional[List[UnibeeApiBeanPlanAddonParam]] = Field(default=None, description="addonParams", alias="addonParams")
     confirm_currency: StrictStr = Field(description="Currency To Be Confirmed，Get From Preview", alias="confirmCurrency")
     confirm_total_amount: StrictInt = Field(description="TotalAmount To Be Confirmed，Get From Preview", alias="confirmTotalAmount")
     metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
     new_plan_id: StrictInt = Field(description="New PlanId", alias="newPlanId")
     proration_date: StrictInt = Field(description="prorationDate date to start Proration，Get From Preview", alias="prorationDate")
-    quantity: Optional[StrictInt] = Field(default=None, description="Quantity，Default 1")
+    quantity: StrictInt = Field(description="Quantity")
     subscription_id: StrictStr = Field(description="SubscriptionId", alias="subscriptionId")
     with_immediate_effect: Optional[StrictInt] = Field(default=None, description="Effect Immediate，1-Immediate，2-Next Period", alias="withImmediateEffect")
     __properties: ClassVar[List[str]] = ["addonParams", "confirmCurrency", "confirmTotalAmount", "metadata", "newPlanId", "prorationDate", "quantity", "subscriptionId", "withImmediateEffect"]
@@ -96,7 +96,7 @@ class UnibeeApiMerchantSubscriptionUpdateReq(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "addonParams": [UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
+            "addonParams": [UnibeeApiBeanPlanAddonParam.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
             "confirmCurrency": obj.get("confirmCurrency"),
             "confirmTotalAmount": obj.get("confirmTotalAmount"),
             "metadata": obj.get("metadata"),

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_accounts** | [**List[UnibeeInternalModelEntityOverseaPayUserAccount]**](UnibeeInternalModelEntityOverseaPayUserAccount.md) | UserAccounts | [optional] 
+**user_accounts** | [**List[UnibeeApiBeanUserAccountSimplify]**](UnibeeApiBeanUserAccountSimplify.md) | UserAccounts | [optional] 
 
 ## Example
 

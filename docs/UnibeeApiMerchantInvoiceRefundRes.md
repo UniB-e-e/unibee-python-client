@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**refund** | [**UnibeeInternalModelEntityOverseaPayRefund**](UnibeeInternalModelEntityOverseaPayRefund.md) |  | [optional] 
+**refund** | [**UnibeeApiBeanRefundSimplify**](UnibeeApiBeanRefundSimplify.md) |  | [optional] 
 
 ## Example
 

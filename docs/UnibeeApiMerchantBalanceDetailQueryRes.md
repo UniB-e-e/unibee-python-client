@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available** | [**List[UnibeeInternalLogicGatewayRoGatewayBalance]**](UnibeeInternalLogicGatewayRoGatewayBalance.md) |  | [optional] 
-**connect_reserved** | [**List[UnibeeInternalLogicGatewayRoGatewayBalance]**](UnibeeInternalLogicGatewayRoGatewayBalance.md) |  | [optional] 
-**pending** | [**List[UnibeeInternalLogicGatewayRoGatewayBalance]**](UnibeeInternalLogicGatewayRoGatewayBalance.md) |  | [optional] 
+**available** | [**List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]**](UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.md) |  | [optional] 
+**connect_reserved** | [**List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]**](UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.md) |  | [optional] 
+**pending** | [**List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]**](UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.md) |  | [optional] 
 
 ## Example
 

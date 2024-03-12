@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant_member import UnibeeInternalModelEntityOverseaPayMerchantMember
+from openapi_client.models.unibee_api_bean_merchant_member_simplify import UnibeeApiBeanMerchantMemberSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantAuthLoginRes(BaseModel):
     """
     UnibeeApiMerchantAuthLoginRes
     """ # noqa: E501
-    merchant_member: Optional[UnibeeInternalModelEntityOverseaPayMerchantMember] = Field(default=None, alias="merchantMember")
+    merchant_member: Optional[UnibeeApiBeanMerchantMemberSimplify] = Field(default=None, alias="merchantMember")
     token: Optional[StrictStr] = Field(default=None, description="Token")
     __properties: ClassVar[List[str]] = ["merchantMember", "token"]
 
@@ -85,7 +85,7 @@ class UnibeeApiMerchantAuthLoginRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "merchantMember": UnibeeInternalModelEntityOverseaPayMerchantMember.from_dict(obj["merchantMember"]) if obj.get("merchantMember") is not None else None,
+            "merchantMember": UnibeeApiBeanMerchantMemberSimplify.from_dict(obj["merchantMember"]) if obj.get("merchantMember") is not None else None,
             "token": obj.get("token")
         })
         return _obj

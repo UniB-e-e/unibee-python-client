@@ -207,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **gateway_setup_webhook_post**
-> MerchantAuthSsoLoginOTPPost200Response gateway_setup_webhook_post(unibee_api_merchant_gateway_setup_webhook_req)
+> MerchantGatewaySetupWebhookPost200Response gateway_setup_webhook_post(unibee_api_merchant_gateway_setup_webhook_req)
 
 Gateway Webhook Setup
 
@@ -216,7 +216,7 @@ Gateway Webhook Setup
 
 ```python
 import openapi_client
-from openapi_client.models.merchant_auth_sso_login_otp_post200_response import MerchantAuthSsoLoginOTPPost200Response
+from openapi_client.models.merchant_gateway_setup_webhook_post200_response import MerchantGatewaySetupWebhookPost200Response
 from openapi_client.models.unibee_api_merchant_gateway_setup_webhook_req import UnibeeApiMerchantGatewaySetupWebhookReq
 from openapi_client.rest import ApiException
 from pprint import pprint
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MerchantAuthSsoLoginOTPPost200Response**](MerchantAuthSsoLoginOTPPost200Response.md)
+[**MerchantGatewaySetupWebhookPost200Response**](MerchantGatewaySetupWebhookPost200Response.md)
 
 ### Authorization
 

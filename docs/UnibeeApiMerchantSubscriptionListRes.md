@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscriptions** | [**List[UnibeeInternalLogicGatewayRoSubscriptionDetailVo]**](UnibeeInternalLogicGatewayRoSubscriptionDetailVo.md) | Subscriptions | [optional] 
+**subscriptions** | [**List[UnibeeApiBeanSubscriptionDetail]**](UnibeeApiBeanSubscriptionDetail.md) | Subscriptions | [optional] 
 
 ## Example
 

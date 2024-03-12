@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_balance import UnibeeInternalLogicGatewayRoGatewayBalance
+from openapi_client.models.unibee_internal_logic_gateway_gateway_bean_gateway_balance import UnibeeInternalLogicGatewayGatewayBeanGatewayBalance
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,9 @@ class MerchantBalanceUserBalanceQueryGet200ResponseData(BaseModel):
     """
     MerchantBalanceUserBalanceQueryGet200ResponseData
     """ # noqa: E501
-    balance: Optional[UnibeeInternalLogicGatewayRoGatewayBalance] = None
-    cash_balance: Optional[List[UnibeeInternalLogicGatewayRoGatewayBalance]] = Field(default=None, alias="cashBalance")
-    invoice_credit_balance: Optional[List[UnibeeInternalLogicGatewayRoGatewayBalance]] = Field(default=None, alias="invoiceCreditBalance")
+    balance: Optional[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance] = None
+    cash_balance: Optional[List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]] = Field(default=None, alias="cashBalance")
+    invoice_credit_balance: Optional[List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]] = Field(default=None, alias="invoiceCreditBalance")
     __properties: ClassVar[List[str]] = ["balance", "cashBalance", "invoiceCreditBalance"]
 
     model_config = {
@@ -100,9 +100,9 @@ class MerchantBalanceUserBalanceQueryGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "balance": UnibeeInternalLogicGatewayRoGatewayBalance.from_dict(obj["balance"]) if obj.get("balance") is not None else None,
-            "cashBalance": [UnibeeInternalLogicGatewayRoGatewayBalance.from_dict(_item) for _item in obj["cashBalance"]] if obj.get("cashBalance") is not None else None,
-            "invoiceCreditBalance": [UnibeeInternalLogicGatewayRoGatewayBalance.from_dict(_item) for _item in obj["invoiceCreditBalance"]] if obj.get("invoiceCreditBalance") is not None else None
+            "balance": UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.from_dict(obj["balance"]) if obj.get("balance") is not None else None,
+            "cashBalance": [UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.from_dict(_item) for _item in obj["cashBalance"]] if obj.get("cashBalance") is not None else None,
+            "invoiceCreditBalance": [UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.from_dict(_item) for _item in obj["invoiceCreditBalance"]] if obj.get("invoiceCreditBalance") is not None else None
         })
         return _obj
 

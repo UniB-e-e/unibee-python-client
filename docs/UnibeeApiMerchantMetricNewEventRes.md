@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**merchant_metric_event** | [**UnibeeInternalModelEntityOverseaPayMerchantMetricEvent**](UnibeeInternalModelEntityOverseaPayMerchantMetricEvent.md) |  | [optional] 
+**merchant_metric_event** | [**UnibeeApiBeanMerchantMetricEventSimplify**](UnibeeApiBeanMerchantMetricEventSimplify.md) |  | [optional] 
 
 ## Example
 

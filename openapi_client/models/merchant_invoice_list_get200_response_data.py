@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_invoice_detail_ro import UnibeeInternalLogicGatewayRoInvoiceDetailRo
+from openapi_client.models.unibee_api_bean_invoice_detail import UnibeeApiBeanInvoiceDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class MerchantInvoiceListGet200ResponseData(BaseModel):
     """
     MerchantInvoiceListGet200ResponseData
     """ # noqa: E501
-    invoices: Optional[List[UnibeeInternalLogicGatewayRoInvoiceDetailRo]] = Field(default=None, description="invoice Detail List")
+    invoices: Optional[List[UnibeeApiBeanInvoiceDetail]] = Field(default=None, description="invoice Detail List")
     __properties: ClassVar[List[str]] = ["invoices"]
 
     model_config = {
@@ -88,7 +88,7 @@ class MerchantInvoiceListGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "invoices": [UnibeeInternalLogicGatewayRoInvoiceDetailRo.from_dict(_item) for _item in obj["invoices"]] if obj.get("invoices") is not None else None
+            "invoices": [UnibeeApiBeanInvoiceDetail.from_dict(_item) for _item in obj["invoices"]] if obj.get("invoices") is not None else None
         })
         return _obj
 

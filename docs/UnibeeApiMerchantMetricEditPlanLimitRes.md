@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**merchant_metric_plan_limit** | [**UnibeeInternalLogicGatewayRoMerchantMetricPlanLimitVo**](UnibeeInternalLogicGatewayRoMerchantMetricPlanLimitVo.md) |  | [optional] 
+**merchant_metric_plan_limit** | [**UnibeeApiBeanMerchantMetricPlanLimit**](UnibeeApiBeanMerchantMetricPlanLimit.md) |  | [optional] 
 
 ## Example
 

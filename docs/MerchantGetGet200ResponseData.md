@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | [**List[UnibeeInternalLogicGatewayRoCurrency]**](UnibeeInternalLogicGatewayRoCurrency.md) | Currency List | [optional] 
+**currency** | [**List[UnibeeApiBeanCurrency]**](UnibeeApiBeanCurrency.md) | Currency List | [optional] 
 **time_zone** | **List[str]** | TimeZone List | [optional] 
 **env** | **str** | System Env, em: daily|stage|local|prod | [optional] 
-**gateway** | [**List[UnibeeInternalLogicGatewayRoGatewaySimplify]**](UnibeeInternalLogicGatewayRoGatewaySimplify.md) | Gateway List | [optional] 
+**gateway** | [**List[UnibeeApiBeanGatewaySimplify]**](UnibeeApiBeanGatewaySimplify.md) | Gateway List | [optional] 
 **is_prod** | **bool** | Check System Env Is Prod, true|false | [optional] 
-**merchant** | [**UnibeeInternalModelEntityOverseaPayMerchant**](UnibeeInternalModelEntityOverseaPayMerchant.md) |  | [optional] 
+**merchant** | [**UnibeeApiBeanMerchantSimplify**](UnibeeApiBeanMerchantSimplify.md) |  | [optional] 
 
 ## Example
 

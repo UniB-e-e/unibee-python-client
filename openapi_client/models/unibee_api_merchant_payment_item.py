@@ -26,12 +26,12 @@ class UnibeeApiMerchantPaymentItem(BaseModel):
     """
     UnibeeApiMerchantPaymentItem
     """ # noqa: E501
-    amount: Optional[StrictInt] = Field(default=None, description="the item total amount,cent")
-    amount_excluding_tax: Optional[StrictInt] = Field(default=None, alias="amountExcludingTax")
+    amount: StrictInt = Field(description="item total amount, sum(item.amount) should equal to totalAmount, cent")
+    amount_excluding_tax: Optional[StrictInt] = Field(default=None, description="amountExcludingTax = unitAmountExcludingTax * quantity", alias="amountExcludingTax")
     currency: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
+    description: StrictStr = Field(description="item description ")
     quantity: Optional[StrictInt] = None
-    tax: Optional[StrictInt] = None
+    tax: Optional[StrictInt] = Field(default=None, description="tax = amount - amountExcludingTax")
     tax_scale: Optional[StrictInt] = Field(default=None, description="Tax Scale，1000 = 10%", alias="taxScale")
     unit_amount_excluding_tax: Optional[StrictInt] = Field(default=None, alias="unitAmountExcludingTax")
     __properties: ClassVar[List[str]] = ["amount", "amountExcludingTax", "currency", "description", "quantity", "tax", "taxScale", "unitAmountExcludingTax"]

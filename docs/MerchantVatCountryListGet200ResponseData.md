@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**vat_country_list** | [**List[UnibeeInternalLogicGatewayRoVatCountryRate]**](UnibeeInternalLogicGatewayRoVatCountryRate.md) | VatCountryList | [optional] 
+**vat_country_list** | [**List[UnibeeApiBeanVatCountryRate]**](UnibeeApiBeanVatCountryRate.md) | VatCountryList | [optional] 
 
 ## Example
 

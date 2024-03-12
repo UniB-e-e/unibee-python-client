@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_payment_detail_ro import UnibeeInternalLogicGatewayRoPaymentDetailRo
+from openapi_client.models.unibee_api_merchant_payment_payment_detail import UnibeeApiMerchantPaymentPaymentDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantPaymentListRes(BaseModel):
     """
     UnibeeApiMerchantPaymentListRes
     """ # noqa: E501
-    payment_details: Optional[List[UnibeeInternalLogicGatewayRoPaymentDetailRo]] = Field(default=None, description="PaymentDetails", alias="paymentDetails")
+    payment_details: Optional[List[UnibeeApiMerchantPaymentPaymentDetail]] = Field(default=None, description="PaymentDetails", alias="paymentDetails")
     __properties: ClassVar[List[str]] = ["paymentDetails"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantPaymentListRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "paymentDetails": [UnibeeInternalLogicGatewayRoPaymentDetailRo.from_dict(_item) for _item in obj["paymentDetails"]] if obj.get("paymentDetails") is not None else None
+            "paymentDetails": [UnibeeApiMerchantPaymentPaymentDetail.from_dict(_item) for _item in obj["paymentDetails"]] if obj.get("paymentDetails") is not None else None
         })
         return _obj
 

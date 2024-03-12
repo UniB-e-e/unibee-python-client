@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_merchant import UnibeeInternalModelEntityOverseaPayMerchant
+from openapi_client.models.unibee_api_bean_merchant_simplify import UnibeeApiBeanMerchantSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantProfileUpdateRes(BaseModel):
     """
     UnibeeApiMerchantProfileUpdateRes
     """ # noqa: E501
-    merchant: Optional[UnibeeInternalModelEntityOverseaPayMerchant] = None
+    merchant: Optional[UnibeeApiBeanMerchantSimplify] = None
     __properties: ClassVar[List[str]] = ["merchant"]
 
     model_config = {
@@ -84,7 +84,7 @@ class UnibeeApiMerchantProfileUpdateRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "merchant": UnibeeInternalModelEntityOverseaPayMerchant.from_dict(obj["merchant"]) if obj.get("merchant") is not None else None
+            "merchant": UnibeeApiBeanMerchantSimplify.from_dict(obj["merchant"]) if obj.get("merchant") is not None else None
         })
         return _obj
 

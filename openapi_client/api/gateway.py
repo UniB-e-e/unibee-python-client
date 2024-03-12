@@ -18,6 +18,7 @@ from typing_extensions import Annotated
 
 from openapi_client.models.merchant_auth_sso_login_otp_post200_response import MerchantAuthSsoLoginOTPPost200Response
 from openapi_client.models.merchant_gateway_list_get200_response import MerchantGatewayListGet200Response
+from openapi_client.models.merchant_gateway_setup_webhook_post200_response import MerchantGatewaySetupWebhookPost200Response
 from openapi_client.models.unibee_api_merchant_gateway_edit_req import UnibeeApiMerchantGatewayEditReq
 from openapi_client.models.unibee_api_merchant_gateway_setup_req import UnibeeApiMerchantGatewaySetupReq
 from openapi_client.models.unibee_api_merchant_gateway_setup_webhook_req import UnibeeApiMerchantGatewaySetupWebhookReq
@@ -829,7 +830,7 @@ class Gateway:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> MerchantAuthSsoLoginOTPPost200Response:
+    ) -> MerchantGatewaySetupWebhookPost200Response:
         """Gateway Webhook Setup
 
 
@@ -866,7 +867,7 @@ class Gateway:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantAuthSsoLoginOTPPost200Response",
+            '200': "MerchantGatewaySetupWebhookPost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -895,7 +896,7 @@ class Gateway:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[MerchantAuthSsoLoginOTPPost200Response]:
+    ) -> ApiResponse[MerchantGatewaySetupWebhookPost200Response]:
         """Gateway Webhook Setup
 
 
@@ -932,7 +933,7 @@ class Gateway:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantAuthSsoLoginOTPPost200Response",
+            '200': "MerchantGatewaySetupWebhookPost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -998,7 +999,7 @@ class Gateway:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantAuthSsoLoginOTPPost200Response",
+            '200': "MerchantGatewaySetupWebhookPost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,

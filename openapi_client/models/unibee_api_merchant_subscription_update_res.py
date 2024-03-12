@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_subscription_pending_update import UnibeeInternalModelEntityOverseaPaySubscriptionPendingUpdate
+from openapi_client.models.unibee_api_bean_subscription_pending_update_detail import UnibeeApiBeanSubscriptionPendingUpdateDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class UnibeeApiMerchantSubscriptionUpdateRes(BaseModel):
     """ # noqa: E501
     link: Optional[StrictStr] = None
     paid: Optional[StrictBool] = None
-    subscription_pending_update: Optional[UnibeeInternalModelEntityOverseaPaySubscriptionPendingUpdate] = Field(default=None, alias="subscriptionPendingUpdate")
+    subscription_pending_update: Optional[UnibeeApiBeanSubscriptionPendingUpdateDetail] = Field(default=None, alias="subscriptionPendingUpdate")
     __properties: ClassVar[List[str]] = ["link", "paid", "subscriptionPendingUpdate"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantSubscriptionUpdateRes(BaseModel):
         _obj = cls.model_validate({
             "link": obj.get("link"),
             "paid": obj.get("paid"),
-            "subscriptionPendingUpdate": UnibeeInternalModelEntityOverseaPaySubscriptionPendingUpdate.from_dict(obj["subscriptionPendingUpdate"]) if obj.get("subscriptionPendingUpdate") is not None else None
+            "subscriptionPendingUpdate": UnibeeApiBeanSubscriptionPendingUpdateDetail.from_dict(obj["subscriptionPendingUpdate"]) if obj.get("subscriptionPendingUpdate") is not None else None
         })
         return _obj
 

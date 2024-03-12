@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_time_lines** | [**List[UnibeeInternalLogicGatewayRoSubscriptionTimeLineDetailVo]**](UnibeeInternalLogicGatewayRoSubscriptionTimeLineDetailVo.md) | SubscriptionTimeLines | [optional] 
+**subscription_time_lines** | [**List[UnibeeApiBeanSubscriptionTimeLineDetail]**](UnibeeApiBeanSubscriptionTimeLineDetail.md) | SubscriptionTimeLines | [optional] 
 
 ## Example
 

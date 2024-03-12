@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_currency import UnibeeInternalLogicGatewayRoCurrency
-from openapi_client.models.unibee_internal_logic_gateway_ro_gateway_simplify import UnibeeInternalLogicGatewayRoGatewaySimplify
+from openapi_client.models.unibee_api_bean_currency import UnibeeApiBeanCurrency
+from openapi_client.models.unibee_api_bean_gateway_simplify import UnibeeApiBeanGatewaySimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,9 +29,9 @@ class UnibeeApiSystemInformationGetRes(BaseModel):
     UnibeeApiSystemInformationGetRes
     """ # noqa: E501
     env: Optional[StrictStr] = Field(default=None, description="System Env, em: daily|stage|local|prod")
-    gateway: Optional[List[UnibeeInternalLogicGatewayRoGatewaySimplify]] = Field(default=None, description="Support Currency List")
+    gateway: Optional[List[UnibeeApiBeanGatewaySimplify]] = Field(default=None, description="Support Currency List")
     is_prod: Optional[StrictBool] = Field(default=None, description="Check System Env Is Prod, true|false", alias="isProd")
-    support_currency: Optional[List[UnibeeInternalLogicGatewayRoCurrency]] = Field(default=None, description="Support Currency List", alias="supportCurrency")
+    support_currency: Optional[List[UnibeeApiBeanCurrency]] = Field(default=None, description="Support Currency List", alias="supportCurrency")
     support_time_zone: Optional[List[StrictStr]] = Field(default=None, description="Support TimeZone List", alias="supportTimeZone")
     __properties: ClassVar[List[str]] = ["env", "gateway", "isProd", "supportCurrency", "supportTimeZone"]
 
@@ -101,9 +101,9 @@ class UnibeeApiSystemInformationGetRes(BaseModel):
 
         _obj = cls.model_validate({
             "env": obj.get("env"),
-            "gateway": [UnibeeInternalLogicGatewayRoGatewaySimplify.from_dict(_item) for _item in obj["gateway"]] if obj.get("gateway") is not None else None,
+            "gateway": [UnibeeApiBeanGatewaySimplify.from_dict(_item) for _item in obj["gateway"]] if obj.get("gateway") is not None else None,
             "isProd": obj.get("isProd"),
-            "supportCurrency": [UnibeeInternalLogicGatewayRoCurrency.from_dict(_item) for _item in obj["supportCurrency"]] if obj.get("supportCurrency") is not None else None,
+            "supportCurrency": [UnibeeApiBeanCurrency.from_dict(_item) for _item in obj["supportCurrency"]] if obj.get("supportCurrency") is not None else None,
             "supportTimeZone": obj.get("supportTimeZone")
         })
         return _obj

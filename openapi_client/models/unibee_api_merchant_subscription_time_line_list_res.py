@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_subscription_time_line_detail_vo import UnibeeInternalLogicGatewayRoSubscriptionTimeLineDetailVo
+from openapi_client.models.unibee_api_bean_subscription_time_line_detail import UnibeeApiBeanSubscriptionTimeLineDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantSubscriptionTimeLineListRes(BaseModel):
     """
     UnibeeApiMerchantSubscriptionTimeLineListRes
     """ # noqa: E501
-    subscription_time_lines: Optional[List[UnibeeInternalLogicGatewayRoSubscriptionTimeLineDetailVo]] = Field(default=None, description="SubscriptionTimeLines", alias="subscriptionTimeLines")
+    subscription_time_lines: Optional[List[UnibeeApiBeanSubscriptionTimeLineDetail]] = Field(default=None, description="SubscriptionTimeLines", alias="subscriptionTimeLines")
     __properties: ClassVar[List[str]] = ["subscriptionTimeLines"]
 
     model_config = {
@@ -88,7 +88,7 @@ class UnibeeApiMerchantSubscriptionTimeLineListRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "subscriptionTimeLines": [UnibeeInternalLogicGatewayRoSubscriptionTimeLineDetailVo.from_dict(_item) for _item in obj["subscriptionTimeLines"]] if obj.get("subscriptionTimeLines") is not None else None
+            "subscriptionTimeLines": [UnibeeApiBeanSubscriptionTimeLineDetail.from_dict(_item) for _item in obj["subscriptionTimeLines"]] if obj.get("subscriptionTimeLines") is not None else None
         })
         return _obj
 

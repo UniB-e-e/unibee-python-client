@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **email** | **str** | Email | 
 **external_payment_id** | **str** | ExternalPaymentId should unique for payment | 
 **external_user_id** | **str** | ExternalUserId, should unique for user | 
+**gas_payer** | **str** | who pay the gas, merchant|user | [optional] 
 **gateway_id** | **int** | GatewayId | 
-**line_items** | [**List[UnibeeApiMerchantPaymentItem]**](UnibeeApiMerchantPaymentItem.md) | Items | [optional] 
+**items** | [**List[UnibeeApiMerchantPaymentItem]**](UnibeeApiMerchantPaymentItem.md) | Items | [optional] 
 **metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
 **redirect_url** | **str** | Redirect Url | [optional] 
 **total_amount** | **int** | Total PaymentAmount, Cent | 

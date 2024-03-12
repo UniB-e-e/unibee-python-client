@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_model_entity_oversea_pay_refund import UnibeeInternalModelEntityOverseaPayRefund
+from openapi_client.models.unibee_api_bean_refund_simplify import UnibeeApiBeanRefundSimplify
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantInvoiceRefundRes(BaseModel):
     """
     UnibeeApiMerchantInvoiceRefundRes
     """ # noqa: E501
-    refund: Optional[UnibeeInternalModelEntityOverseaPayRefund] = None
+    refund: Optional[UnibeeApiBeanRefundSimplify] = None
     __properties: ClassVar[List[str]] = ["refund"]
 
     model_config = {
@@ -84,7 +84,7 @@ class UnibeeApiMerchantInvoiceRefundRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "refund": UnibeeInternalModelEntityOverseaPayRefund.from_dict(obj["refund"]) if obj.get("refund") is not None else None
+            "refund": UnibeeApiBeanRefundSimplify.from_dict(obj["refund"]) if obj.get("refund") is not None else None
         })
         return _obj
 

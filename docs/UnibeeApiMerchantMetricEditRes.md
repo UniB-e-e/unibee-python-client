@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**merchant_metric** | [**UnibeeInternalLogicGatewayRoMerchantMetricVo**](UnibeeInternalLogicGatewayRoMerchantMetricVo.md) |  | [optional] 
+**merchant_metric** | [**UnibeeApiBeanMerchantMetricSimplify**](UnibeeApiBeanMerchantMetricSimplify.md) |  | [optional] 
 
 ## Example
 

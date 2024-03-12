@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **str** |  | [optional] 
-**invoice** | [**UnibeeInternalLogicGatewayRoInvoiceDetailSimplify**](UnibeeInternalLogicGatewayRoInvoiceDetailSimplify.md) |  | [optional] 
-**next_period_invoice** | [**UnibeeInternalLogicGatewayRoInvoiceDetailSimplify**](UnibeeInternalLogicGatewayRoInvoiceDetailSimplify.md) |  | [optional] 
+**invoice** | [**UnibeeApiBeanInvoiceSimplify**](UnibeeApiBeanInvoiceSimplify.md) |  | [optional] 
+**next_period_invoice** | [**UnibeeApiBeanInvoiceSimplify**](UnibeeApiBeanInvoiceSimplify.md) |  | [optional] 
 **proration_date** | **int** |  | [optional] 
 **total_amount** | **int** |  | [optional] 
 

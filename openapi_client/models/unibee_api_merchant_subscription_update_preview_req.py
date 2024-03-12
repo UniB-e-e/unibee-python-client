@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_internal_logic_gateway_ro_subscription_plan_addon_param_ro import UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo
+from openapi_client.models.unibee_api_bean_plan_addon_param import UnibeeApiBeanPlanAddonParam
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UnibeeApiMerchantSubscriptionUpdatePreviewReq(BaseModel):
     """
     UnibeeApiMerchantSubscriptionUpdatePreviewReq
     """ # noqa: E501
-    addon_params: Optional[List[UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo]] = Field(default=None, description="addonParams", alias="addonParams")
+    addon_params: Optional[List[UnibeeApiBeanPlanAddonParam]] = Field(default=None, description="addonParams", alias="addonParams")
     new_plan_id: StrictInt = Field(description="New PlanId", alias="newPlanId")
     quantity: Optional[StrictInt] = Field(default=None, description="Quantity，Default 1")
     subscription_id: StrictStr = Field(description="SubscriptionId", alias="subscriptionId")
@@ -92,7 +92,7 @@ class UnibeeApiMerchantSubscriptionUpdatePreviewReq(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "addonParams": [UnibeeInternalLogicGatewayRoSubscriptionPlanAddonParamRo.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
+            "addonParams": [UnibeeApiBeanPlanAddonParam.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
             "newPlanId": obj.get("newPlanId"),
             "quantity": obj.get("quantity"),
             "subscriptionId": obj.get("subscriptionId"),

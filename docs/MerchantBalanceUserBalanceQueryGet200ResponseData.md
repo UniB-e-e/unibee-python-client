@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**balance** | [**UnibeeInternalLogicGatewayRoGatewayBalance**](UnibeeInternalLogicGatewayRoGatewayBalance.md) |  | [optional] 
-**cash_balance** | [**List[UnibeeInternalLogicGatewayRoGatewayBalance]**](UnibeeInternalLogicGatewayRoGatewayBalance.md) |  | [optional] 
-**invoice_credit_balance** | [**List[UnibeeInternalLogicGatewayRoGatewayBalance]**](UnibeeInternalLogicGatewayRoGatewayBalance.md) |  | [optional] 
+**balance** | [**UnibeeInternalLogicGatewayGatewayBeanGatewayBalance**](UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.md) |  | [optional] 
+**cash_balance** | [**List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]**](UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.md) |  | [optional] 
+**invoice_credit_balance** | [**List[UnibeeInternalLogicGatewayGatewayBeanGatewayBalance]**](UnibeeInternalLogicGatewayGatewayBeanGatewayBalance.md) |  | [optional] 
 
 ## Example
 

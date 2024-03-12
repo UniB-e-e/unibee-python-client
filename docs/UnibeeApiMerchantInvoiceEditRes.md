@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoice** | [**UnibeeInternalLogicGatewayRoInvoiceDetailRo**](UnibeeInternalLogicGatewayRoInvoiceDetailRo.md) |  | [optional] 
+**invoice** | [**UnibeeApiBeanInvoiceDetail**](UnibeeApiBeanInvoiceDetail.md) |  | [optional] 
 
 ## Example
 

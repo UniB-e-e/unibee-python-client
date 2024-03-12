@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email_template_list** | [**List[UnibeeInternalQueryEmailTemplateVo]**](UnibeeInternalQueryEmailTemplateVo.md) | EmailTemplateList | [optional] 
+**email_template_list** | [**List[UnibeeApiBeanEmailTemplateVo]**](UnibeeApiBeanEmailTemplateVo.md) | EmailTemplateList | [optional] 
 
 ## Example
 
