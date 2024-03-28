@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **int** | Action Type，0-override,1-add，2-delete | 
-**addon_ids** | **List[int]** | Plan Ids Of Addon Type | 
+**addon_ids** | **List[int]** | Plan Ids Of Recurring Addon Type | 
+**onetime_addon_ids** | **List[int]** | Plan Ids Of Onetime Addon Type | 
 **plan_id** | **int** | PlanID | 
 
 ## Example

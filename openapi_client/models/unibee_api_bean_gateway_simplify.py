@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,12 @@ class UnibeeApiBeanGatewaySimplify(BaseModel):
     """
     UnibeeApiBeanGatewaySimplify
     """ # noqa: E501
+    country_config: Optional[Dict[str, StrictBool]] = Field(default=None, alias="countryConfig")
     gateway_id: Optional[StrictInt] = Field(default=None, alias="gatewayId")
     gateway_logo: Optional[StrictStr] = Field(default=None, alias="gatewayLogo")
     gateway_name: Optional[StrictStr] = Field(default=None, alias="gatewayName")
     gateway_type: Optional[StrictInt] = Field(default=None, description="gateway type，1-Default｜ 2-Crypto", alias="gatewayType")
-    __properties: ClassVar[List[str]] = ["gatewayId", "gatewayLogo", "gatewayName", "gatewayType"]
+    __properties: ClassVar[List[str]] = ["countryConfig", "gatewayId", "gatewayLogo", "gatewayName", "gatewayType"]
 
     model_config = {
         "populate_by_name": True,
@@ -83,6 +84,7 @@ class UnibeeApiBeanGatewaySimplify(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "countryConfig": obj.get("countryConfig"),
             "gatewayId": obj.get("gatewayId"),
             "gatewayLogo": obj.get("gatewayLogo"),
             "gatewayName": obj.get("gatewayName"),

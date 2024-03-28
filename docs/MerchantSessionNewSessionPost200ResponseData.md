@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_session** | **str** | ClientSession | [optional] 
 **client_token** | **str** | ClientToken | [optional] 
 **email** | **str** | Email | [optional] 
 **external_user_id** | **str** | ExternalUserId | [optional] 

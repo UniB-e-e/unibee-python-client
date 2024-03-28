@@ -28,7 +28,11 @@ class UnibeeApiBeanInvoiceSimplify(BaseModel):
     UnibeeApiBeanInvoiceSimplify
     """ # noqa: E501
     biz_type: Optional[StrictInt] = Field(default=None, description="biz type from payment 1-single payment, 3-subscription", alias="bizType")
+    crypto_amount: Optional[StrictInt] = Field(default=None, description="crypto_amount, cent", alias="cryptoAmount")
+    crypto_currency: Optional[StrictStr] = Field(default=None, description="crypto_currency", alias="cryptoCurrency")
     currency: Optional[StrictStr] = None
+    day_util_due: Optional[StrictInt] = Field(default=None, description="day util due after finish", alias="dayUtilDue")
+    finish_time: Optional[StrictInt] = Field(default=None, alias="finishTime")
     id: Optional[StrictInt] = None
     invoice_id: Optional[StrictStr] = Field(default=None, alias="invoiceId")
     invoice_name: Optional[StrictStr] = Field(default=None, alias="invoiceName")
@@ -41,6 +45,7 @@ class UnibeeApiBeanInvoiceSimplify(BaseModel):
     proration_date: Optional[StrictInt] = Field(default=None, alias="prorationDate")
     proration_scale: Optional[StrictInt] = Field(default=None, alias="prorationScale")
     refund_id: Optional[StrictStr] = Field(default=None, description="refundId", alias="refundId")
+    send_status: Optional[StrictInt] = Field(default=None, description="email send status，0-No | 1- YES| 2-Unnecessary", alias="sendStatus")
     status: Optional[StrictInt] = Field(default=None, description="status，0-Init | 1-pending｜2-processing｜3-paid | 4-failed | 5-cancelled")
     subscription_amount: Optional[StrictInt] = Field(default=None, alias="subscriptionAmount")
     subscription_amount_excluding_tax: Optional[StrictInt] = Field(default=None, alias="subscriptionAmountExcludingTax")
@@ -48,7 +53,7 @@ class UnibeeApiBeanInvoiceSimplify(BaseModel):
     tax_scale: Optional[StrictInt] = Field(default=None, description="Tax Scale，1000 = 10%", alias="taxScale")
     total_amount: Optional[StrictInt] = Field(default=None, alias="totalAmount")
     total_amount_excluding_tax: Optional[StrictInt] = Field(default=None, alias="totalAmountExcludingTax")
-    __properties: ClassVar[List[str]] = ["bizType", "currency", "id", "invoiceId", "invoiceName", "lines", "link", "paymentId", "paymentLink", "periodEnd", "periodStart", "prorationDate", "prorationScale", "refundId", "status", "subscriptionAmount", "subscriptionAmountExcludingTax", "taxAmount", "taxScale", "totalAmount", "totalAmountExcludingTax"]
+    __properties: ClassVar[List[str]] = ["bizType", "cryptoAmount", "cryptoCurrency", "currency", "dayUtilDue", "finishTime", "id", "invoiceId", "invoiceName", "lines", "link", "paymentId", "paymentLink", "periodEnd", "periodStart", "prorationDate", "prorationScale", "refundId", "sendStatus", "status", "subscriptionAmount", "subscriptionAmountExcludingTax", "taxAmount", "taxScale", "totalAmount", "totalAmountExcludingTax"]
 
     model_config = {
         "populate_by_name": True,
@@ -109,7 +114,11 @@ class UnibeeApiBeanInvoiceSimplify(BaseModel):
 
         _obj = cls.model_validate({
             "bizType": obj.get("bizType"),
+            "cryptoAmount": obj.get("cryptoAmount"),
+            "cryptoCurrency": obj.get("cryptoCurrency"),
             "currency": obj.get("currency"),
+            "dayUtilDue": obj.get("dayUtilDue"),
+            "finishTime": obj.get("finishTime"),
             "id": obj.get("id"),
             "invoiceId": obj.get("invoiceId"),
             "invoiceName": obj.get("invoiceName"),
@@ -122,6 +131,7 @@ class UnibeeApiBeanInvoiceSimplify(BaseModel):
             "prorationDate": obj.get("prorationDate"),
             "prorationScale": obj.get("prorationScale"),
             "refundId": obj.get("refundId"),
+            "sendStatus": obj.get("sendStatus"),
             "status": obj.get("status"),
             "subscriptionAmount": obj.get("subscriptionAmount"),
             "subscriptionAmountExcludingTax": obj.get("subscriptionAmountExcludingTax"),

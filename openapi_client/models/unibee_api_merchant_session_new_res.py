@@ -26,12 +26,13 @@ class UnibeeApiMerchantSessionNewRes(BaseModel):
     """
     UnibeeApiMerchantSessionNewRes
     """ # noqa: E501
+    client_session: Optional[StrictStr] = Field(default=None, description="ClientSession", alias="clientSession")
     client_token: Optional[StrictStr] = Field(default=None, description="ClientToken", alias="clientToken")
     email: Optional[StrictStr] = Field(default=None, description="Email")
     external_user_id: Optional[StrictStr] = Field(default=None, description="ExternalUserId", alias="externalUserId")
     url: Optional[StrictStr] = Field(default=None, description="Url")
     user_id: Optional[StrictStr] = Field(default=None, description="UserId", alias="userId")
-    __properties: ClassVar[List[str]] = ["clientToken", "email", "externalUserId", "url", "userId"]
+    __properties: ClassVar[List[str]] = ["clientSession", "clientToken", "email", "externalUserId", "url", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -84,6 +85,7 @@ class UnibeeApiMerchantSessionNewRes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "clientSession": obj.get("clientSession"),
             "clientToken": obj.get("clientToken"),
             "email": obj.get("email"),
             "externalUserId": obj.get("externalUserId"),

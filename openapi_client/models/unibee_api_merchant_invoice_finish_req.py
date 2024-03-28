@@ -28,8 +28,7 @@ class UnibeeApiMerchantInvoiceFinishReq(BaseModel):
     """ # noqa: E501
     days_util_due: StrictInt = Field(description="DaysUtilDue,Due Day Of Pay", alias="daysUtilDue")
     invoice_id: StrictStr = Field(description="InvoiceId", alias="invoiceId")
-    pay_method: StrictInt = Field(description="PayMethod,1-manual，2-auto", alias="payMethod")
-    __properties: ClassVar[List[str]] = ["daysUtilDue", "invoiceId", "payMethod"]
+    __properties: ClassVar[List[str]] = ["daysUtilDue", "invoiceId"]
 
     model_config = {
         "populate_by_name": True,
@@ -83,8 +82,7 @@ class UnibeeApiMerchantInvoiceFinishReq(BaseModel):
 
         _obj = cls.model_validate({
             "daysUtilDue": obj.get("daysUtilDue"),
-            "invoiceId": obj.get("invoiceId"),
-            "payMethod": obj.get("payMethod")
+            "invoiceId": obj.get("invoiceId")
         })
         return _obj
 

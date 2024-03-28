@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscriptions** | [**List[UnibeeApiBeanSubscriptionDetail]**](UnibeeApiBeanSubscriptionDetail.md) | Subscriptions | [optional] 
+**subscriptions** | [**List[UnibeeApiBeanDetailSubscriptionDetail]**](UnibeeApiBeanDetailSubscriptionDetail.md) | Subscriptions | [optional] 
 
 ## Example
 

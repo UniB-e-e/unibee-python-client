@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *EmailTemplate* | [**email_template_set_default_post**](docs/EmailTemplate.md#email_template_set_default_post) | **POST** /merchant/email/template_set_default | Merchant Email Template Set Default
 *EmailTemplate* | [**email_template_update_post**](docs/EmailTemplate.md#email_template_update_post) | **POST** /merchant/email/template_update | Merchant Email Template Update
 *File* | [**oss_file_post**](docs/File.md#oss_file_post) | **POST** /merchant/oss/file | Upload File
+*Gateway* | [**gateway_edit_country_config_post**](docs/Gateway.md#gateway_edit_country_config_post) | **POST** /merchant/gateway/edit_country_config | Gateway Webhook Edit Country Config
 *Gateway* | [**gateway_edit_post**](docs/Gateway.md#gateway_edit_post) | **POST** /merchant/gateway/edit | Gateway Webhook Edit
 *Gateway* | [**gateway_list_get**](docs/Gateway.md#gateway_list_get) | **GET** /merchant/gateway/list | Gateway List
 *Gateway* | [**gateway_setup_post**](docs/Gateway.md#gateway_setup_post) | **POST** /merchant/gateway/setup | Gateway Setup
@@ -114,9 +115,11 @@ Class | Method | HTTP request | Description
 *Invoice* | [**invoice_finish_post**](docs/Invoice.md#invoice_finish_post) | **POST** /merchant/invoice/finish | Admin Finish Invoice，Generate Pay Link
 *Invoice* | [**invoice_list_get**](docs/Invoice.md#invoice_list_get) | **GET** /merchant/invoice/list | Invoice List
 *Invoice* | [**invoice_list_post**](docs/Invoice.md#invoice_list_post) | **POST** /merchant/invoice/list | Invoice List
+*Invoice* | [**invoice_mark_refund_post**](docs/Invoice.md#invoice_mark_refund_post) | **POST** /merchant/invoice/mark_refund | Admin Mark Refund For Invoice
 *Invoice* | [**invoice_new_post**](docs/Invoice.md#invoice_new_post) | **POST** /merchant/invoice/new | Admin Create New Invoice
 *Invoice* | [**invoice_pdf_generate_post**](docs/Invoice.md#invoice_pdf_generate_post) | **POST** /merchant/invoice/pdf_generate | Admin Generate Merchant Invoice pdf
-*Invoice* | [**invoice_refund_post**](docs/Invoice.md#invoice_refund_post) | **POST** /merchant/invoice/refund | Admin Create Refund From Invoice
+*Invoice* | [**invoice_reconvert_crypto_and_send_email_post**](docs/Invoice.md#invoice_reconvert_crypto_and_send_email_post) | **POST** /merchant/invoice/reconvert_crypto_and_send_email | Admin Reconvert Crypto Data and Send Invoice Email to User
+*Invoice* | [**invoice_refund_post**](docs/Invoice.md#invoice_refund_post) | **POST** /merchant/invoice/refund | Admin Create Refund For Invoice
 *Invoice* | [**invoice_send_email_post**](docs/Invoice.md#invoice_send_email_post) | **POST** /merchant/invoice/send_email | Admin Send Merchant Invoice Email to User
 *Member* | [**member_logout_post**](docs/Member.md#member_logout_post) | **POST** /merchant/member/logout | Merchant Member Logout
 *Member* | [**member_password_reset_post**](docs/Member.md#member_password_reset_post) | **POST** /merchant/member/passwordReset | Merchant Member Reset Password
@@ -154,6 +157,8 @@ Class | Method | HTTP request | Description
 *Plan* | [**plan_new_post**](docs/Plan.md#plan_new_post) | **POST** /merchant/plan/new | Create Plan
 *Plan* | [**plan_publish_post**](docs/Plan.md#plan_publish_post) | **POST** /merchant/plan/publish | Publish Plan，Will Be Visible To UserPortal
 *Plan* | [**plan_unpublished_post**](docs/Plan.md#plan_unpublished_post) | **POST** /merchant/plan/unpublished | UnPublish Plan
+*Profile* | [**country_config_list_post**](docs/Profile.md#country_config_list_post) | **POST** /merchant/country_config_list | Merchant Edit Country Config
+*Profile* | [**edit_country_config_post**](docs/Profile.md#edit_country_config_post) | **POST** /merchant/edit_country_config | Merchant Country Config List
 *Profile* | [**get_get**](docs/Profile.md#get_get) | **GET** /merchant/get | Get Merchant Info
 *Profile* | [**update_post**](docs/Profile.md#update_post) | **POST** /merchant/update | Update Merchant Info
 *Search* | [**search_key_search_get**](docs/Search.md#search_key_search_get) | **GET** /merchant/search/key_search | Merchant Search
@@ -163,10 +168,16 @@ Class | Method | HTTP request | Description
 *Subscription* | [**subscription_cancel_at_period_end_post**](docs/Subscription.md#subscription_cancel_at_period_end_post) | **POST** /merchant/subscription/cancel_at_period_end | Merchant Edit Subscription-Set Cancel Ad Period End
 *Subscription* | [**subscription_cancel_last_cancel_at_period_end_post**](docs/Subscription.md#subscription_cancel_last_cancel_at_period_end_post) | **POST** /merchant/subscription/cancel_last_cancel_at_period_end | Merchant Edit Subscription-Cancel Last CancelAtPeriod
 *Subscription* | [**subscription_cancel_post**](docs/Subscription.md#subscription_cancel_post) | **POST** /merchant/subscription/cancel | Merchant Cancel Subscription Immediately (Will Not Generate Proration Invoice)
+*Subscription* | [**subscription_change_gateway_post**](docs/Subscription.md#subscription_change_gateway_post) | **POST** /merchant/subscription/change_gateway | Change Subscription Gateway
+*Subscription* | [**subscription_config_get**](docs/Subscription.md#subscription_config_get) | **GET** /merchant/subscription/config | Get Merchant Subscription Config
+*Subscription* | [**subscription_config_update_get**](docs/Subscription.md#subscription_config_update_get) | **GET** /merchant/subscription/config/update | Update Merchant Subscription Config
+*Subscription* | [**subscription_create_preview_post**](docs/Subscription.md#subscription_create_preview_post) | **POST** /merchant/subscription/create_preview | Create Subscription Preview
+*Subscription* | [**subscription_create_submit_post**](docs/Subscription.md#subscription_create_submit_post) | **POST** /merchant/subscription/create_submit | Create Subscription
 *Subscription* | [**subscription_detail_get**](docs/Subscription.md#subscription_detail_get) | **GET** /merchant/subscription/detail | Subscription Detail
 *Subscription* | [**subscription_detail_post**](docs/Subscription.md#subscription_detail_post) | **POST** /merchant/subscription/detail | Subscription Detail
 *Subscription* | [**subscription_list_get**](docs/Subscription.md#subscription_list_get) | **GET** /merchant/subscription/list | Subscription List
 *Subscription* | [**subscription_list_post**](docs/Subscription.md#subscription_list_post) | **POST** /merchant/subscription/list | Subscription List
+*Subscription* | [**subscription_renew_post**](docs/Subscription.md#subscription_renew_post) | **POST** /merchant/subscription/renew | Renew Subscription, will create new subscription based on one provided 
 *Subscription* | [**subscription_resume_post**](docs/Subscription.md#subscription_resume_post) | **POST** /merchant/subscription/resume | Merchant Edit Subscription-Resume
 *Subscription* | [**subscription_suspend_post**](docs/Subscription.md#subscription_suspend_post) | **POST** /merchant/subscription/suspend | Merchant Edit Subscription-Stop
 *Subscription* | [**subscription_update_preview_post**](docs/Subscription.md#subscription_update_preview_post) | **POST** /merchant/subscription/update_preview | Merchant Update Subscription Preview
@@ -211,6 +222,8 @@ Class | Method | HTTP request | Description
  - [MerchantBalanceMerchantBalanceQueryGet200ResponseData](docs/MerchantBalanceMerchantBalanceQueryGet200ResponseData.md)
  - [MerchantBalanceUserBalanceQueryGet200Response](docs/MerchantBalanceUserBalanceQueryGet200Response.md)
  - [MerchantBalanceUserBalanceQueryGet200ResponseData](docs/MerchantBalanceUserBalanceQueryGet200ResponseData.md)
+ - [MerchantCountryConfigListPost200Response](docs/MerchantCountryConfigListPost200Response.md)
+ - [MerchantCountryConfigListPost200ResponseData](docs/MerchantCountryConfigListPost200ResponseData.md)
  - [MerchantEmailTemplateListGet200Response](docs/MerchantEmailTemplateListGet200Response.md)
  - [MerchantEmailTemplateListGet200ResponseData](docs/MerchantEmailTemplateListGet200ResponseData.md)
  - [MerchantGatewayListGet200Response](docs/MerchantGatewayListGet200Response.md)
@@ -225,8 +238,8 @@ Class | Method | HTTP request | Description
  - [MerchantInvoiceFinishPost200ResponseData](docs/MerchantInvoiceFinishPost200ResponseData.md)
  - [MerchantInvoiceListGet200Response](docs/MerchantInvoiceListGet200Response.md)
  - [MerchantInvoiceListGet200ResponseData](docs/MerchantInvoiceListGet200ResponseData.md)
- - [MerchantInvoiceRefundPost200Response](docs/MerchantInvoiceRefundPost200Response.md)
- - [MerchantInvoiceRefundPost200ResponseData](docs/MerchantInvoiceRefundPost200ResponseData.md)
+ - [MerchantInvoiceMarkRefundPost200Response](docs/MerchantInvoiceMarkRefundPost200Response.md)
+ - [MerchantInvoiceMarkRefundPost200ResponseData](docs/MerchantInvoiceMarkRefundPost200ResponseData.md)
  - [MerchantMetricDeletePost200Response](docs/MerchantMetricDeletePost200Response.md)
  - [MerchantMetricDeletePost200ResponseData](docs/MerchantMetricDeletePost200ResponseData.md)
  - [MerchantMetricEventNewPost200Response](docs/MerchantMetricEventNewPost200Response.md)
@@ -267,6 +280,12 @@ Class | Method | HTTP request | Description
  - [MerchantSessionNewSessionPost200ResponseData](docs/MerchantSessionNewSessionPost200ResponseData.md)
  - [MerchantSubscriptionAdminNoteListGet200Response](docs/MerchantSubscriptionAdminNoteListGet200Response.md)
  - [MerchantSubscriptionAdminNoteListGet200ResponseData](docs/MerchantSubscriptionAdminNoteListGet200ResponseData.md)
+ - [MerchantSubscriptionConfigGet200Response](docs/MerchantSubscriptionConfigGet200Response.md)
+ - [MerchantSubscriptionConfigGet200ResponseData](docs/MerchantSubscriptionConfigGet200ResponseData.md)
+ - [MerchantSubscriptionCreatePreviewPost200Response](docs/MerchantSubscriptionCreatePreviewPost200Response.md)
+ - [MerchantSubscriptionCreatePreviewPost200ResponseData](docs/MerchantSubscriptionCreatePreviewPost200ResponseData.md)
+ - [MerchantSubscriptionCreateSubmitPost200Response](docs/MerchantSubscriptionCreateSubmitPost200Response.md)
+ - [MerchantSubscriptionCreateSubmitPost200ResponseData](docs/MerchantSubscriptionCreateSubmitPost200ResponseData.md)
  - [MerchantSubscriptionDetailGet200Response](docs/MerchantSubscriptionDetailGet200Response.md)
  - [MerchantSubscriptionDetailGet200ResponseData](docs/MerchantSubscriptionDetailGet200ResponseData.md)
  - [MerchantSubscriptionListGet200Response](docs/MerchantSubscriptionListGet200Response.md)
@@ -279,6 +298,8 @@ Class | Method | HTTP request | Description
  - [MerchantSubscriptionUpdatePreviewPost200ResponseData](docs/MerchantSubscriptionUpdatePreviewPost200ResponseData.md)
  - [MerchantSubscriptionUpdateSubmitPost200Response](docs/MerchantSubscriptionUpdateSubmitPost200Response.md)
  - [MerchantSubscriptionUpdateSubmitPost200ResponseData](docs/MerchantSubscriptionUpdateSubmitPost200ResponseData.md)
+ - [MerchantSubscriptionUserSubscriptionDetailGet200Response](docs/MerchantSubscriptionUserSubscriptionDetailGet200Response.md)
+ - [MerchantSubscriptionUserSubscriptionDetailGet200ResponseData](docs/MerchantSubscriptionUserSubscriptionDetailGet200ResponseData.md)
  - [MerchantUpdatePost200Response](docs/MerchantUpdatePost200Response.md)
  - [MerchantUpdatePost200ResponseData](docs/MerchantUpdatePost200ResponseData.md)
  - [MerchantUserGetGet200Response](docs/MerchantUserGetGet200Response.md)
@@ -295,11 +316,16 @@ Class | Method | HTTP request | Description
  - [MerchantWebhookEventListGet200ResponseData](docs/MerchantWebhookEventListGet200ResponseData.md)
  - [UnibeeApiBeanBulkMetricLimitPlanBindingParam](docs/UnibeeApiBeanBulkMetricLimitPlanBindingParam.md)
  - [UnibeeApiBeanCurrency](docs/UnibeeApiBeanCurrency.md)
+ - [UnibeeApiBeanDetailInvoiceDetail](docs/UnibeeApiBeanDetailInvoiceDetail.md)
+ - [UnibeeApiBeanDetailPlanDetail](docs/UnibeeApiBeanDetailPlanDetail.md)
+ - [UnibeeApiBeanDetailSubscriptionDetail](docs/UnibeeApiBeanDetailSubscriptionDetail.md)
+ - [UnibeeApiBeanDetailSubscriptionPendingUpdateDetail](docs/UnibeeApiBeanDetailSubscriptionPendingUpdateDetail.md)
+ - [UnibeeApiBeanDetailSubscriptionTimeLineDetail](docs/UnibeeApiBeanDetailSubscriptionTimeLineDetail.md)
  - [UnibeeApiBeanEmailTemplateVo](docs/UnibeeApiBeanEmailTemplateVo.md)
  - [UnibeeApiBeanGatewaySimplify](docs/UnibeeApiBeanGatewaySimplify.md)
- - [UnibeeApiBeanInvoiceDetail](docs/UnibeeApiBeanInvoiceDetail.md)
  - [UnibeeApiBeanInvoiceItemSimplify](docs/UnibeeApiBeanInvoiceItemSimplify.md)
  - [UnibeeApiBeanInvoiceSimplify](docs/UnibeeApiBeanInvoiceSimplify.md)
+ - [UnibeeApiBeanMerchantCountryConfigSimplify](docs/UnibeeApiBeanMerchantCountryConfigSimplify.md)
  - [UnibeeApiBeanMerchantMemberSimplify](docs/UnibeeApiBeanMerchantMemberSimplify.md)
  - [UnibeeApiBeanMerchantMetricEventSimplify](docs/UnibeeApiBeanMerchantMetricEventSimplify.md)
  - [UnibeeApiBeanMerchantMetricPlanLimit](docs/UnibeeApiBeanMerchantMetricPlanLimit.md)
@@ -315,10 +341,8 @@ Class | Method | HTTP request | Description
  - [UnibeeApiBeanPlanMetricLimitDetail](docs/UnibeeApiBeanPlanMetricLimitDetail.md)
  - [UnibeeApiBeanPlanSimplify](docs/UnibeeApiBeanPlanSimplify.md)
  - [UnibeeApiBeanRefundSimplify](docs/UnibeeApiBeanRefundSimplify.md)
- - [UnibeeApiBeanSubscriptionDetail](docs/UnibeeApiBeanSubscriptionDetail.md)
- - [UnibeeApiBeanSubscriptionPendingUpdateDetail](docs/UnibeeApiBeanSubscriptionPendingUpdateDetail.md)
+ - [UnibeeApiBeanSubscriptionConfig](docs/UnibeeApiBeanSubscriptionConfig.md)
  - [UnibeeApiBeanSubscriptionSimplify](docs/UnibeeApiBeanSubscriptionSimplify.md)
- - [UnibeeApiBeanSubscriptionTimeLineDetail](docs/UnibeeApiBeanSubscriptionTimeLineDetail.md)
  - [UnibeeApiBeanUserAccountSimplify](docs/UnibeeApiBeanUserAccountSimplify.md)
  - [UnibeeApiBeanUserMerchantMetricStat](docs/UnibeeApiBeanUserMerchantMetricStat.md)
  - [UnibeeApiBeanValidResult](docs/UnibeeApiBeanValidResult.md)
@@ -343,6 +367,7 @@ Class | Method | HTTP request | Description
  - [UnibeeApiMerchantEmailTemplateListRes](docs/UnibeeApiMerchantEmailTemplateListRes.md)
  - [UnibeeApiMerchantEmailTemplateSetDefaultReq](docs/UnibeeApiMerchantEmailTemplateSetDefaultReq.md)
  - [UnibeeApiMerchantEmailTemplateUpdateReq](docs/UnibeeApiMerchantEmailTemplateUpdateReq.md)
+ - [UnibeeApiMerchantGatewayEditCountryConfigReq](docs/UnibeeApiMerchantGatewayEditCountryConfigReq.md)
  - [UnibeeApiMerchantGatewayEditReq](docs/UnibeeApiMerchantGatewayEditReq.md)
  - [UnibeeApiMerchantGatewayListRes](docs/UnibeeApiMerchantGatewayListRes.md)
  - [UnibeeApiMerchantGatewaySetupReq](docs/UnibeeApiMerchantGatewaySetupReq.md)
@@ -358,10 +383,13 @@ Class | Method | HTTP request | Description
  - [UnibeeApiMerchantInvoiceFinishRes](docs/UnibeeApiMerchantInvoiceFinishRes.md)
  - [UnibeeApiMerchantInvoiceListReq](docs/UnibeeApiMerchantInvoiceListReq.md)
  - [UnibeeApiMerchantInvoiceListRes](docs/UnibeeApiMerchantInvoiceListRes.md)
+ - [UnibeeApiMerchantInvoiceMarkRefundReq](docs/UnibeeApiMerchantInvoiceMarkRefundReq.md)
+ - [UnibeeApiMerchantInvoiceMarkRefundRes](docs/UnibeeApiMerchantInvoiceMarkRefundRes.md)
  - [UnibeeApiMerchantInvoiceNewInvoiceItemParam](docs/UnibeeApiMerchantInvoiceNewInvoiceItemParam.md)
  - [UnibeeApiMerchantInvoiceNewReq](docs/UnibeeApiMerchantInvoiceNewReq.md)
  - [UnibeeApiMerchantInvoiceNewRes](docs/UnibeeApiMerchantInvoiceNewRes.md)
  - [UnibeeApiMerchantInvoicePdfGenerateReq](docs/UnibeeApiMerchantInvoicePdfGenerateReq.md)
+ - [UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq](docs/UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq.md)
  - [UnibeeApiMerchantInvoiceRefundReq](docs/UnibeeApiMerchantInvoiceRefundReq.md)
  - [UnibeeApiMerchantInvoiceRefundRes](docs/UnibeeApiMerchantInvoiceRefundRes.md)
  - [UnibeeApiMerchantInvoiceSendEmailReq](docs/UnibeeApiMerchantInvoiceSendEmailReq.md)
@@ -424,9 +452,10 @@ Class | Method | HTTP request | Description
  - [UnibeeApiMerchantPlanListRes](docs/UnibeeApiMerchantPlanListRes.md)
  - [UnibeeApiMerchantPlanNewReq](docs/UnibeeApiMerchantPlanNewReq.md)
  - [UnibeeApiMerchantPlanNewRes](docs/UnibeeApiMerchantPlanNewRes.md)
- - [UnibeeApiMerchantPlanPlanDetail](docs/UnibeeApiMerchantPlanPlanDetail.md)
  - [UnibeeApiMerchantPlanPublishReq](docs/UnibeeApiMerchantPlanPublishReq.md)
  - [UnibeeApiMerchantPlanUnPublishReq](docs/UnibeeApiMerchantPlanUnPublishReq.md)
+ - [UnibeeApiMerchantProfileCountryConfigListRes](docs/UnibeeApiMerchantProfileCountryConfigListRes.md)
+ - [UnibeeApiMerchantProfileEditCountryConfigReq](docs/UnibeeApiMerchantProfileEditCountryConfigReq.md)
  - [UnibeeApiMerchantProfileGetRes](docs/UnibeeApiMerchantProfileGetRes.md)
  - [UnibeeApiMerchantProfileUpdateReq](docs/UnibeeApiMerchantProfileUpdateReq.md)
  - [UnibeeApiMerchantProfileUpdateRes](docs/UnibeeApiMerchantProfileUpdateRes.md)
@@ -442,6 +471,14 @@ Class | Method | HTTP request | Description
  - [UnibeeApiMerchantSubscriptionCancelAtPeriodEndReq](docs/UnibeeApiMerchantSubscriptionCancelAtPeriodEndReq.md)
  - [UnibeeApiMerchantSubscriptionCancelLastCancelAtPeriodEndReq](docs/UnibeeApiMerchantSubscriptionCancelLastCancelAtPeriodEndReq.md)
  - [UnibeeApiMerchantSubscriptionCancelReq](docs/UnibeeApiMerchantSubscriptionCancelReq.md)
+ - [UnibeeApiMerchantSubscriptionChangeGatewayReq](docs/UnibeeApiMerchantSubscriptionChangeGatewayReq.md)
+ - [UnibeeApiMerchantSubscriptionConfigRes](docs/UnibeeApiMerchantSubscriptionConfigRes.md)
+ - [UnibeeApiMerchantSubscriptionConfigUpdateReq](docs/UnibeeApiMerchantSubscriptionConfigUpdateReq.md)
+ - [UnibeeApiMerchantSubscriptionConfigUpdateRes](docs/UnibeeApiMerchantSubscriptionConfigUpdateRes.md)
+ - [UnibeeApiMerchantSubscriptionCreatePreviewReq](docs/UnibeeApiMerchantSubscriptionCreatePreviewReq.md)
+ - [UnibeeApiMerchantSubscriptionCreatePreviewRes](docs/UnibeeApiMerchantSubscriptionCreatePreviewRes.md)
+ - [UnibeeApiMerchantSubscriptionCreateReq](docs/UnibeeApiMerchantSubscriptionCreateReq.md)
+ - [UnibeeApiMerchantSubscriptionCreateRes](docs/UnibeeApiMerchantSubscriptionCreateRes.md)
  - [UnibeeApiMerchantSubscriptionDetailReq](docs/UnibeeApiMerchantSubscriptionDetailReq.md)
  - [UnibeeApiMerchantSubscriptionDetailRes](docs/UnibeeApiMerchantSubscriptionDetailRes.md)
  - [UnibeeApiMerchantSubscriptionListReq](docs/UnibeeApiMerchantSubscriptionListReq.md)
@@ -449,6 +486,8 @@ Class | Method | HTTP request | Description
  - [UnibeeApiMerchantSubscriptionNewAdminNoteReq](docs/UnibeeApiMerchantSubscriptionNewAdminNoteReq.md)
  - [UnibeeApiMerchantSubscriptionPendingUpdateListReq](docs/UnibeeApiMerchantSubscriptionPendingUpdateListReq.md)
  - [UnibeeApiMerchantSubscriptionPendingUpdateListRes](docs/UnibeeApiMerchantSubscriptionPendingUpdateListRes.md)
+ - [UnibeeApiMerchantSubscriptionRenewReq](docs/UnibeeApiMerchantSubscriptionRenewReq.md)
+ - [UnibeeApiMerchantSubscriptionRenewRes](docs/UnibeeApiMerchantSubscriptionRenewRes.md)
  - [UnibeeApiMerchantSubscriptionResumeReq](docs/UnibeeApiMerchantSubscriptionResumeReq.md)
  - [UnibeeApiMerchantSubscriptionSuspendReq](docs/UnibeeApiMerchantSubscriptionSuspendReq.md)
  - [UnibeeApiMerchantSubscriptionTimeLineListReq](docs/UnibeeApiMerchantSubscriptionTimeLineListReq.md)

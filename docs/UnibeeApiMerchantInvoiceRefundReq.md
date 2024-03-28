@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **invoice_id** | **str** | InvoiceId | 
 **reason** | **str** | Refund Reason | 
 **refund_amount** | **int** | Refund CaptureAmount | 
-**refund_no** | **str** | RefundNo | 
+**refund_no** | **str** | RefundNo | [optional] 
 
 ## Example
 

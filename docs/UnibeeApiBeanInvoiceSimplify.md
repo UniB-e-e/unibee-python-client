@@ -6,7 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **biz_type** | **int** | biz type from payment 1-single payment, 3-subscription | [optional] 
+**crypto_amount** | **int** | crypto_amount, cent | [optional] 
+**crypto_currency** | **str** | crypto_currency | [optional] 
 **currency** | **str** |  | [optional] 
+**day_util_due** | **int** | day util due after finish | [optional] 
+**finish_time** | **int** |  | [optional] 
 **id** | **int** |  | [optional] 
 **invoice_id** | **str** |  | [optional] 
 **invoice_name** | **str** |  | [optional] 
@@ -19,6 +23,7 @@ Name | Type | Description | Notes
 **proration_date** | **int** |  | [optional] 
 **proration_scale** | **int** |  | [optional] 
 **refund_id** | **str** | refundId | [optional] 
+**send_status** | **int** | email send status，0-No | 1- YES| 2-Unnecessary | [optional] 
 **status** | **int** | status，0-Init | 1-pending｜2-processing｜3-paid | 4-failed | 5-cancelled | [optional] 
 **subscription_amount** | **int** |  | [optional] 
 **subscription_amount_excluding_tax** | **int** |  | [optional] 

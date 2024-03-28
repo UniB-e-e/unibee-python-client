@@ -23,15 +23,17 @@ from openapi_client.models.merchant_auth_sso_login_otp_post200_response import M
 from openapi_client.models.merchant_invoice_detail_get200_response import MerchantInvoiceDetailGet200Response
 from openapi_client.models.merchant_invoice_finish_post200_response import MerchantInvoiceFinishPost200Response
 from openapi_client.models.merchant_invoice_list_get200_response import MerchantInvoiceListGet200Response
-from openapi_client.models.merchant_invoice_refund_post200_response import MerchantInvoiceRefundPost200Response
+from openapi_client.models.merchant_invoice_mark_refund_post200_response import MerchantInvoiceMarkRefundPost200Response
 from openapi_client.models.unibee_api_merchant_invoice_cancel_req import UnibeeApiMerchantInvoiceCancelReq
 from openapi_client.models.unibee_api_merchant_invoice_delete_req import UnibeeApiMerchantInvoiceDeleteReq
 from openapi_client.models.unibee_api_merchant_invoice_detail_req import UnibeeApiMerchantInvoiceDetailReq
 from openapi_client.models.unibee_api_merchant_invoice_edit_req import UnibeeApiMerchantInvoiceEditReq
 from openapi_client.models.unibee_api_merchant_invoice_finish_req import UnibeeApiMerchantInvoiceFinishReq
 from openapi_client.models.unibee_api_merchant_invoice_list_req import UnibeeApiMerchantInvoiceListReq
+from openapi_client.models.unibee_api_merchant_invoice_mark_refund_req import UnibeeApiMerchantInvoiceMarkRefundReq
 from openapi_client.models.unibee_api_merchant_invoice_new_req import UnibeeApiMerchantInvoiceNewReq
 from openapi_client.models.unibee_api_merchant_invoice_pdf_generate_req import UnibeeApiMerchantInvoicePdfGenerateReq
+from openapi_client.models.unibee_api_merchant_invoice_reconvert_crypto_and_send_req import UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq
 from openapi_client.models.unibee_api_merchant_invoice_refund_req import UnibeeApiMerchantInvoiceRefundReq
 from openapi_client.models.unibee_api_merchant_invoice_send_email_req import UnibeeApiMerchantInvoiceSendEmailReq
 
@@ -2373,6 +2375,273 @@ class Invoice:
 
 
     @validate_call
+    def invoice_mark_refund_post(
+        self,
+        unibee_api_merchant_invoice_mark_refund_req: UnibeeApiMerchantInvoiceMarkRefundReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantInvoiceMarkRefundPost200Response:
+        """Admin Mark Refund For Invoice
+
+
+        :param unibee_api_merchant_invoice_mark_refund_req: (required)
+        :type unibee_api_merchant_invoice_mark_refund_req: UnibeeApiMerchantInvoiceMarkRefundReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._invoice_mark_refund_post_serialize(
+            unibee_api_merchant_invoice_mark_refund_req=unibee_api_merchant_invoice_mark_refund_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantInvoiceMarkRefundPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def invoice_mark_refund_post_with_http_info(
+        self,
+        unibee_api_merchant_invoice_mark_refund_req: UnibeeApiMerchantInvoiceMarkRefundReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantInvoiceMarkRefundPost200Response]:
+        """Admin Mark Refund For Invoice
+
+
+        :param unibee_api_merchant_invoice_mark_refund_req: (required)
+        :type unibee_api_merchant_invoice_mark_refund_req: UnibeeApiMerchantInvoiceMarkRefundReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._invoice_mark_refund_post_serialize(
+            unibee_api_merchant_invoice_mark_refund_req=unibee_api_merchant_invoice_mark_refund_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantInvoiceMarkRefundPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def invoice_mark_refund_post_without_preload_content(
+        self,
+        unibee_api_merchant_invoice_mark_refund_req: UnibeeApiMerchantInvoiceMarkRefundReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Admin Mark Refund For Invoice
+
+
+        :param unibee_api_merchant_invoice_mark_refund_req: (required)
+        :type unibee_api_merchant_invoice_mark_refund_req: UnibeeApiMerchantInvoiceMarkRefundReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._invoice_mark_refund_post_serialize(
+            unibee_api_merchant_invoice_mark_refund_req=unibee_api_merchant_invoice_mark_refund_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantInvoiceMarkRefundPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _invoice_mark_refund_post_serialize(
+        self,
+        unibee_api_merchant_invoice_mark_refund_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_invoice_mark_refund_req is not None:
+            _body_params = unibee_api_merchant_invoice_mark_refund_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/invoice/mark_refund',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def invoice_new_post(
         self,
         unibee_api_merchant_invoice_new_req: UnibeeApiMerchantInvoiceNewReq,
@@ -2907,6 +3176,273 @@ class Invoice:
 
 
     @validate_call
+    def invoice_reconvert_crypto_and_send_email_post(
+        self,
+        unibee_api_merchant_invoice_reconvert_crypto_and_send_req: UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantAuthSsoLoginOTPPost200Response:
+        """Admin Reconvert Crypto Data and Send Invoice Email to User
+
+
+        :param unibee_api_merchant_invoice_reconvert_crypto_and_send_req: (required)
+        :type unibee_api_merchant_invoice_reconvert_crypto_and_send_req: UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._invoice_reconvert_crypto_and_send_email_post_serialize(
+            unibee_api_merchant_invoice_reconvert_crypto_and_send_req=unibee_api_merchant_invoice_reconvert_crypto_and_send_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def invoice_reconvert_crypto_and_send_email_post_with_http_info(
+        self,
+        unibee_api_merchant_invoice_reconvert_crypto_and_send_req: UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantAuthSsoLoginOTPPost200Response]:
+        """Admin Reconvert Crypto Data and Send Invoice Email to User
+
+
+        :param unibee_api_merchant_invoice_reconvert_crypto_and_send_req: (required)
+        :type unibee_api_merchant_invoice_reconvert_crypto_and_send_req: UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._invoice_reconvert_crypto_and_send_email_post_serialize(
+            unibee_api_merchant_invoice_reconvert_crypto_and_send_req=unibee_api_merchant_invoice_reconvert_crypto_and_send_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def invoice_reconvert_crypto_and_send_email_post_without_preload_content(
+        self,
+        unibee_api_merchant_invoice_reconvert_crypto_and_send_req: UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Admin Reconvert Crypto Data and Send Invoice Email to User
+
+
+        :param unibee_api_merchant_invoice_reconvert_crypto_and_send_req: (required)
+        :type unibee_api_merchant_invoice_reconvert_crypto_and_send_req: UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._invoice_reconvert_crypto_and_send_email_post_serialize(
+            unibee_api_merchant_invoice_reconvert_crypto_and_send_req=unibee_api_merchant_invoice_reconvert_crypto_and_send_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _invoice_reconvert_crypto_and_send_email_post_serialize(
+        self,
+        unibee_api_merchant_invoice_reconvert_crypto_and_send_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_invoice_reconvert_crypto_and_send_req is not None:
+            _body_params = unibee_api_merchant_invoice_reconvert_crypto_and_send_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/invoice/reconvert_crypto_and_send_email',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def invoice_refund_post(
         self,
         unibee_api_merchant_invoice_refund_req: UnibeeApiMerchantInvoiceRefundReq,
@@ -2922,8 +3458,8 @@ class Invoice:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> MerchantInvoiceRefundPost200Response:
-        """Admin Create Refund From Invoice
+    ) -> MerchantInvoiceMarkRefundPost200Response:
+        """Admin Create Refund For Invoice
 
 
         :param unibee_api_merchant_invoice_refund_req: (required)
@@ -2959,7 +3495,7 @@ class Invoice:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantInvoiceRefundPost200Response",
+            '200': "MerchantInvoiceMarkRefundPost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2988,8 +3524,8 @@ class Invoice:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[MerchantInvoiceRefundPost200Response]:
-        """Admin Create Refund From Invoice
+    ) -> ApiResponse[MerchantInvoiceMarkRefundPost200Response]:
+        """Admin Create Refund For Invoice
 
 
         :param unibee_api_merchant_invoice_refund_req: (required)
@@ -3025,7 +3561,7 @@ class Invoice:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantInvoiceRefundPost200Response",
+            '200': "MerchantInvoiceMarkRefundPost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3055,7 +3591,7 @@ class Invoice:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Admin Create Refund From Invoice
+        """Admin Create Refund For Invoice
 
 
         :param unibee_api_merchant_invoice_refund_req: (required)
@@ -3091,7 +3627,7 @@ class Invoice:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantInvoiceRefundPost200Response",
+            '200': "MerchantInvoiceMarkRefundPost200Response",
         }
         response_data = self.api_client.call_api(
             *_param,

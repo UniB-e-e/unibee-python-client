@@ -6,10 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addon_params** | [**List[UnibeeApiBeanPlanAddonParam]**](UnibeeApiBeanPlanAddonParam.md) | addonParams | [optional] 
+**effect_immediate** | **int** | Effect Immediate，1-Immediate，2-Next Period | [optional] 
+**gateway_id** | **int** | Id | [optional] 
 **new_plan_id** | **int** | New PlanId | 
 **quantity** | **int** | Quantity，Default 1 | [optional] 
 **subscription_id** | **str** | SubscriptionId | 
-**with_immediate_effect** | **int** | Effect Immediate，1-Immediate，2-Next Period | [optional] 
 
 ## Example
 

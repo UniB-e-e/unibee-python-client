@@ -27,22 +27,23 @@ class UnibeeApiMerchantPlanEditReq(BaseModel):
     """
     UnibeeApiMerchantPlanEditReq
     """ # noqa: E501
-    addon_ids: Optional[List[StrictInt]] = Field(default=None, description="Plan Ids Of Addon Type", alias="addonIds")
+    addon_ids: Optional[List[StrictInt]] = Field(default=None, description="Plan Ids Of Recurring Addon Type", alias="addonIds")
     amount: StrictInt = Field(description="Plan CaptureAmount")
     currency: StrictStr = Field(description="Plan Currency")
     description: Optional[StrictStr] = Field(default=None, description="Description")
-    gas_payer: Optional[StrictStr] = Field(default=None, description="who pay the gas, merchant|user", alias="gasPayer")
+    gas_payer: Optional[StrictStr] = Field(default=None, description="who pay the gas for crypto payment, merchant|user", alias="gasPayer")
     home_url: Optional[StrictStr] = Field(default=None, description="HomeUrl,Start With: http", alias="homeUrl")
     image_url: Optional[StrictStr] = Field(default=None, description="ImageUrl,Start With: http", alias="imageUrl")
     interval_count: Optional[StrictInt] = Field(default=None, description="Number Of IntervalUnit", alias="intervalCount")
-    interval_unit: StrictStr = Field(description="Plan Interval Unit，em: day|month|year|week", alias="intervalUnit")
+    interval_unit: Optional[StrictStr] = Field(default=None, description="Plan Interval Unit，em: day|month|year|week", alias="intervalUnit")
     metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
     metric_limits: Optional[List[UnibeeApiBeanBulkMetricLimitPlanBindingParam]] = Field(default=None, description="Plan's MetricLimit List", alias="metricLimits")
+    onetime_addon_ids: Optional[List[StrictInt]] = Field(default=None, description="Plan Ids Of Onetime Addon Type", alias="onetimeAddonIds")
     plan_id: StrictInt = Field(description="PlanId", alias="planId")
     plan_name: StrictStr = Field(description="Plan Name", alias="planName")
     product_description: Optional[StrictStr] = Field(default=None, description="Default Copy Description", alias="productDescription")
     product_name: Optional[StrictStr] = Field(default=None, description="Default Copy PlanName", alias="productName")
-    __properties: ClassVar[List[str]] = ["addonIds", "amount", "currency", "description", "gasPayer", "homeUrl", "imageUrl", "intervalCount", "intervalUnit", "metadata", "metricLimits", "planId", "planName", "productDescription", "productName"]
+    __properties: ClassVar[List[str]] = ["addonIds", "amount", "currency", "description", "gasPayer", "homeUrl", "imageUrl", "intervalCount", "intervalUnit", "metadata", "metricLimits", "onetimeAddonIds", "planId", "planName", "productDescription", "productName"]
 
     model_config = {
         "populate_by_name": True,
@@ -113,6 +114,7 @@ class UnibeeApiMerchantPlanEditReq(BaseModel):
             "intervalUnit": obj.get("intervalUnit"),
             "metadata": obj.get("metadata"),
             "metricLimits": [UnibeeApiBeanBulkMetricLimitPlanBindingParam.from_dict(_item) for _item in obj["metricLimits"]] if obj.get("metricLimits") is not None else None,
+            "onetimeAddonIds": obj.get("onetimeAddonIds"),
             "planId": obj.get("planId"),
             "planName": obj.get("planName"),
             "productDescription": obj.get("productDescription"),

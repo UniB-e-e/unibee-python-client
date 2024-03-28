@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class UnibeeApiMerchantInvoiceRefundReq(BaseModel):
     invoice_id: StrictStr = Field(description="InvoiceId", alias="invoiceId")
     reason: StrictStr = Field(description="Refund Reason")
     refund_amount: StrictInt = Field(description="Refund CaptureAmount", alias="refundAmount")
-    refund_no: StrictStr = Field(description="RefundNo", alias="refundNo")
+    refund_no: Optional[StrictStr] = Field(default=None, description="RefundNo", alias="refundNo")
     __properties: ClassVar[List[str]] = ["invoiceId", "reason", "refundAmount", "refundNo"]
 
     model_config = {

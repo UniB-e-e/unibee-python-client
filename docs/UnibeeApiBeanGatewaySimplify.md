@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**country_config** | **Dict[str, bool]** |  | [optional] 
 **gateway_id** | **int** |  | [optional] 
 **gateway_logo** | **str** |  | [optional] 
 **gateway_name** | **str** |  | [optional] 

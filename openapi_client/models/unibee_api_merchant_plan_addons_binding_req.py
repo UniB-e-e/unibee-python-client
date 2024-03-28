@@ -27,9 +27,10 @@ class UnibeeApiMerchantPlanAddonsBindingReq(BaseModel):
     UnibeeApiMerchantPlanAddonsBindingReq
     """ # noqa: E501
     action: StrictInt = Field(description="Action Type，0-override,1-add，2-delete")
-    addon_ids: List[StrictInt] = Field(description="Plan Ids Of Addon Type", alias="addonIds")
+    addon_ids: List[StrictInt] = Field(description="Plan Ids Of Recurring Addon Type", alias="addonIds")
+    onetime_addon_ids: List[StrictInt] = Field(description="Plan Ids Of Onetime Addon Type", alias="onetimeAddonIds")
     plan_id: StrictInt = Field(description="PlanID", alias="planId")
-    __properties: ClassVar[List[str]] = ["action", "addonIds", "planId"]
+    __properties: ClassVar[List[str]] = ["action", "addonIds", "onetimeAddonIds", "planId"]
 
     model_config = {
         "populate_by_name": True,
@@ -84,6 +85,7 @@ class UnibeeApiMerchantPlanAddonsBindingReq(BaseModel):
         _obj = cls.model_validate({
             "action": obj.get("action"),
             "addonIds": obj.get("addonIds"),
+            "onetimeAddonIds": obj.get("onetimeAddonIds"),
             "planId": obj.get("planId")
         })
         return _obj

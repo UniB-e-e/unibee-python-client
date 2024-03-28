@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plans** | [**List[UnibeeApiMerchantPlanPlanDetail]**](UnibeeApiMerchantPlanPlanDetail.md) | Plans | [optional] 
+**plans** | [**List[UnibeeApiBeanDetailPlanDetail]**](UnibeeApiBeanDetailPlanDetail.md) | Plans | [optional] 
 
 ## Example
 

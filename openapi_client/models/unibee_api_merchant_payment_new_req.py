@@ -28,17 +28,19 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
     UnibeeApiMerchantPaymentNewReq
     """ # noqa: E501
     country_code: Optional[StrictStr] = Field(default=None, description="CountryCode", alias="countryCode")
-    currency: StrictStr = Field(description="Currency")
-    email: StrictStr = Field(description="Email")
-    external_payment_id: StrictStr = Field(description="ExternalPaymentId should unique for payment", alias="externalPaymentId")
-    external_user_id: StrictStr = Field(description="ExternalUserId, should unique for user", alias="externalUserId")
+    currency: Optional[StrictStr] = Field(default=None, description="Currency, either Currency&Currency or PlanId needed")
+    email: Optional[StrictStr] = Field(default=None, description="Email, either ExternalUserId&Email or UserId needed")
+    external_payment_id: Optional[StrictStr] = Field(default=None, description="ExternalPaymentId should unique for payment", alias="externalPaymentId")
+    external_user_id: Optional[StrictStr] = Field(default=None, description="ExternalUserId, unique, either ExternalUserId&Email or UserId needed", alias="externalUserId")
     gas_payer: Optional[StrictStr] = Field(default=None, description="who pay the gas, merchant|user", alias="gasPayer")
     gateway_id: StrictInt = Field(description="GatewayId", alias="gatewayId")
     items: Optional[List[UnibeeApiMerchantPaymentItem]] = Field(default=None, description="Items")
     metadata: Optional[Dict[str, StrictStr]] = Field(default=None, description="Metadata，Map")
+    plan_id: Optional[StrictInt] = Field(default=None, description="PlanId, either TotalAmount&Currency or PlanId needed", alias="planId")
     redirect_url: Optional[StrictStr] = Field(default=None, description="Redirect Url", alias="redirectUrl")
-    total_amount: StrictInt = Field(description="Total PaymentAmount, Cent", alias="totalAmount")
-    __properties: ClassVar[List[str]] = ["countryCode", "currency", "email", "externalPaymentId", "externalUserId", "gasPayer", "gatewayId", "items", "metadata", "redirectUrl", "totalAmount"]
+    total_amount: Optional[StrictInt] = Field(default=None, description="Total PaymentAmount, Cent, either TotalAmount&Currency or PlanId needed", alias="totalAmount")
+    user_id: Optional[StrictInt] = Field(default=None, description="UserId, either ExternalUserId&Email or UserId needed", alias="userId")
+    __properties: ClassVar[List[str]] = ["countryCode", "currency", "email", "externalPaymentId", "externalUserId", "gasPayer", "gatewayId", "items", "metadata", "planId", "redirectUrl", "totalAmount", "userId"]
 
     model_config = {
         "populate_by_name": True,
@@ -107,8 +109,10 @@ class UnibeeApiMerchantPaymentNewReq(BaseModel):
             "gatewayId": obj.get("gatewayId"),
             "items": [UnibeeApiMerchantPaymentItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
             "metadata": obj.get("metadata"),
+            "planId": obj.get("planId"),
             "redirectUrl": obj.get("redirectUrl"),
-            "totalAmount": obj.get("totalAmount")
+            "totalAmount": obj.get("totalAmount"),
+            "userId": obj.get("userId")
         })
         return _obj
 

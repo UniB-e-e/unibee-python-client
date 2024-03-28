@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **int** | amount, cent, without tax | [optional] 
-**binding_addon_ids** | **str** | binded addon planIds，split with , | [optional] 
+**binding_addon_ids** | **str** | binded recurring addon planIds，split with , | [optional] 
+**binding_onetime_addon_ids** | **str** | binded onetime addon planIds，split with , | [optional] 
 **create_time** | **int** | create utc time | [optional] 
 **currency** | **str** | currency | [optional] 
 **description** | **str** | description | [optional] 

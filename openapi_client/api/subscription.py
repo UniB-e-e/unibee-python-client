@@ -16,20 +16,28 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.merchant_auth_sso_login_otp_post200_response import MerchantAuthSsoLoginOTPPost200Response
+from openapi_client.models.merchant_subscription_config_get200_response import MerchantSubscriptionConfigGet200Response
+from openapi_client.models.merchant_subscription_create_preview_post200_response import MerchantSubscriptionCreatePreviewPost200Response
+from openapi_client.models.merchant_subscription_create_submit_post200_response import MerchantSubscriptionCreateSubmitPost200Response
 from openapi_client.models.merchant_subscription_detail_get200_response import MerchantSubscriptionDetailGet200Response
 from openapi_client.models.merchant_subscription_list_get200_response import MerchantSubscriptionListGet200Response
 from openapi_client.models.merchant_subscription_update_preview_post200_response import MerchantSubscriptionUpdatePreviewPost200Response
 from openapi_client.models.merchant_subscription_update_submit_post200_response import MerchantSubscriptionUpdateSubmitPost200Response
+from openapi_client.models.merchant_subscription_user_subscription_detail_get200_response import MerchantSubscriptionUserSubscriptionDetailGet200Response
 from openapi_client.models.unibee_api_merchant_subscription_add_new_trial_start_req import UnibeeApiMerchantSubscriptionAddNewTrialStartReq
 from openapi_client.models.unibee_api_merchant_subscription_cancel_at_period_end_req import UnibeeApiMerchantSubscriptionCancelAtPeriodEndReq
 from openapi_client.models.unibee_api_merchant_subscription_cancel_last_cancel_at_period_end_req import UnibeeApiMerchantSubscriptionCancelLastCancelAtPeriodEndReq
 from openapi_client.models.unibee_api_merchant_subscription_cancel_req import UnibeeApiMerchantSubscriptionCancelReq
+from openapi_client.models.unibee_api_merchant_subscription_change_gateway_req import UnibeeApiMerchantSubscriptionChangeGatewayReq
+from openapi_client.models.unibee_api_merchant_subscription_create_preview_req import UnibeeApiMerchantSubscriptionCreatePreviewReq
+from openapi_client.models.unibee_api_merchant_subscription_create_req import UnibeeApiMerchantSubscriptionCreateReq
 from openapi_client.models.unibee_api_merchant_subscription_detail_req import UnibeeApiMerchantSubscriptionDetailReq
 from openapi_client.models.unibee_api_merchant_subscription_list_req import UnibeeApiMerchantSubscriptionListReq
+from openapi_client.models.unibee_api_merchant_subscription_renew_req import UnibeeApiMerchantSubscriptionRenewReq
 from openapi_client.models.unibee_api_merchant_subscription_resume_req import UnibeeApiMerchantSubscriptionResumeReq
 from openapi_client.models.unibee_api_merchant_subscription_suspend_req import UnibeeApiMerchantSubscriptionSuspendReq
 from openapi_client.models.unibee_api_merchant_subscription_update_preview_req import UnibeeApiMerchantSubscriptionUpdatePreviewReq
@@ -1107,6 +1115,1353 @@ class Subscription:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/merchant/subscription/cancel',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def subscription_change_gateway_post(
+        self,
+        unibee_api_merchant_subscription_change_gateway_req: UnibeeApiMerchantSubscriptionChangeGatewayReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantAuthSsoLoginOTPPost200Response:
+        """Change Subscription Gateway
+
+
+        :param unibee_api_merchant_subscription_change_gateway_req: (required)
+        :type unibee_api_merchant_subscription_change_gateway_req: UnibeeApiMerchantSubscriptionChangeGatewayReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_change_gateway_post_serialize(
+            unibee_api_merchant_subscription_change_gateway_req=unibee_api_merchant_subscription_change_gateway_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def subscription_change_gateway_post_with_http_info(
+        self,
+        unibee_api_merchant_subscription_change_gateway_req: UnibeeApiMerchantSubscriptionChangeGatewayReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantAuthSsoLoginOTPPost200Response]:
+        """Change Subscription Gateway
+
+
+        :param unibee_api_merchant_subscription_change_gateway_req: (required)
+        :type unibee_api_merchant_subscription_change_gateway_req: UnibeeApiMerchantSubscriptionChangeGatewayReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_change_gateway_post_serialize(
+            unibee_api_merchant_subscription_change_gateway_req=unibee_api_merchant_subscription_change_gateway_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def subscription_change_gateway_post_without_preload_content(
+        self,
+        unibee_api_merchant_subscription_change_gateway_req: UnibeeApiMerchantSubscriptionChangeGatewayReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Change Subscription Gateway
+
+
+        :param unibee_api_merchant_subscription_change_gateway_req: (required)
+        :type unibee_api_merchant_subscription_change_gateway_req: UnibeeApiMerchantSubscriptionChangeGatewayReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_change_gateway_post_serialize(
+            unibee_api_merchant_subscription_change_gateway_req=unibee_api_merchant_subscription_change_gateway_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantAuthSsoLoginOTPPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _subscription_change_gateway_post_serialize(
+        self,
+        unibee_api_merchant_subscription_change_gateway_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_subscription_change_gateway_req is not None:
+            _body_params = unibee_api_merchant_subscription_change_gateway_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/subscription/change_gateway',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def subscription_config_get(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantSubscriptionConfigGet200Response:
+        """Get Merchant Subscription Config
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_config_get_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionConfigGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def subscription_config_get_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantSubscriptionConfigGet200Response]:
+        """Get Merchant Subscription Config
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_config_get_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionConfigGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def subscription_config_get_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Merchant Subscription Config
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_config_get_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionConfigGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _subscription_config_get_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/merchant/subscription/config',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def subscription_config_update_get(
+        self,
+        downgrade_effect_immediately: Annotated[Optional[StrictBool], Field(description="DowngradeEffectImmediately, whether subscription downgrade should effect immediately or at period end, default at period end")] = None,
+        upgrade_proration: Annotated[Optional[StrictBool], Field(description="UpgradeProration, whether subscription update generation proration invoice or not, default yes")] = None,
+        incomplete_expire_time: Annotated[Optional[StrictInt], Field(description="IncompleteExpireTime, em.. default 1day for plan of month type")] = None,
+        invoice_email: Annotated[Optional[StrictBool], Field(description="InvoiceEmail, whether to send invoice email to user, default yes")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantSubscriptionConfigGet200Response:
+        """Update Merchant Subscription Config
+
+
+        :param downgrade_effect_immediately: DowngradeEffectImmediately, whether subscription downgrade should effect immediately or at period end, default at period end
+        :type downgrade_effect_immediately: bool
+        :param upgrade_proration: UpgradeProration, whether subscription update generation proration invoice or not, default yes
+        :type upgrade_proration: bool
+        :param incomplete_expire_time: IncompleteExpireTime, em.. default 1day for plan of month type
+        :type incomplete_expire_time: int
+        :param invoice_email: InvoiceEmail, whether to send invoice email to user, default yes
+        :type invoice_email: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_config_update_get_serialize(
+            downgrade_effect_immediately=downgrade_effect_immediately,
+            upgrade_proration=upgrade_proration,
+            incomplete_expire_time=incomplete_expire_time,
+            invoice_email=invoice_email,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionConfigGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def subscription_config_update_get_with_http_info(
+        self,
+        downgrade_effect_immediately: Annotated[Optional[StrictBool], Field(description="DowngradeEffectImmediately, whether subscription downgrade should effect immediately or at period end, default at period end")] = None,
+        upgrade_proration: Annotated[Optional[StrictBool], Field(description="UpgradeProration, whether subscription update generation proration invoice or not, default yes")] = None,
+        incomplete_expire_time: Annotated[Optional[StrictInt], Field(description="IncompleteExpireTime, em.. default 1day for plan of month type")] = None,
+        invoice_email: Annotated[Optional[StrictBool], Field(description="InvoiceEmail, whether to send invoice email to user, default yes")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantSubscriptionConfigGet200Response]:
+        """Update Merchant Subscription Config
+
+
+        :param downgrade_effect_immediately: DowngradeEffectImmediately, whether subscription downgrade should effect immediately or at period end, default at period end
+        :type downgrade_effect_immediately: bool
+        :param upgrade_proration: UpgradeProration, whether subscription update generation proration invoice or not, default yes
+        :type upgrade_proration: bool
+        :param incomplete_expire_time: IncompleteExpireTime, em.. default 1day for plan of month type
+        :type incomplete_expire_time: int
+        :param invoice_email: InvoiceEmail, whether to send invoice email to user, default yes
+        :type invoice_email: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_config_update_get_serialize(
+            downgrade_effect_immediately=downgrade_effect_immediately,
+            upgrade_proration=upgrade_proration,
+            incomplete_expire_time=incomplete_expire_time,
+            invoice_email=invoice_email,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionConfigGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def subscription_config_update_get_without_preload_content(
+        self,
+        downgrade_effect_immediately: Annotated[Optional[StrictBool], Field(description="DowngradeEffectImmediately, whether subscription downgrade should effect immediately or at period end, default at period end")] = None,
+        upgrade_proration: Annotated[Optional[StrictBool], Field(description="UpgradeProration, whether subscription update generation proration invoice or not, default yes")] = None,
+        incomplete_expire_time: Annotated[Optional[StrictInt], Field(description="IncompleteExpireTime, em.. default 1day for plan of month type")] = None,
+        invoice_email: Annotated[Optional[StrictBool], Field(description="InvoiceEmail, whether to send invoice email to user, default yes")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Update Merchant Subscription Config
+
+
+        :param downgrade_effect_immediately: DowngradeEffectImmediately, whether subscription downgrade should effect immediately or at period end, default at period end
+        :type downgrade_effect_immediately: bool
+        :param upgrade_proration: UpgradeProration, whether subscription update generation proration invoice or not, default yes
+        :type upgrade_proration: bool
+        :param incomplete_expire_time: IncompleteExpireTime, em.. default 1day for plan of month type
+        :type incomplete_expire_time: int
+        :param invoice_email: InvoiceEmail, whether to send invoice email to user, default yes
+        :type invoice_email: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_config_update_get_serialize(
+            downgrade_effect_immediately=downgrade_effect_immediately,
+            upgrade_proration=upgrade_proration,
+            incomplete_expire_time=incomplete_expire_time,
+            invoice_email=invoice_email,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionConfigGet200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _subscription_config_update_get_serialize(
+        self,
+        downgrade_effect_immediately,
+        upgrade_proration,
+        incomplete_expire_time,
+        invoice_email,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if downgrade_effect_immediately is not None:
+            
+            _query_params.append(('downgradeEffectImmediately', downgrade_effect_immediately))
+            
+        if upgrade_proration is not None:
+            
+            _query_params.append(('upgradeProration', upgrade_proration))
+            
+        if incomplete_expire_time is not None:
+            
+            _query_params.append(('incompleteExpireTime', incomplete_expire_time))
+            
+        if invoice_email is not None:
+            
+            _query_params.append(('invoiceEmail', invoice_email))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/merchant/subscription/config/update',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def subscription_create_preview_post(
+        self,
+        unibee_api_merchant_subscription_create_preview_req: UnibeeApiMerchantSubscriptionCreatePreviewReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantSubscriptionCreatePreviewPost200Response:
+        """Create Subscription Preview
+
+
+        :param unibee_api_merchant_subscription_create_preview_req: (required)
+        :type unibee_api_merchant_subscription_create_preview_req: UnibeeApiMerchantSubscriptionCreatePreviewReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_create_preview_post_serialize(
+            unibee_api_merchant_subscription_create_preview_req=unibee_api_merchant_subscription_create_preview_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreatePreviewPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def subscription_create_preview_post_with_http_info(
+        self,
+        unibee_api_merchant_subscription_create_preview_req: UnibeeApiMerchantSubscriptionCreatePreviewReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantSubscriptionCreatePreviewPost200Response]:
+        """Create Subscription Preview
+
+
+        :param unibee_api_merchant_subscription_create_preview_req: (required)
+        :type unibee_api_merchant_subscription_create_preview_req: UnibeeApiMerchantSubscriptionCreatePreviewReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_create_preview_post_serialize(
+            unibee_api_merchant_subscription_create_preview_req=unibee_api_merchant_subscription_create_preview_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreatePreviewPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def subscription_create_preview_post_without_preload_content(
+        self,
+        unibee_api_merchant_subscription_create_preview_req: UnibeeApiMerchantSubscriptionCreatePreviewReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create Subscription Preview
+
+
+        :param unibee_api_merchant_subscription_create_preview_req: (required)
+        :type unibee_api_merchant_subscription_create_preview_req: UnibeeApiMerchantSubscriptionCreatePreviewReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_create_preview_post_serialize(
+            unibee_api_merchant_subscription_create_preview_req=unibee_api_merchant_subscription_create_preview_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreatePreviewPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _subscription_create_preview_post_serialize(
+        self,
+        unibee_api_merchant_subscription_create_preview_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_subscription_create_preview_req is not None:
+            _body_params = unibee_api_merchant_subscription_create_preview_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/subscription/create_preview',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def subscription_create_submit_post(
+        self,
+        unibee_api_merchant_subscription_create_req: UnibeeApiMerchantSubscriptionCreateReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantSubscriptionCreateSubmitPost200Response:
+        """Create Subscription
+
+
+        :param unibee_api_merchant_subscription_create_req: (required)
+        :type unibee_api_merchant_subscription_create_req: UnibeeApiMerchantSubscriptionCreateReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_create_submit_post_serialize(
+            unibee_api_merchant_subscription_create_req=unibee_api_merchant_subscription_create_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreateSubmitPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def subscription_create_submit_post_with_http_info(
+        self,
+        unibee_api_merchant_subscription_create_req: UnibeeApiMerchantSubscriptionCreateReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantSubscriptionCreateSubmitPost200Response]:
+        """Create Subscription
+
+
+        :param unibee_api_merchant_subscription_create_req: (required)
+        :type unibee_api_merchant_subscription_create_req: UnibeeApiMerchantSubscriptionCreateReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_create_submit_post_serialize(
+            unibee_api_merchant_subscription_create_req=unibee_api_merchant_subscription_create_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreateSubmitPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def subscription_create_submit_post_without_preload_content(
+        self,
+        unibee_api_merchant_subscription_create_req: UnibeeApiMerchantSubscriptionCreateReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create Subscription
+
+
+        :param unibee_api_merchant_subscription_create_req: (required)
+        :type unibee_api_merchant_subscription_create_req: UnibeeApiMerchantSubscriptionCreateReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_create_submit_post_serialize(
+            unibee_api_merchant_subscription_create_req=unibee_api_merchant_subscription_create_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreateSubmitPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _subscription_create_submit_post_serialize(
+        self,
+        unibee_api_merchant_subscription_create_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_subscription_create_req is not None:
+            _body_params = unibee_api_merchant_subscription_create_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/subscription/create_submit',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2255,6 +3610,273 @@ class Subscription:
 
 
     @validate_call
+    def subscription_renew_post(
+        self,
+        unibee_api_merchant_subscription_renew_req: UnibeeApiMerchantSubscriptionRenewReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> MerchantSubscriptionCreateSubmitPost200Response:
+        """Renew Subscription, will create new subscription based on one provided 
+
+
+        :param unibee_api_merchant_subscription_renew_req: (required)
+        :type unibee_api_merchant_subscription_renew_req: UnibeeApiMerchantSubscriptionRenewReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_renew_post_serialize(
+            unibee_api_merchant_subscription_renew_req=unibee_api_merchant_subscription_renew_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreateSubmitPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def subscription_renew_post_with_http_info(
+        self,
+        unibee_api_merchant_subscription_renew_req: UnibeeApiMerchantSubscriptionRenewReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[MerchantSubscriptionCreateSubmitPost200Response]:
+        """Renew Subscription, will create new subscription based on one provided 
+
+
+        :param unibee_api_merchant_subscription_renew_req: (required)
+        :type unibee_api_merchant_subscription_renew_req: UnibeeApiMerchantSubscriptionRenewReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_renew_post_serialize(
+            unibee_api_merchant_subscription_renew_req=unibee_api_merchant_subscription_renew_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreateSubmitPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def subscription_renew_post_without_preload_content(
+        self,
+        unibee_api_merchant_subscription_renew_req: UnibeeApiMerchantSubscriptionRenewReq,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Renew Subscription, will create new subscription based on one provided 
+
+
+        :param unibee_api_merchant_subscription_renew_req: (required)
+        :type unibee_api_merchant_subscription_renew_req: UnibeeApiMerchantSubscriptionRenewReq
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._subscription_renew_post_serialize(
+            unibee_api_merchant_subscription_renew_req=unibee_api_merchant_subscription_renew_req,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "MerchantSubscriptionCreateSubmitPost200Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _subscription_renew_post_serialize(
+        self,
+        unibee_api_merchant_subscription_renew_req,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if unibee_api_merchant_subscription_renew_req is not None:
+            _body_params = unibee_api_merchant_subscription_renew_req
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/merchant/subscription/renew',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def subscription_resume_post(
         self,
         unibee_api_merchant_subscription_resume_req: UnibeeApiMerchantSubscriptionResumeReq,
@@ -3344,7 +4966,7 @@ class Subscription:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> MerchantSubscriptionDetailGet200Response:
+    ) -> MerchantSubscriptionUserSubscriptionDetailGet200Response:
         """Subscription Detail
 
 
@@ -3381,7 +5003,7 @@ class Subscription:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantSubscriptionDetailGet200Response",
+            '200': "MerchantSubscriptionUserSubscriptionDetailGet200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3410,7 +5032,7 @@ class Subscription:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[MerchantSubscriptionDetailGet200Response]:
+    ) -> ApiResponse[MerchantSubscriptionUserSubscriptionDetailGet200Response]:
         """Subscription Detail
 
 
@@ -3447,7 +5069,7 @@ class Subscription:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantSubscriptionDetailGet200Response",
+            '200': "MerchantSubscriptionUserSubscriptionDetailGet200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3513,7 +5135,7 @@ class Subscription:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantSubscriptionDetailGet200Response",
+            '200': "MerchantSubscriptionUserSubscriptionDetailGet200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3600,7 +5222,7 @@ class Subscription:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> MerchantSubscriptionDetailGet200Response:
+    ) -> MerchantSubscriptionUserSubscriptionDetailGet200Response:
         """Subscription Detail
 
 
@@ -3637,7 +5259,7 @@ class Subscription:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantSubscriptionDetailGet200Response",
+            '200': "MerchantSubscriptionUserSubscriptionDetailGet200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3666,7 +5288,7 @@ class Subscription:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[MerchantSubscriptionDetailGet200Response]:
+    ) -> ApiResponse[MerchantSubscriptionUserSubscriptionDetailGet200Response]:
         """Subscription Detail
 
 
@@ -3703,7 +5325,7 @@ class Subscription:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantSubscriptionDetailGet200Response",
+            '200': "MerchantSubscriptionUserSubscriptionDetailGet200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3769,7 +5391,7 @@ class Subscription:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "MerchantSubscriptionDetailGet200Response",
+            '200': "MerchantSubscriptionUserSubscriptionDetailGet200Response",
         }
         response_data = self.api_client.call_api(
             *_param,

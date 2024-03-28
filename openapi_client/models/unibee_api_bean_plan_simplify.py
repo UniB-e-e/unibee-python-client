@@ -27,7 +27,8 @@ class UnibeeApiBeanPlanSimplify(BaseModel):
     UnibeeApiBeanPlanSimplify
     """ # noqa: E501
     amount: Optional[StrictInt] = Field(default=None, description="amount, cent, without tax")
-    binding_addon_ids: Optional[StrictStr] = Field(default=None, description="binded addon planIds，split with ,", alias="bindingAddonIds")
+    binding_addon_ids: Optional[StrictStr] = Field(default=None, description="binded recurring addon planIds，split with ,", alias="bindingAddonIds")
+    binding_onetime_addon_ids: Optional[StrictStr] = Field(default=None, description="binded onetime addon planIds，split with ,", alias="bindingOnetimeAddonIds")
     create_time: Optional[StrictInt] = Field(default=None, description="create utc time", alias="createTime")
     currency: Optional[StrictStr] = Field(default=None, description="currency")
     description: Optional[StrictStr] = Field(default=None, description="description")
@@ -47,7 +48,7 @@ class UnibeeApiBeanPlanSimplify(BaseModel):
     status: Optional[StrictInt] = Field(default=None, description="status，1-editing，2-active，3-inactive，4-expired")
     tax_scale: Optional[StrictInt] = Field(default=None, description="tax scale 1000 = 10%", alias="taxScale")
     type: Optional[StrictInt] = Field(default=None, description="type，1-main plan，2-addon plan")
-    __properties: ClassVar[List[str]] = ["amount", "bindingAddonIds", "createTime", "currency", "description", "extraMetricData", "gasPayer", "homeUrl", "id", "imageUrl", "intervalCount", "intervalUnit", "merchantId", "metadata", "planName", "productDescription", "productName", "publishStatus", "status", "taxScale", "type"]
+    __properties: ClassVar[List[str]] = ["amount", "bindingAddonIds", "bindingOnetimeAddonIds", "createTime", "currency", "description", "extraMetricData", "gasPayer", "homeUrl", "id", "imageUrl", "intervalCount", "intervalUnit", "merchantId", "metadata", "planName", "productDescription", "productName", "publishStatus", "status", "taxScale", "type"]
 
     model_config = {
         "populate_by_name": True,
@@ -102,6 +103,7 @@ class UnibeeApiBeanPlanSimplify(BaseModel):
         _obj = cls.model_validate({
             "amount": obj.get("amount"),
             "bindingAddonIds": obj.get("bindingAddonIds"),
+            "bindingOnetimeAddonIds": obj.get("bindingOnetimeAddonIds"),
             "createTime": obj.get("createTime"),
             "currency": obj.get("currency"),
             "description": obj.get("description"),

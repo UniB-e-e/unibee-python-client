@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.unibee_api_bean_subscription_detail import UnibeeApiBeanSubscriptionDetail
+from openapi_client.models.unibee_api_bean_detail_subscription_detail import UnibeeApiBeanDetailSubscriptionDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class MerchantSubscriptionListGet200ResponseData(BaseModel):
     """
     MerchantSubscriptionListGet200ResponseData
     """ # noqa: E501
-    subscriptions: Optional[List[UnibeeApiBeanSubscriptionDetail]] = Field(default=None, description="Subscriptions")
+    subscriptions: Optional[List[UnibeeApiBeanDetailSubscriptionDetail]] = Field(default=None, description="Subscriptions")
     __properties: ClassVar[List[str]] = ["subscriptions"]
 
     model_config = {
@@ -88,7 +88,7 @@ class MerchantSubscriptionListGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "subscriptions": [UnibeeApiBeanSubscriptionDetail.from_dict(_item) for _item in obj["subscriptions"]] if obj.get("subscriptions") is not None else None
+            "subscriptions": [UnibeeApiBeanDetailSubscriptionDetail.from_dict(_item) for _item in obj["subscriptions"]] if obj.get("subscriptions") is not None else None
         })
         return _obj
 

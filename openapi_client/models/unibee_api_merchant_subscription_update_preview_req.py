@@ -28,11 +28,12 @@ class UnibeeApiMerchantSubscriptionUpdatePreviewReq(BaseModel):
     UnibeeApiMerchantSubscriptionUpdatePreviewReq
     """ # noqa: E501
     addon_params: Optional[List[UnibeeApiBeanPlanAddonParam]] = Field(default=None, description="addonParams", alias="addonParams")
+    effect_immediate: Optional[StrictInt] = Field(default=None, description="Effect Immediate，1-Immediate，2-Next Period", alias="effectImmediate")
+    gateway_id: Optional[StrictInt] = Field(default=None, description="Id", alias="gatewayId")
     new_plan_id: StrictInt = Field(description="New PlanId", alias="newPlanId")
     quantity: Optional[StrictInt] = Field(default=None, description="Quantity，Default 1")
     subscription_id: StrictStr = Field(description="SubscriptionId", alias="subscriptionId")
-    with_immediate_effect: Optional[StrictInt] = Field(default=None, description="Effect Immediate，1-Immediate，2-Next Period", alias="withImmediateEffect")
-    __properties: ClassVar[List[str]] = ["addonParams", "newPlanId", "quantity", "subscriptionId", "withImmediateEffect"]
+    __properties: ClassVar[List[str]] = ["addonParams", "effectImmediate", "gatewayId", "newPlanId", "quantity", "subscriptionId"]
 
     model_config = {
         "populate_by_name": True,
@@ -93,10 +94,11 @@ class UnibeeApiMerchantSubscriptionUpdatePreviewReq(BaseModel):
 
         _obj = cls.model_validate({
             "addonParams": [UnibeeApiBeanPlanAddonParam.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
+            "effectImmediate": obj.get("effectImmediate"),
+            "gatewayId": obj.get("gatewayId"),
             "newPlanId": obj.get("newPlanId"),
             "quantity": obj.get("quantity"),
-            "subscriptionId": obj.get("subscriptionId"),
-            "withImmediateEffect": obj.get("withImmediateEffect")
+            "subscriptionId": obj.get("subscriptionId")
         })
         return _obj
 

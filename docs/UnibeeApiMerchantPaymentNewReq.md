@@ -6,16 +6,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **country_code** | **str** | CountryCode | [optional] 
-**currency** | **str** | Currency | 
-**email** | **str** | Email | 
-**external_payment_id** | **str** | ExternalPaymentId should unique for payment | 
-**external_user_id** | **str** | ExternalUserId, should unique for user | 
+**currency** | **str** | Currency, either Currency&amp;Currency or PlanId needed | [optional] 
+**email** | **str** | Email, either ExternalUserId&amp;Email or UserId needed | [optional] 
+**external_payment_id** | **str** | ExternalPaymentId should unique for payment | [optional] 
+**external_user_id** | **str** | ExternalUserId, unique, either ExternalUserId&amp;Email or UserId needed | [optional] 
 **gas_payer** | **str** | who pay the gas, merchant|user | [optional] 
 **gateway_id** | **int** | GatewayId | 
 **items** | [**List[UnibeeApiMerchantPaymentItem]**](UnibeeApiMerchantPaymentItem.md) | Items | [optional] 
 **metadata** | **Dict[str, str]** | Metadata，Map | [optional] 
+**plan_id** | **int** | PlanId, either TotalAmount&amp;Currency or PlanId needed | [optional] 
 **redirect_url** | **str** | Redirect Url | [optional] 
-**total_amount** | **int** | Total PaymentAmount, Cent | 
+**total_amount** | **int** | Total PaymentAmount, Cent, either TotalAmount&amp;Currency or PlanId needed | [optional] 
+**user_id** | **int** | UserId, either ExternalUserId&amp;Email or UserId needed | [optional] 
 
 ## Example
 

@@ -19,10 +19,12 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unibee_api_bean_detail_subscription_pending_update_detail import UnibeeApiBeanDetailSubscriptionPendingUpdateDetail
 from openapi_client.models.unibee_api_bean_gateway_simplify import UnibeeApiBeanGatewaySimplify
+from openapi_client.models.unibee_api_bean_invoice_simplify import UnibeeApiBeanInvoiceSimplify
 from openapi_client.models.unibee_api_bean_plan_addon_detail import UnibeeApiBeanPlanAddonDetail
+from openapi_client.models.unibee_api_bean_plan_addon_param import UnibeeApiBeanPlanAddonParam
 from openapi_client.models.unibee_api_bean_plan_simplify import UnibeeApiBeanPlanSimplify
-from openapi_client.models.unibee_api_bean_subscription_pending_update_detail import UnibeeApiBeanSubscriptionPendingUpdateDetail
 from openapi_client.models.unibee_api_bean_subscription_simplify import UnibeeApiBeanSubscriptionSimplify
 from openapi_client.models.unibee_api_bean_user_account_simplify import UnibeeApiBeanUserAccountSimplify
 from typing import Optional, Set
@@ -32,13 +34,15 @@ class MerchantSubscriptionDetailGet200ResponseData(BaseModel):
     """
     MerchantSubscriptionDetailGet200ResponseData
     """ # noqa: E501
+    addon_params: Optional[List[UnibeeApiBeanPlanAddonParam]] = Field(default=None, description="AddonParams", alias="addonParams")
     addons: Optional[List[UnibeeApiBeanPlanAddonDetail]] = Field(default=None, description="Plan Addon")
     gateway: Optional[UnibeeApiBeanGatewaySimplify] = None
+    latest_invoice: Optional[UnibeeApiBeanInvoiceSimplify] = Field(default=None, alias="latestInvoice")
     plan: Optional[UnibeeApiBeanPlanSimplify] = None
     subscription: Optional[UnibeeApiBeanSubscriptionSimplify] = None
-    unfinished_subscription_pending_update: Optional[UnibeeApiBeanSubscriptionPendingUpdateDetail] = Field(default=None, alias="unfinishedSubscriptionPendingUpdate")
+    unfinished_subscription_pending_update: Optional[UnibeeApiBeanDetailSubscriptionPendingUpdateDetail] = Field(default=None, alias="unfinishedSubscriptionPendingUpdate")
     user: Optional[UnibeeApiBeanUserAccountSimplify] = None
-    __properties: ClassVar[List[str]] = ["addons", "gateway", "plan", "subscription", "unfinishedSubscriptionPendingUpdate", "user"]
+    __properties: ClassVar[List[str]] = ["addonParams", "addons", "gateway", "latestInvoice", "plan", "subscription", "unfinishedSubscriptionPendingUpdate", "user"]
 
     model_config = {
         "populate_by_name": True,
@@ -79,6 +83,13 @@ class MerchantSubscriptionDetailGet200ResponseData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in addon_params (list)
+        _items = []
+        if self.addon_params:
+            for _item in self.addon_params:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['addonParams'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in addons (list)
         _items = []
         if self.addons:
@@ -89,6 +100,9 @@ class MerchantSubscriptionDetailGet200ResponseData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of gateway
         if self.gateway:
             _dict['gateway'] = self.gateway.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of latest_invoice
+        if self.latest_invoice:
+            _dict['latestInvoice'] = self.latest_invoice.to_dict()
         # override the default output from pydantic by calling `to_dict()` of plan
         if self.plan:
             _dict['plan'] = self.plan.to_dict()
@@ -113,11 +127,13 @@ class MerchantSubscriptionDetailGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "addonParams": [UnibeeApiBeanPlanAddonParam.from_dict(_item) for _item in obj["addonParams"]] if obj.get("addonParams") is not None else None,
             "addons": [UnibeeApiBeanPlanAddonDetail.from_dict(_item) for _item in obj["addons"]] if obj.get("addons") is not None else None,
             "gateway": UnibeeApiBeanGatewaySimplify.from_dict(obj["gateway"]) if obj.get("gateway") is not None else None,
+            "latestInvoice": UnibeeApiBeanInvoiceSimplify.from_dict(obj["latestInvoice"]) if obj.get("latestInvoice") is not None else None,
             "plan": UnibeeApiBeanPlanSimplify.from_dict(obj["plan"]) if obj.get("plan") is not None else None,
             "subscription": UnibeeApiBeanSubscriptionSimplify.from_dict(obj["subscription"]) if obj.get("subscription") is not None else None,
-            "unfinishedSubscriptionPendingUpdate": UnibeeApiBeanSubscriptionPendingUpdateDetail.from_dict(obj["unfinishedSubscriptionPendingUpdate"]) if obj.get("unfinishedSubscriptionPendingUpdate") is not None else None,
+            "unfinishedSubscriptionPendingUpdate": UnibeeApiBeanDetailSubscriptionPendingUpdateDetail.from_dict(obj["unfinishedSubscriptionPendingUpdate"]) if obj.get("unfinishedSubscriptionPendingUpdate") is not None else None,
             "user": UnibeeApiBeanUserAccountSimplify.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj

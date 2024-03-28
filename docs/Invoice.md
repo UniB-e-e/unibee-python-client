@@ -12,9 +12,11 @@ Method | HTTP request | Description
 [**invoice_finish_post**](Invoice.md#invoice_finish_post) | **POST** /merchant/invoice/finish | Admin Finish Invoice，Generate Pay Link
 [**invoice_list_get**](Invoice.md#invoice_list_get) | **GET** /merchant/invoice/list | Invoice List
 [**invoice_list_post**](Invoice.md#invoice_list_post) | **POST** /merchant/invoice/list | Invoice List
+[**invoice_mark_refund_post**](Invoice.md#invoice_mark_refund_post) | **POST** /merchant/invoice/mark_refund | Admin Mark Refund For Invoice
 [**invoice_new_post**](Invoice.md#invoice_new_post) | **POST** /merchant/invoice/new | Admin Create New Invoice
 [**invoice_pdf_generate_post**](Invoice.md#invoice_pdf_generate_post) | **POST** /merchant/invoice/pdf_generate | Admin Generate Merchant Invoice pdf
-[**invoice_refund_post**](Invoice.md#invoice_refund_post) | **POST** /merchant/invoice/refund | Admin Create Refund From Invoice
+[**invoice_reconvert_crypto_and_send_email_post**](Invoice.md#invoice_reconvert_crypto_and_send_email_post) | **POST** /merchant/invoice/reconvert_crypto_and_send_email | Admin Reconvert Crypto Data and Send Invoice Email to User
+[**invoice_refund_post**](Invoice.md#invoice_refund_post) | **POST** /merchant/invoice/refund | Admin Create Refund For Invoice
 [**invoice_send_email_post**](Invoice.md#invoice_send_email_post) | **POST** /merchant/invoice/send_email | Admin Send Merchant Invoice Email to User
 
 
@@ -576,6 +578,73 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **invoice_mark_refund_post**
+> MerchantInvoiceMarkRefundPost200Response invoice_mark_refund_post(unibee_api_merchant_invoice_mark_refund_req)
+
+Admin Mark Refund For Invoice
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.merchant_invoice_mark_refund_post200_response import MerchantInvoiceMarkRefundPost200Response
+from openapi_client.models.unibee_api_merchant_invoice_mark_refund_req import UnibeeApiMerchantInvoiceMarkRefundReq
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.Invoice(api_client)
+    unibee_api_merchant_invoice_mark_refund_req = openapi_client.UnibeeApiMerchantInvoiceMarkRefundReq() # UnibeeApiMerchantInvoiceMarkRefundReq | 
+
+    try:
+        # Admin Mark Refund For Invoice
+        api_response = api_instance.invoice_mark_refund_post(unibee_api_merchant_invoice_mark_refund_req)
+        print("The response of Invoice->invoice_mark_refund_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling Invoice->invoice_mark_refund_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unibee_api_merchant_invoice_mark_refund_req** | [**UnibeeApiMerchantInvoiceMarkRefundReq**](UnibeeApiMerchantInvoiceMarkRefundReq.md)|  | 
+
+### Return type
+
+[**MerchantInvoiceMarkRefundPost200Response**](MerchantInvoiceMarkRefundPost200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **invoice_new_post**
 > MerchantInvoiceDetailGet200Response invoice_new_post(unibee_api_merchant_invoice_new_req)
 
@@ -710,17 +779,84 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **invoice_refund_post**
-> MerchantInvoiceRefundPost200Response invoice_refund_post(unibee_api_merchant_invoice_refund_req)
+# **invoice_reconvert_crypto_and_send_email_post**
+> MerchantAuthSsoLoginOTPPost200Response invoice_reconvert_crypto_and_send_email_post(unibee_api_merchant_invoice_reconvert_crypto_and_send_req)
 
-Admin Create Refund From Invoice
+Admin Reconvert Crypto Data and Send Invoice Email to User
 
 ### Example
 
 
 ```python
 import openapi_client
-from openapi_client.models.merchant_invoice_refund_post200_response import MerchantInvoiceRefundPost200Response
+from openapi_client.models.merchant_auth_sso_login_otp_post200_response import MerchantAuthSsoLoginOTPPost200Response
+from openapi_client.models.unibee_api_merchant_invoice_reconvert_crypto_and_send_req import UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.Invoice(api_client)
+    unibee_api_merchant_invoice_reconvert_crypto_and_send_req = openapi_client.UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq() # UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq | 
+
+    try:
+        # Admin Reconvert Crypto Data and Send Invoice Email to User
+        api_response = api_instance.invoice_reconvert_crypto_and_send_email_post(unibee_api_merchant_invoice_reconvert_crypto_and_send_req)
+        print("The response of Invoice->invoice_reconvert_crypto_and_send_email_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling Invoice->invoice_reconvert_crypto_and_send_email_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unibee_api_merchant_invoice_reconvert_crypto_and_send_req** | [**UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq**](UnibeeApiMerchantInvoiceReconvertCryptoAndSendReq.md)|  | 
+
+### Return type
+
+[**MerchantAuthSsoLoginOTPPost200Response**](MerchantAuthSsoLoginOTPPost200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **invoice_refund_post**
+> MerchantInvoiceMarkRefundPost200Response invoice_refund_post(unibee_api_merchant_invoice_refund_req)
+
+Admin Create Refund For Invoice
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.merchant_invoice_mark_refund_post200_response import MerchantInvoiceMarkRefundPost200Response
 from openapi_client.models.unibee_api_merchant_invoice_refund_req import UnibeeApiMerchantInvoiceRefundReq
 from openapi_client.rest import ApiException
 from pprint import pprint
@@ -739,7 +875,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     unibee_api_merchant_invoice_refund_req = openapi_client.UnibeeApiMerchantInvoiceRefundReq() # UnibeeApiMerchantInvoiceRefundReq | 
 
     try:
-        # Admin Create Refund From Invoice
+        # Admin Create Refund For Invoice
         api_response = api_instance.invoice_refund_post(unibee_api_merchant_invoice_refund_req)
         print("The response of Invoice->invoice_refund_post:\n")
         pprint(api_response)
@@ -758,7 +894,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MerchantInvoiceRefundPost200Response**](MerchantInvoiceRefundPost200Response.md)
+[**MerchantInvoiceMarkRefundPost200Response**](MerchantInvoiceMarkRefundPost200Response.md)
 
 ### Authorization
 

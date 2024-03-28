@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **days_util_due** | **int** | DaysUtilDue,Due Day Of Pay | 
 **invoice_id** | **str** | InvoiceId | 
-**pay_method** | **int** | PayMethod,1-manual，2-auto | 
 
 ## Example
 

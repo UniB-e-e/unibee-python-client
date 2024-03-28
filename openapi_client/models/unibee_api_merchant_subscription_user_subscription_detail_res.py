@@ -19,10 +19,10 @@ import json
 
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unibee_api_bean_detail_subscription_pending_update_detail import UnibeeApiBeanDetailSubscriptionPendingUpdateDetail
 from openapi_client.models.unibee_api_bean_gateway_simplify import UnibeeApiBeanGatewaySimplify
 from openapi_client.models.unibee_api_bean_plan_addon_detail import UnibeeApiBeanPlanAddonDetail
 from openapi_client.models.unibee_api_bean_plan_simplify import UnibeeApiBeanPlanSimplify
-from openapi_client.models.unibee_api_bean_subscription_pending_update_detail import UnibeeApiBeanSubscriptionPendingUpdateDetail
 from openapi_client.models.unibee_api_bean_subscription_simplify import UnibeeApiBeanSubscriptionSimplify
 from openapi_client.models.unibee_api_bean_user_account_simplify import UnibeeApiBeanUserAccountSimplify
 from typing import Optional, Set
@@ -36,7 +36,7 @@ class UnibeeApiMerchantSubscriptionUserSubscriptionDetailRes(BaseModel):
     gateway: Optional[UnibeeApiBeanGatewaySimplify] = None
     plan: Optional[UnibeeApiBeanPlanSimplify] = None
     subscription: Optional[UnibeeApiBeanSubscriptionSimplify] = None
-    unfinished_subscription_pending_update: Optional[UnibeeApiBeanSubscriptionPendingUpdateDetail] = Field(default=None, alias="unfinishedSubscriptionPendingUpdate")
+    unfinished_subscription_pending_update: Optional[UnibeeApiBeanDetailSubscriptionPendingUpdateDetail] = Field(default=None, alias="unfinishedSubscriptionPendingUpdate")
     user: Optional[UnibeeApiBeanUserAccountSimplify] = None
     __properties: ClassVar[List[str]] = ["addons", "gateway", "plan", "subscription", "unfinishedSubscriptionPendingUpdate", "user"]
 
@@ -117,7 +117,7 @@ class UnibeeApiMerchantSubscriptionUserSubscriptionDetailRes(BaseModel):
             "gateway": UnibeeApiBeanGatewaySimplify.from_dict(obj["gateway"]) if obj.get("gateway") is not None else None,
             "plan": UnibeeApiBeanPlanSimplify.from_dict(obj["plan"]) if obj.get("plan") is not None else None,
             "subscription": UnibeeApiBeanSubscriptionSimplify.from_dict(obj["subscription"]) if obj.get("subscription") is not None else None,
-            "unfinishedSubscriptionPendingUpdate": UnibeeApiBeanSubscriptionPendingUpdateDetail.from_dict(obj["unfinishedSubscriptionPendingUpdate"]) if obj.get("unfinishedSubscriptionPendingUpdate") is not None else None,
+            "unfinishedSubscriptionPendingUpdate": UnibeeApiBeanDetailSubscriptionPendingUpdateDetail.from_dict(obj["unfinishedSubscriptionPendingUpdate"]) if obj.get("unfinishedSubscriptionPendingUpdate") is not None else None,
             "user": UnibeeApiBeanUserAccountSimplify.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj

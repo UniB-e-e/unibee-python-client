@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoice** | [**UnibeeApiBeanInvoiceDetail**](UnibeeApiBeanInvoiceDetail.md) |  | [optional] 
+**invoice** | [**UnibeeApiBeanDetailInvoiceDetail**](UnibeeApiBeanDetailInvoiceDetail.md) |  | [optional] 
 
 ## Example
 
