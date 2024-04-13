@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **gateway** | [**List[UnibeeApiBeanGatewaySimplify]**](UnibeeApiBeanGatewaySimplify.md) | Gateway List | [optional] 
 **is_prod** | **bool** | Check System Env Is Prod, true|false | [optional] 
 **merchant** | [**UnibeeApiBeanMerchantSimplify**](UnibeeApiBeanMerchantSimplify.md) |  | [optional] 
+**merchant_member** | [**UnibeeApiBeanDetailMerchantMemberDetail**](UnibeeApiBeanDetailMerchantMemberDetail.md) |  | [optional] 
 
 ## Example
 

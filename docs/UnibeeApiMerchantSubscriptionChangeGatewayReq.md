@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gateway_id** | **int** | GatewayId | 
+**payment_method_id** | **str** | PaymentMethodId | [optional] 
 **subscription_id** | **str** | SubscriptionId | 
 
 ## Example

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**refund_detail** | [**UnibeeApiMerchantPaymentRefundDetail**](UnibeeApiMerchantPaymentRefundDetail.md) |  | [optional] 
+**refund_detail** | [**UnibeeApiBeanDetailRefundDetail**](UnibeeApiBeanDetailRefundDetail.md) |  | [optional] 
 
 ## Example
 
